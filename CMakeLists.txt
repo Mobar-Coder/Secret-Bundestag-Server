@@ -17,10 +17,11 @@ endif ()
 
 set(SOURCES )
 
-set(LIBS stdc++fs pthread)
+set(LIBS stdc++fs pthread WebsocketCpp)
 
 add_executable(${PROJECT_NAME} src/main.cpp ${SOURCES})
-
 target_link_libraries(${PROJECT_NAME} ${LIBS})
+target_include_directories(${PROJECT_NAME} PRIVATE lib)
 
 add_subdirectory(test)
+add_subdirectory(lib/WebsocketCPP)
