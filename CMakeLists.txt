@@ -15,13 +15,16 @@ else()
 endif ()
 
 
-set(SOURCES )
+set(SOURCES
+        ${CMAKE_SOURCE_DIR}/src/comm/MessageHandler.cpp
+        ${CMAKE_SOURCE_DIR}/src/util/Logging.cpp)
 
 set(LIBS stdc++fs pthread WebsocketCpp)
 
 add_executable(${PROJECT_NAME} src/main.cpp ${SOURCES})
 target_link_libraries(${PROJECT_NAME} ${LIBS})
 target_include_directories(${PROJECT_NAME} PRIVATE lib)
+target_include_directories(${PROJECT_NAME} PRIVATE lib/json/single_include)
 
 add_subdirectory(test)
 add_subdirectory(lib/WebsocketCPP)
