@@ -17,7 +17,8 @@ endif ()
 
 set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/comm/MessageHandler.cpp
-        ${CMAKE_SOURCE_DIR}/src/util/Logging.cpp)
+        ${CMAKE_SOURCE_DIR}/src/util/Logging.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/Error.cpp)
 
 set(LIBS stdc++fs pthread WebsocketCpp)
 
