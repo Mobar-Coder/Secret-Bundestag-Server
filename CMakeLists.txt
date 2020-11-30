@@ -25,3 +25,6 @@ target_include_directories(${PROJECT_NAME} PRIVATE lib)
 
 add_subdirectory(test)
 add_subdirectory(lib/WebsocketCPP)
+
+set(JSON_BuildTests OFF CACHE INTERNAL "")
+add_subdirectory(lib/json)
