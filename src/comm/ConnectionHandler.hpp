@@ -19,7 +19,7 @@ namespace comm {
         public:
             ConnectionHandler(uint16_t port, util::Logging &log);
 
-            void send(const std::shared_ptr<messages::Message> &message, std::size_t client);
+            void send(const std::shared_ptr<messages::Message> &message, std::size_t client) const;
 
             const websocket::util::Listener<std::size_t> onConnect;
 

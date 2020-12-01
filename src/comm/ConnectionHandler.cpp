@@ -23,7 +23,7 @@ namespace comm {
     }
 
 
-    void ConnectionHandler::send(const std::shared_ptr<messages::Message> &message, std::size_t client) {
+    void ConnectionHandler::send(const std::shared_ptr<messages::Message> &message, std::size_t client) const {
         if (connections.find(client) != connections.end()) {
             try {
                 connections.at(client)->send(message->toJson().dump(4));
