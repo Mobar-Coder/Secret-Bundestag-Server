@@ -1,13 +1,13 @@
 /**
- * @file MessageHandler.cpp
+ * @file ConnectionHandler.cpp
  * @author paul
  * @date 30.11.20
  * Description here TODO
  */
-#include "MessageHandler.hpp"
+#include "ConnectionHandler.hpp"
 
 namespace comm {
-    MessageHandler::MessageHandler(uint16_t port, util::Logging &log) :
+    ConnectionHandler::ConnectionHandler(uint16_t port, util::Logging &log) :
             webSocketServer{port, ""},
             idCount{0},
             log{log} {
@@ -15,7 +15,7 @@ namespace comm {
         this->webSocketServer.closeListener.subscribe([this](auto c) { closeListener(c); });
     }
 
-    void MessageHandler::connectListener(const std::shared_ptr<websocket::network::Connection> &connection) {
+    void ConnectionHandler::connectListener(const std::shared_ptr<websocket::network::Connection> &connection) {
         this->connections.emplace(idCount, connection);
         onConnect(this->idCount);
         connection->receiveListener.subscribe([this, id = this->idCount](auto msg) { receiveListener(id, msg); });
@@ -23,7 +23,7 @@ namespace comm {
     }
 
 
-    void MessageHandler::send(const nlohmann::json& message, std::size_t client) {
+    void ConnectionHandler::send(const nlohmann::json& message, std::size_t client) {
         if (connections.find(client) != connections.end()) {
             try {
                 connections.at(client)->send(message.dump(4));
@@ -33,7 +33,7 @@ namespace comm {
         }
     }
 
-    void MessageHandler::receiveListener(std::size_t id, const std::string &msg) {
+    void ConnectionHandler::receiveListener(std::size_t id, const std::string &msg) {
         if (!msg.empty()) {
             try {
                 nlohmann::json json = nlohmann::json::parse(msg);
@@ -41,13 +41,12 @@ namespace comm {
             } catch (nlohmann::json::exception &e) {
                 log.error("Got invalid json!");
                 log.debug(e.what());
-                // @TODO send error to client
                 closeWithId(id);
             }
         }
     }
 
-    void MessageHandler::closeListener(const std::shared_ptr<websocket::network::Connection> &connection) {
+    void ConnectionHandler::closeListener(const std::shared_ptr<websocket::network::Connection> &connection) {
         for (auto it = this->connections.begin(); it != this->connections.end(); ++it) {
             if (it->second.get() == connection.get()) {
                 closeWithId(it->first);
@@ -55,7 +54,7 @@ namespace comm {
         }
     }
 
-    void MessageHandler::closeWithId(std::size_t id) {
+    void ConnectionHandler::closeWithId(std::size_t id) {
         auto it = this->connections.find(id);
         if (it != this->connections.end()) {
             this->connections.erase(it);

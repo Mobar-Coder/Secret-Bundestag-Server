@@ -19,8 +19,10 @@
 #define GENERATE_FROM(type, ...) \
     void from_json(const nlohmann::json &j, type &t) { __VA_ARGS__ }
 
-#define GENERATE_DECLARATION(type) \
+#define JSON_CLASS(type, body) \
+    class type {\
     friend void to_json(nlohmann::json &j, const type &t); \
-    friend void from_json(const nlohmann::json &j, type &t);
-
+    friend void from_json(const nlohmann::json &j, type &t); \
+    body                       \
+    };
 #endif //SECRETBUNDESTAGSERVER_SERIALIZABLE_HPP

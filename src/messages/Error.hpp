@@ -10,14 +10,9 @@
 #include "../util/Serializable.hpp"
 
 namespace messages {
-    class Error {
-        private:
-            std::string message;
-
-            GENERATE_DECLARATION(Error)
-
-    };
-
+    JSON_CLASS(Error,
+   std::string message;
+    )
 }
 
 #endif //SECRETBUNDESTAGSERVER_ERROR_HPP

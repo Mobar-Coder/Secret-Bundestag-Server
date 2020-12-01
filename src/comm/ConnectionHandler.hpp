@@ -1,11 +1,11 @@
 /**
- * @file MessageHandler.hpp
+ * @file ConnectionHandler.hpp
  * @author paul
  * @date 30.11.20
  * Description here TODO
  */
-#ifndef SECRETBUNDESTAGSERVER_MESSAGEHANDLER_HPP
-#define SECRETBUNDESTAGSERVER_MESSAGEHANDLER_HPP
+#ifndef SECRETBUNDESTAGSERVER_CONNECTIONHANDLER_HPP
+#define SECRETBUNDESTAGSERVER_CONNECTIONHANDLER_HPP
 
 
 #include <nlohmann/json.hpp>
@@ -14,9 +14,9 @@
 #include "../util/Logging.hpp"
 
 namespace comm {
-    class MessageHandler {
+    class ConnectionHandler {
         public:
-            MessageHandler(uint16_t port, util::Logging &log);
+            ConnectionHandler(uint16_t port, util::Logging &log);
 
             void send(const nlohmann::json& message, std::size_t client);
 
@@ -42,4 +42,4 @@ namespace comm {
     };
 }
 
-#endif //SECRETBUNDESTAGSERVER_MESSAGEHANDLER_HPP
+#endif //SECRETBUNDESTAGSERVER_CONNECTIONHANDLER_HPP
