@@ -13,51 +13,63 @@ namespace GameModel {
 
     }
 
-    void Board::setPolicyState(const std::unordered_map<CardType, std::size_t> &policyState) {
-        Board::policyState = policyState;
+    auto Board::getPolicyState() const -> std::shared_ptr<std::unordered_map<CardType, std::size_t>> {
+        return std::make_shared<std::unordered_map<CardType, std::size_t>>(policyState);
     }
 
-    size_t Board::getElectionTracker() const {
+    auto Board::getElectionTracker() const -> size_t {
         return electionTracker;
     }
 
-    void Board::setElectionTracker(size_t electionTracker) {
-        Board::electionTracker = electionTracker;
+    auto Board::getCurrentOffice() const -> std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> {
+        return std::make_shared<std::unordered_map<Office, std::shared_ptr<Player>>>(currentOffice);
     }
 
-    const std::unordered_map<Office, Player> &Board::getCurrentOffice() const {
-        return currentOffice;
+    auto Board::getPastOffice() const -> std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> {
+        return std::make_shared<std::unordered_map<Office, std::shared_ptr<Player>>>(pastOffice);
     }
 
-    void Board::setCurrentOffice(const std::unordered_map<Office, Player> &currentOffice) {
-        Board::currentOffice = currentOffice;
+    auto Board::getCardPile() const -> std::shared_ptr<std::vector<CardType>> {
+        return std::make_shared<std::vector<CardType>>(cardPile);
     }
 
-    const std::unordered_map<Office, std::optional<Player>> &Board::getPastOffice() const {
-        return pastOffice;
+    auto Board::getDiscardPile() const -> std::shared_ptr<std::vector<CardType>> {
+        return std::make_shared<std::vector<CardType>>(discardPile);
     }
 
-    void Board::setPastOffice(const std::unordered_map<Office, std::optional<Player>> &pastOffice) {
-        Board::pastOffice = pastOffice;
+    auto Board::pushToPolicyState(CardType cardType, std::size_t policyNumber) const {
+        return nullptr;
     }
 
-    const std::vector<CardType> &Board::getCardPile() const {
-        return cardPile;
+    auto Board::incrementElectionTracker() const {
+        return nullptr;
     }
 
-    void Board::setCardPile(const std::vector<CardType> &cardPile) {
-        Board::cardPile = cardPile;
+    auto Board::copyCurrentOfficeToPastOffice() const {
+        return nullptr;
     }
 
-    const std::vector<CardType> &Board::getDiscardPile() const {
-        return discardPile;
+    auto Board::pushToCurrentOffice(Office office, std::shared_ptr<Player> player) const {
+        return nullptr;
     }
 
-    void Board::setDiscardPile(const std::vector<CardType> &discardPile) {
-        Board::discardPile = discardPile;
+    auto Board::removeFromCurrentOffice(Office office, std::shared_ptr<Player> player) const -> bool {
+        return false;
     }
 
-    void Board::cardPileEmplaceBack(const CardType cardType) {
-        cardPile.emplace_back(cardType);
+    auto Board::pushToCardPile(CardType cardType) const {
+        return nullptr;
+    }
+
+    auto Board::emplaceBackToCardPile(CardType cardType) const {
+        return nullptr;
+    }
+
+    auto Board::pushToDiscardPile(CardType cardType) const {
+        return nullptr;
+    }
+
+    auto Board::emplaceBackToDiscardPile(CardType cardType) const {
+        return nullptr;
     }
 }
