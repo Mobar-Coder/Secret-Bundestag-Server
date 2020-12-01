@@ -17,17 +17,13 @@ namespace GameModel {
                                      + "! Game has only " + std::to_string(drawableCards) + " left!");
         }
 
-        if (n > this->board->getCardPile().size()) {
+        if (n > this->board->getCardPile()->size()) {
             //TODO this->board.restock....
         }
     }
 
     CardRange::~CardRange() {
-        if (!applied) {
-            for (const auto &element : initialState) {
-                this->board->cardPileEmplaceBack(element);
-            }
-        }
+        // TODO: fix !!!
     }
 
     bool CardRange::selectForPolicy(const CardType cardType) const {

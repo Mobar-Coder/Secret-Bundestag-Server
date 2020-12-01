@@ -5,71 +5,86 @@
  * Description here TODO
  */
 
+#include <search.h>
 #include "Board.hpp"
 
 namespace GameModel {
 
-    Board::Board() {
-
-    }
-
-    auto Board::getPolicyState() const -> std::shared_ptr<std::unordered_map<CardType, std::size_t>> {
-        return std::make_shared<std::unordered_map<CardType, std::size_t>>(policyState);
+    Board::Board() : electionTracker(0),
+                     policyState(std::make_shared<std::unordered_map<CardType, std::size_t>>()),
+                     currentOffice(std::make_shared<std::unordered_map<Office, std::shared_ptr<Player>>>()),
+                     pastOffice(std::make_shared<std::unordered_map<Office, std::shared_ptr<Player>>>()),
+                     cardPile(std::make_shared<std::vector<CardType>>()),
+                     discardPile(std::make_shared<std::vector<CardType>>())
+    {
     }
 
     auto Board::getElectionTracker() const -> size_t {
         return electionTracker;
     }
 
+    auto Board::getPolicyState() const -> std::shared_ptr<std::unordered_map<CardType, std::size_t>> {
+        return policyState;
+    }
+
     auto Board::getCurrentOffice() const -> std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> {
-        return std::make_shared<std::unordered_map<Office, std::shared_ptr<Player>>>(currentOffice);
+        return currentOffice;
     }
 
     auto Board::getPastOffice() const -> std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> {
-        return std::make_shared<std::unordered_map<Office, std::shared_ptr<Player>>>(pastOffice);
+        return pastOffice;
     }
 
     auto Board::getCardPile() const -> std::shared_ptr<std::vector<CardType>> {
-        return std::make_shared<std::vector<CardType>>(cardPile);
+        return cardPile;
     }
 
     auto Board::getDiscardPile() const -> std::shared_ptr<std::vector<CardType>> {
-        return std::make_shared<std::vector<CardType>>(discardPile);
+        return discardPile;
     }
 
-    auto Board::pushToPolicyState(CardType cardType, std::size_t policyNumber) const {
-        return nullptr;
+    auto Board::pushToPolicyState(CardType cardType, std::size_t policyNumber) {
+        policyState->emplace(cardType, policyNumber);
     }
 
-    auto Board::incrementElectionTracker() const {
-        return nullptr;
+    auto Board::incrementElectionTracker() {
+        electionTracker++;
     }
 
-    auto Board::copyCurrentOfficeToPastOffice() const {
-        return nullptr;
+    auto Board::resetElectionTracker() {
+        electionTracker = 0;
     }
 
-    auto Board::pushToCurrentOffice(Office office, std::shared_ptr<Player> player) const {
-        return nullptr;
+    auto Board::copyCurrentOfficeToPastOffice() {
+        pastOffice->clear();
+        pastOffice->insert(currentOffice->begin(), currentOffice->end());
     }
 
-    auto Board::removeFromCurrentOffice(Office office, std::shared_ptr<Player> player) const -> bool {
-        return false;
+    auto Board::addToCurrentOffice(Office office, std::shared_ptr<Player> player) -> bool{
+        if (currentOffice->find(office) == currentOffice->end()) {
+            currentOffice->emplace(office, player);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
-    auto Board::pushToCardPile(CardType cardType) const {
-        return nullptr;
+    auto Board::removeFromCurrentOffice(Office office) -> bool {
+        if (currentOffice->find(office) == currentOffice->end()) {
+            currentOffice->erase(office);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
-    auto Board::emplaceBackToCardPile(CardType cardType) const {
-        return nullptr;
+    auto Board::emplaceBackToCardPile(CardType cardType) {
+        cardPile->emplace_back(cardType);
     }
 
-    auto Board::pushToDiscardPile(CardType cardType) const {
-        return nullptr;
-    }
-
-    auto Board::emplaceBackToDiscardPile(CardType cardType) const {
-        return nullptr;
+    auto Board::emplaceBackToDiscardPile(CardType cardType) {
+        discardPile->emplace_back(cardType);
     }
 }
