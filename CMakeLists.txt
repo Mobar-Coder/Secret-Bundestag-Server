@@ -18,7 +18,23 @@ endif ()
 set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/comm/MessageHandler.cpp
         ${CMAKE_SOURCE_DIR}/src/util/Logging.cpp
-        ${CMAKE_SOURCE_DIR}/src/messages/Error.cpp)
+        ${CMAKE_SOURCE_DIR}/src/messages/Error.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/CardType.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/Fraction.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/Office.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/Role.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamecontroller/Controller.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamecontroller/Controller.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamecontroller/Controller.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamecontroller/Controller.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Board.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Board.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/CardRange.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/CardRange.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Environment.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Environment.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Player.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Player.hpp)
 
 set(LIBS stdc++fs pthread WebsocketCpp)
 
