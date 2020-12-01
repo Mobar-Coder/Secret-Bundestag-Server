@@ -43,7 +43,7 @@ namespace comm {
             } catch (nlohmann::json::exception &e) {
                 log.error("Got invalid json!");
                 log.debug(e.what());
-                closeWithId(id);
+                closeConnection(id);
             }
         }
     }
@@ -51,12 +51,12 @@ namespace comm {
     void ConnectionHandler::closeListener(const std::shared_ptr<websocket::network::Connection> &connection) {
         for (auto it = this->connections.begin(); it != this->connections.end(); ++it) {
             if (it->second.get() == connection.get()) {
-                closeWithId(it->first);
+                closeConnection(it->first);
             }
         }
     }
 
-    void ConnectionHandler::closeWithId(std::size_t id) {
+    void ConnectionHandler::closeConnection(std::size_t id) {
         auto it = this->connections.find(id);
         if (it != this->connections.end()) {
             this->connections.erase(it);

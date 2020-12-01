@@ -9,7 +9,7 @@
 #include <utility>
 
 namespace messages {
-    Error::Error(std::string  message) : message{std::move(message)} {
+    Error::Error() {
         PROPERTY(message)
     }
 

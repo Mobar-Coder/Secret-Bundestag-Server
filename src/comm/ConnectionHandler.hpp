@@ -23,9 +23,11 @@ namespace comm {
 
             const websocket::util::Listener<std::size_t> onConnect;
 
-            const websocket::util::Listener<std::shared_ptr<messages::Message>, std::size_t> onReceive;
+            const websocket::util::Listener<std::shared_ptr<const messages::Message>, std::size_t> onReceive;
 
             const websocket::util::Listener<std::size_t> onClose;
+
+            void closeConnection(std::size_t id);
 
         private:
             void connectListener(const std::shared_ptr<websocket::network::Connection> &connection);
@@ -33,8 +35,6 @@ namespace comm {
             void receiveListener(std::size_t id, const std::string &text);
 
             void closeListener(const std::shared_ptr<websocket::network::Connection> &connection);
-
-            void closeWithId(std::size_t id);
 
             websocket::network::WebSocketServer webSocketServer;
             std::map<int, std::shared_ptr<websocket::network::Connection>> connections;

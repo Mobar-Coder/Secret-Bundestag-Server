@@ -37,13 +37,14 @@ namespace messages {
 
             auto operator=(Message &&message) = delete;
 
-            void addProperty(const PropertySetter &setter, const PropertyGetter &getter, const std::string &name);
-
             [[nodiscard]] virtual auto getMessageName() const -> std::string = 0;
 
             [[nodiscard]] auto toJson() const -> nlohmann::json;
 
             static auto fromJson(const nlohmann::json &json) -> std::shared_ptr<Message>;
+
+        protected:
+            void addProperty(const PropertySetter &setter, const PropertyGetter &getter, const std::string &name);
 
         private:
             std::vector<PropertyInfo> properties;
