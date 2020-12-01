@@ -12,24 +12,25 @@
 #include <WebsocketCPP/src/Server/WebSocketServer.hpp>
 #include <cstdint>
 #include "../util/Logging.hpp"
+#include "../messages/Message.hpp"
 
 namespace comm {
     class ConnectionHandler {
         public:
             ConnectionHandler(uint16_t port, util::Logging &log);
 
-            void send(const nlohmann::json& message, std::size_t client);
+            void send(const std::shared_ptr<messages::Message> &message, std::size_t client);
 
             const websocket::util::Listener<std::size_t> onConnect;
 
-            const websocket::util::Listener<nlohmann::json, std::size_t> onReceive;
+            const websocket::util::Listener<std::shared_ptr<messages::Message>, std::size_t> onReceive;
 
             const websocket::util::Listener<std::size_t> onClose;
 
         private:
-            void connectListener(const std::shared_ptr<websocket::network::Connection>& connection);
+            void connectListener(const std::shared_ptr<websocket::network::Connection> &connection);
 
-            void receiveListener(std::size_t id, const std::string& msg);
+            void receiveListener(std::size_t id, const std::string &text);
 
             void closeListener(const std::shared_ptr<websocket::network::Connection> &connection);
 

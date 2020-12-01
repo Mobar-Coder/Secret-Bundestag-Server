@@ -31,6 +31,10 @@ namespace messages {
 
         CASE(Error)
 
+        if (message == nullptr) {
+            throw std::runtime_error{"Invalid type or format!"};
+        }
+
         for (const auto &[setter, _, name] : message->properties) {
             setter(j["body"][name]);
         }

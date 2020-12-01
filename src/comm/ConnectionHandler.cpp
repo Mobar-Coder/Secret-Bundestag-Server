@@ -23,21 +23,23 @@ namespace comm {
     }
 
 
-    void ConnectionHandler::send(const nlohmann::json& message, std::size_t client) {
+    void ConnectionHandler::send(const std::shared_ptr<messages::Message> &message, std::size_t client) {
         if (connections.find(client) != connections.end()) {
             try {
-                connections.at(client)->send(message.dump(4));
+                connections.at(client)->send(message->toJson().dump(4));
             } catch (std::runtime_error &e) {
                 log.error("Trying to send message to user that already left!");
             }
         }
     }
 
-    void ConnectionHandler::receiveListener(std::size_t id, const std::string &msg) {
-        if (!msg.empty()) {
+    void ConnectionHandler::receiveListener(std::size_t id, const std::string &text) {
+        if (not text.empty()) {
             try {
-                nlohmann::json json = nlohmann::json::parse(msg);
-                onReceive(json, id);
+                auto json = nlohmann::json::parse(text);
+                auto message = messages::Message::fromJson(json);
+
+                onReceive(message, id);
             } catch (nlohmann::json::exception &e) {
                 log.error("Got invalid json!");
                 log.debug(e.what());
