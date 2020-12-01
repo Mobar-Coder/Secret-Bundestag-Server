@@ -7,11 +7,12 @@
 #include "Error.hpp"
 
 namespace messages {
-    GENERATE_TO(Error,
-                TO_MEMBER(message)
-    )
+    Error::Error(const std::string& message) : message{message} {
+        PROPERTY(message)
+    }
 
-    GENERATE_FROM(Error,
-                  FROM_MEMBER(message)
-    )
+    auto Error::getMessageName() const -> std::string {
+        return "Error";
+    }
+
 }

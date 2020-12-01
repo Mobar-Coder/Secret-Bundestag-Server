@@ -7,12 +7,17 @@
 #ifndef SECRETBUNDESTAGSERVER_ERROR_HPP
 #define SECRETBUNDESTAGSERVER_ERROR_HPP
 
-#include "../util/Serializable.hpp"
+#include "Message.hpp"
 
 namespace messages {
-    JSON_CLASS(Error,
-   std::string message;
-    )
+    struct Error : public Message {
+        Error() = default;
+        explicit Error(const std::string& message);
+
+        std::string message;
+
+        [[nodiscard]] auto getMessageName() const -> std::string override;
+    };
 }
 
 #endif //SECRETBUNDESTAGSERVER_ERROR_HPP
