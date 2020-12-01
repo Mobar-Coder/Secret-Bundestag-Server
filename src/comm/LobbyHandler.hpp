@@ -18,9 +18,6 @@ namespace comm {
             LobbyHandler(uint16_t port, util::Logging &log);
 
         private:
-            template<typename T, typename P>
-            auto isType(P p) { return std::dynamic_pointer_cast<T>(p) != nullptr; }
-
             void receiveListener(const std::shared_ptr<const messages::Message> &message, std::size_t id);
 
             void closeListener(std::size_t id);
