@@ -27,6 +27,16 @@ namespace messages {
             using PropertyGetter = std::function<nlohmann::json()>;
             using PropertyInfo = std::tuple<PropertySetter, PropertyGetter, std::string>;
         public:
+            Message() = default;
+
+            Message(const Message &message) = delete;
+
+            auto operator=(const Message &message) = delete;
+
+            Message(Message &&message) = delete;
+
+            auto operator=(Message &&message) = delete;
+
             void addProperty(const PropertySetter &setter, const PropertyGetter &getter, const std::string &name);
 
             [[nodiscard]] virtual auto getMessageName() const -> std::string = 0;

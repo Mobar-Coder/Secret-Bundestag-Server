@@ -6,8 +6,10 @@
  */
 #include "Error.hpp"
 
+#include <utility>
+
 namespace messages {
-    Error::Error(const std::string& message) : message{message} {
+    Error::Error(std::string  message) : message{std::move(message)} {
         PROPERTY(message)
     }
 

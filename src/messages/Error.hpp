@@ -12,7 +12,7 @@
 namespace messages {
     struct Error : public Message {
         Error() = default;
-        explicit Error(const std::string& message);
+        explicit Error(std::string  message);
 
         std::string message;
 
