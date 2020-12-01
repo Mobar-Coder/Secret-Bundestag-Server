@@ -6,12 +6,15 @@
  */
 #include "Error.hpp"
 
-namespace messages {
-    GENERATE_TO(Error,
-                TO_MEMBER(message)
-    )
+#include <utility>
 
-    GENERATE_FROM(Error,
-                  FROM_MEMBER(message)
-    )
+namespace messages {
+    Error::Error(std::string  message) : message{std::move(message)} {
+        PROPERTY(message)
+    }
+
+    auto Error::getMessageName() const -> std::string {
+        return "Error";
+    }
+
 }

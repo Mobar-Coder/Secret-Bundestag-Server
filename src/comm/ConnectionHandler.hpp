@@ -1,35 +1,36 @@
 /**
- * @file MessageHandler.hpp
+ * @file ConnectionHandler.hpp
  * @author paul
  * @date 30.11.20
  * Description here TODO
  */
-#ifndef SECRETBUNDESTAGSERVER_MESSAGEHANDLER_HPP
-#define SECRETBUNDESTAGSERVER_MESSAGEHANDLER_HPP
+#ifndef SECRETBUNDESTAGSERVER_CONNECTIONHANDLER_HPP
+#define SECRETBUNDESTAGSERVER_CONNECTIONHANDLER_HPP
 
 
 #include <nlohmann/json.hpp>
 #include <WebsocketCPP/src/Server/WebSocketServer.hpp>
 #include <cstdint>
 #include "../util/Logging.hpp"
+#include "../messages/Message.hpp"
 
 namespace comm {
-    class MessageHandler {
+    class ConnectionHandler {
         public:
-            MessageHandler(uint16_t port, util::Logging &log);
+            ConnectionHandler(uint16_t port, util::Logging &log);
 
-            void send(const nlohmann::json& message, std::size_t client);
+            void send(const std::shared_ptr<messages::Message> &message, std::size_t client) const;
 
             const websocket::util::Listener<std::size_t> onConnect;
 
-            const websocket::util::Listener<nlohmann::json, std::size_t> onReceive;
+            const websocket::util::Listener<std::shared_ptr<messages::Message>, std::size_t> onReceive;
 
             const websocket::util::Listener<std::size_t> onClose;
 
         private:
-            void connectListener(const std::shared_ptr<websocket::network::Connection>& connection);
+            void connectListener(const std::shared_ptr<websocket::network::Connection> &connection);
 
-            void receiveListener(std::size_t id, const std::string& msg);
+            void receiveListener(std::size_t id, const std::string &text);
 
             void closeListener(const std::shared_ptr<websocket::network::Connection> &connection);
 
@@ -42,4 +43,4 @@ namespace comm {
     };
 }
 
-#endif //SECRETBUNDESTAGSERVER_MESSAGEHANDLER_HPP
+#endif //SECRETBUNDESTAGSERVER_CONNECTIONHANDLER_HPP
