@@ -53,7 +53,7 @@ namespace comm {
         if (lobbyIt != userLobbyMap.end()) {
             lobbyIt->second->onClose(id);
             for (auto &[name, lobbyPtr] : lobbyNameMap) {
-                if (lobbyPtr == lobbyIt->second) {
+                if (lobbyPtr == lobbyIt->second) { // @TODO only remove if last user left
                     lobbyNameMap.erase(name);
                     log.info("Lobby " + name + " closed");
                     break;

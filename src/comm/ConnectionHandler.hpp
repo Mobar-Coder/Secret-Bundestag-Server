@@ -19,7 +19,7 @@ namespace comm {
         public:
             ConnectionHandler(uint16_t port, util::Logging &log);
 
-            void send(const std::shared_ptr<messages::Message> &message, std::size_t client) const;
+            void send(const std::shared_ptr<const messages::Message> &message, std::size_t client) const;
 
             const websocket::util::Listener<std::size_t> onConnect;
 
@@ -37,7 +37,7 @@ namespace comm {
             void closeListener(const std::shared_ptr<websocket::network::Connection> &connection);
 
             websocket::network::WebSocketServer webSocketServer;
-            std::map<int, std::shared_ptr<websocket::network::Connection>> connections;
+            std::map<std::size_t, std::shared_ptr<websocket::network::Connection>> connections;
             std::size_t idCount;
             util::Logging &log;
     };
