@@ -17,19 +17,21 @@ namespace comm {
 
     void ConnectionHandler::connectListener(const std::shared_ptr<websocket::network::Connection> &connection) {
         this->connections.emplace(idCount, connection);
-        onConnect(this->idCount);
         connection->receiveListener.subscribe([this, id = this->idCount](auto msg) { receiveListener(id, msg); });
+        onConnect(this->idCount);
         this->idCount += 1;
     }
 
 
-    void ConnectionHandler::send(const std::shared_ptr<messages::Message> &message, std::size_t client) const {
+    void ConnectionHandler::send(const std::shared_ptr<const messages::Message> &message, std::size_t client) const {
         if (connections.find(client) != connections.end()) {
             try {
                 connections.at(client)->send(message->toJson().dump(4));
             } catch (std::runtime_error &e) {
                 log.error("Trying to send message to user that already left!");
             }
+        } else {
+            log.error("Trying to send a non registered user!");
         }
     }
 
@@ -42,6 +44,10 @@ namespace comm {
                 onReceive(message, id);
             } catch (nlohmann::json::exception &e) {
                 log.error("Got invalid json!");
+                log.debug(e.what());
+                closeConnection(id);
+            } catch (std::runtime_error &e) {
+                log.error("Invalid json format!");
                 log.debug(e.what());
                 closeConnection(id);
             }

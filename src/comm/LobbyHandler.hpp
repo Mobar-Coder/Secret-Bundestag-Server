@@ -18,6 +18,8 @@ namespace comm {
             LobbyHandler(uint16_t port, util::Logging &log);
 
         private:
+            //@TODO send function
+
             void receiveListener(const std::shared_ptr<const messages::Message> &message, std::size_t id);
 
             void closeListener(std::size_t id);
