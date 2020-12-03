@@ -3,11 +3,11 @@ on: [pull_request]
 
 jobs:
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        cxx: [g++-8, g++-9, g++-10, clang++-9, clang++-10]
+        cxx: [g++-8, g++-9, g++-10, clang++-9]
         build: [Release, Debug]
     env:
       CXX: ${{ matrix.cxx }}
