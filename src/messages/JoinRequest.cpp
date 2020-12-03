@@ -8,6 +8,7 @@
 
 namespace messages {
     JoinRequest::JoinRequest() {
+        CLASS(JoinRequest)
         PROPERTY(lobbyName)
     }
 }

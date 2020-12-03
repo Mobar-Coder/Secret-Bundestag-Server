@@ -6,13 +6,22 @@
  */
 #include "Message.hpp"
 
-#include "Error.hpp"
-
-#define CASE(m) if (messageName == #m) { message = std::make_shared<m>(); }
-
 namespace messages {
+    std::vector<Message::ClassInfo> Message::classes{};
+
     void Message::addProperty(const PropertySetter &setter, const PropertyGetter &getter, const std::string &name) {
         properties.emplace_back(setter, getter, name);
+    }
+
+    void
+    Message::addClass(const Message::Factory &factory, const Message::IsInstance &isInstance, const std::string &name) {
+        for (const auto &[f, i, className] : classes) {
+            if (className == name) {
+                return;
+            }
+        }
+
+        classes.emplace_back(factory, isInstance, name);
     }
 
     auto Message::toJson() const -> nlohmann::json {
@@ -20,7 +29,13 @@ namespace messages {
         for (const auto &[_, getter, name] : properties) {
             json["body"][name] = getter();
         }
-        json["name"] = getMessageName();
+
+        for (const auto &[_, isInstance, name] : classes) {
+            if (isInstance(this)) {
+                json["name"] = name;
+            }
+        }
+
         return json;
     }
 
@@ -29,7 +44,12 @@ namespace messages {
         auto messageName = j.at("name").get<std::string>();
         std::shared_ptr<Message> message = nullptr;
 
-        CASE(Error)
+        for (const auto &[factory, _, name] : classes) {
+            if (name == messageName) {
+                message = factory();
+                break;
+            }
+        }
 
         if (message == nullptr) {
             throw std::runtime_error{"Invalid type or format!"};
@@ -41,5 +61,4 @@ namespace messages {
 
         return message;
     }
-
 }
