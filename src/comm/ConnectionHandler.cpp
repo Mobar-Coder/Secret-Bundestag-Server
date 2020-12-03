@@ -1,13 +1,13 @@
 /**
- * @file MessageHandler.cpp
+ * @file ConnectionHandler.cpp
  * @author paul
  * @date 30.11.20
  * Description here TODO
  */
-#include "MessageHandler.hpp"
+#include "ConnectionHandler.hpp"
 
 namespace comm {
-    MessageHandler::MessageHandler(uint16_t port, util::Logging &log) :
+    ConnectionHandler::ConnectionHandler(uint16_t port, util::Logging &log) :
             webSocketServer{port, ""},
             idCount{0},
             log{log} {
@@ -15,47 +15,54 @@ namespace comm {
         this->webSocketServer.closeListener.subscribe([this](auto c) { closeListener(c); });
     }
 
-    void MessageHandler::connectListener(const std::shared_ptr<websocket::network::Connection> &connection) {
+    void ConnectionHandler::connectListener(const std::shared_ptr<websocket::network::Connection> &connection) {
         this->connections.emplace(idCount, connection);
-        onConnect(this->idCount);
         connection->receiveListener.subscribe([this, id = this->idCount](auto msg) { receiveListener(id, msg); });
+        onConnect(this->idCount);
         this->idCount += 1;
     }
 
 
-    void MessageHandler::send(const nlohmann::json& message, std::size_t client) {
+    void ConnectionHandler::send(const std::shared_ptr<const messages::Message> &message, std::size_t client) const {
         if (connections.find(client) != connections.end()) {
             try {
-                connections.at(client)->send(message.dump(4));
+                connections.at(client)->send(message->toJson().dump(4));
             } catch (std::runtime_error &e) {
                 log.error("Trying to send message to user that already left!");
             }
+        } else {
+            log.error("Trying to send a non registered user!");
         }
     }
 
-    void MessageHandler::receiveListener(std::size_t id, const std::string &msg) {
-        if (!msg.empty()) {
+    void ConnectionHandler::receiveListener(std::size_t id, const std::string &text) {
+        if (not text.empty()) {
             try {
-                nlohmann::json json = nlohmann::json::parse(msg);
-                onReceive(json, id);
+                auto json = nlohmann::json::parse(text);
+                auto message = messages::Message::fromJson(json);
+
+                onReceive(message, id);
             } catch (nlohmann::json::exception &e) {
                 log.error("Got invalid json!");
                 log.debug(e.what());
-                // @TODO send error to client
-                closeWithId(id);
+                closeConnection(id);
+            } catch (std::runtime_error &e) {
+                log.error("Invalid json format!");
+                log.debug(e.what());
+                closeConnection(id);
             }
         }
     }
 
-    void MessageHandler::closeListener(const std::shared_ptr<websocket::network::Connection> &connection) {
+    void ConnectionHandler::closeListener(const std::shared_ptr<websocket::network::Connection> &connection) {
         for (auto it = this->connections.begin(); it != this->connections.end(); ++it) {
             if (it->second.get() == connection.get()) {
-                closeWithId(it->first);
+                closeConnection(it->first);
             }
         }
     }
 
-    void MessageHandler::closeWithId(std::size_t id) {
+    void ConnectionHandler::closeConnection(std::size_t id) {
         auto it = this->connections.find(id);
         if (it != this->connections.end()) {
             this->connections.erase(it);
