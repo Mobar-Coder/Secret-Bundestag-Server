@@ -32,10 +32,12 @@ jobs:
         run: |
           sudo apt install libgtest-dev google-mock
           cd /usr/src/gtest
-          sudo cmake CMakeLists.txt && make -j$(nproc)
+          sudo cmake CMakeLists.txt
+          sudo make -j$(nproc)
           sudo cp *.a /usr/lib
           cd /usr/src/gmock
-          sudo cmake CMakeLists.txt && make -j$(nproc)
+          sudo cmake CMakeLists.txt
+          sudo make -j$(nproc)
           sudo cp *.a /usr/lib
       - name: Set up Build
         run: |
