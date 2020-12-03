@@ -13,15 +13,16 @@ namespace messages {
         properties.emplace_back(setter, getter, name);
     }
 
-    void
+    bool
     Message::addClass(const Message::Factory &factory, const Message::IsInstance &isInstance, const std::string &name) {
         for (const auto &[f, i, className] : classes) {
             if (className == name) {
-                return;
+                return false;
             }
         }
 
         classes.emplace_back(factory, isInstance, name);
+        return true;
     }
 
     auto Message::toJson() const -> nlohmann::json {

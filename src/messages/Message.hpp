@@ -14,7 +14,7 @@
 
 #include <nlohmann/json.hpp>
 
-#define CLASS(c) addClass( \
+#define CLASS(c) static auto _tmp_ = Message::addClass( \
     std::make_shared<c>, \
     [] (const Message *msg) { return dynamic_cast<const c*>(msg) != nullptr;}, \
     #c \
@@ -24,7 +24,8 @@
     [this] (const nlohmann::json &j) {this->p = j.get<decltype(this->p)>();}, \
     [this] () {return this->p;}, \
     #p \
-);
+); \
+_tmp_ = false;
 
 namespace messages {
     class Message {
@@ -54,10 +55,9 @@ namespace messages {
 
             virtual ~Message() = default;
 
+            static bool addClass(const Factory &factory, const IsInstance &isInstance, const std::string &name);
         protected:
             void addProperty(const PropertySetter &setter, const PropertyGetter &getter, const std::string &name);
-
-            static void addClass(const Factory &factory, const IsInstance &isInstance, const std::string &name);
 
         private:
             std::vector<PropertyInfo> properties;
