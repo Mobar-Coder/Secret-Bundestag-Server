@@ -6,15 +6,9 @@
  */
 #include "Error.hpp"
 
-#include <utility>
-
 namespace messages {
     Error::Error() {
+        CLASS(Error)
         PROPERTY(message)
     }
-
-    auto Error::getMessageName() const -> std::string {
-        return "Error";
-    }
-
 }

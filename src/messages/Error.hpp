@@ -14,8 +14,6 @@ namespace messages {
         Error();
 
         std::string message;
-
-        [[nodiscard]] auto getMessageName() const -> std::string override;
     };
 }
 
