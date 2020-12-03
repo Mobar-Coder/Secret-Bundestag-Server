@@ -39,4 +39,5 @@ jobs:
           make -j$(nproc)
       - name: Test
         run: |
-          ./build/test/Tests
+          cd build/test
+          ./Tests
