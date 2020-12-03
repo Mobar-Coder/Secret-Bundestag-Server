@@ -28,6 +28,15 @@ jobs:
           cd ..
           rm -rf libwebsockets
           sudo ldconfig
+      - name: Install GTest
+        run: |
+          sudo apt install libgtest-dev google-mock
+          cd /usr/src/gtest
+          sudo cmake CMakeLists.txt && make -j$(nproc)
+          sudo cp *.a /usr/lib
+          cd /usr/src/gmock
+          sudo cmake CMakeLists.txt && make -j$(nproc)
+          sudo cp *.a /usr/lib
       - name: Set up Build
         run: |
           mkdir build
@@ -39,6 +48,4 @@ jobs:
           make -j$(nproc)
       - name: Test
         run: |
-          cd build/test
-          ls
-          ./Tests
+          ./build/test/Tests
