@@ -8,10 +8,11 @@ jobs:
       max-parallel: 4
       fail-fast: false
       matrix:
-        cxx: [g++-8, g++-9, g++-10, clang++-9, clang++-10, clang++-11]
+        compilers: ["gcc-8 g++-8", "gcc-9 g++-9", "gcc-10 g++-10", "clang-9 clang++-9", "clang-10 clang++-10", "clang-11 clang++-11"]
         build: [Release, Debug]
     env:
-      CXX: ${{ matrix.cxx }}
+      CC: ${{ ($matrix.compilers)[0] }}
+      CXX: ${{ ($matrix.compilers)[1] }}
 
     steps:
       - uses: actions/checkout@v2
