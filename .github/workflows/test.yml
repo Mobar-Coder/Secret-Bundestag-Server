@@ -1,13 +1,13 @@
 name: Compile
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
       matrix:
-        cxx: [g++-8, g++-9, g++-10, clang++-9, clang++-10, clang++-11]
+        cxx: [g++-8, g++-9, g++-10, clang++-9, clang++-10]
         build: [Release, Debug]
     env:
       CXX: ${{ matrix.cxx }}
