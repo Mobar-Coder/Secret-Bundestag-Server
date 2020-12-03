@@ -5,7 +5,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 4
       fail-fast: false
       matrix:
         cxx: [g++-8, g++-9, g++-10, clang++-9, clang++-10, clang++-11]
