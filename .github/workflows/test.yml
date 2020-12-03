@@ -17,6 +17,17 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
+      - name: Install LWS
+        run: |
+          sudo apt install libssl-dev
+          git clone https://github.com/warmcat/libwebsockets.git
+          cd libwebsockets
+          cmake .
+          make -j$(nproc)
+          sudo make install
+          cd ..
+          rm -rf libwebsockets
+          sudo ldconfig
       - name: Set up Build
         run: |
           mkdir build
