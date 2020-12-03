@@ -33,6 +33,7 @@ namespace messages {
         for (const auto &[_, isInstance, name] : classes) {
             if (isInstance(this)) {
                 json["name"] = name;
+                break;
             }
         }
 
