@@ -47,15 +47,15 @@ namespace GameModel {
         policyState->emplace(cardType, policyNumber);
     }
 
-    auto Board::incrementElectionTracker() {
+    auto Board::incrementElectionTracker() -> void {
         electionTracker++;
     }
 
-    auto Board::resetElectionTracker() {
+    auto Board::resetElectionTracker() -> void {
         electionTracker = 0;
     }
 
-    auto Board::copyCurrentOfficeToPastOffice() {
+    auto Board::copyCurrentOfficeToPastOffice() -> void {
         pastOffice->clear();
         pastOffice->insert(currentOffice->begin(), currentOffice->end());
     }
@@ -80,11 +80,11 @@ namespace GameModel {
         }
     }
 
-    auto Board::emplaceBackToCardPile(CardType cardType) {
+    auto Board::emplaceBackToCardPile(CardType cardType) -> void {
         cardPile->emplace_back(cardType);
     }
 
-    auto Board::emplaceBackToDiscardPile(CardType cardType) {
+    auto Board::emplaceBackToDiscardPile(CardType cardType) -> void {
         discardPile->emplace_back(cardType);
     }
 }

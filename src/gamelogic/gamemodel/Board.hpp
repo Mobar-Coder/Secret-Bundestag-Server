@@ -42,13 +42,13 @@ namespace GameModel {
             [[nodiscard]] auto getDiscardPile() const -> std::shared_ptr<std::vector<CardType>>;
 
             auto pushToPolicyState(CardType cardType, std::size_t policyNumber);
-            auto incrementElectionTracker();
-            auto resetElectionTracker();
-            auto copyCurrentOfficeToPastOffice();
+            auto incrementElectionTracker() -> void;
+            auto resetElectionTracker() -> void;
+            auto copyCurrentOfficeToPastOffice() -> void;
             auto addToCurrentOffice(Office office, std::shared_ptr<Player> player) -> bool;
             auto removeFromCurrentOffice(Office office) -> bool;
-            auto emplaceBackToCardPile(CardType cardType);
-            auto emplaceBackToDiscardPile(CardType cardType);
+            auto emplaceBackToCardPile(CardType cardType) -> void;
+            auto emplaceBackToDiscardPile(CardType cardType) -> void;
     };
 }
 

@@ -18,25 +18,25 @@ namespace GameModel {
     class Environment {
 
         private:
-            Board board;
+            std::shared_ptr<Board> board;
             std::shared_ptr<std::vector<Player>> players;
 
         public:
 
-            Environment(std::shared_ptr<std::vector<Player>> players);
+            explicit Environment(std::shared_ptr<std::vector<Player>> players);
 
-            auto getPlayers() const -> std::shared_ptr<std::vector<Player>>;
-            auto getBoard() const -> std::shared_ptr<Board>;
+            [[nodiscard]] auto getPlayers() const -> std::shared_ptr<std::vector<Player>>;
+            [[nodiscard]] auto getBoard() const -> std::shared_ptr<Board>;
 
             auto drawNCards(std::size_t number) -> CardRange;
-            auto restockCardPile();
-            auto advanceElectionTracker() -> std::size_t;
-            auto autoSelectCandidate(Player) -> bool;
+            auto restockCardPile() -> void;
+            auto incrementElectionTracker() -> std::size_t;
+            auto autoSelectCandidate(std::shared_ptr<Player> player) -> bool;
             auto electCandidate() -> bool;
-            auto resetPastOffices();
-            auto killPlayer(Player) -> bool;
-            auto getGameState(Player) -> std::string;
-            auto setPresident();
+            auto resetPastOffices() -> void ;
+            auto killPlayer(std::shared_ptr<Player> player) -> bool;
+            auto getGameState(std::shared_ptr<Player> player) -> std::string;
+            auto setPresident() -> void;
     };
 }
 

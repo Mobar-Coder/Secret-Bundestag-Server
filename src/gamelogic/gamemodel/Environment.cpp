@@ -7,55 +7,61 @@
 
 #include "Environment.hpp"
 
+#include <utility>
+
 namespace GameModel {
 
-    Environment::Environment(std::shared_ptr<std::vector<Player>> players) {
-        this->players = players;
+    Environment::Environment(std::shared_ptr<std::vector<Player>> players) : board(std::make_shared<Board>()) {
+        this->players = std::move(players);
     }
 
     auto Environment::getPlayers() const -> std::shared_ptr<std::vector<Player>> {
-        return this->players;
+        return players;
     }
 
     auto Environment::getBoard() const -> std::shared_ptr<Board> {
-        return std::make_shared<Board>(this->board);
+        return board;
     }
 
-
-    auto Environment::restockCardPile() {
-        return nullptr;
+    auto Environment::drawNCards(std::size_t number) -> CardRange {
+        return CardRange(board, number);
     }
 
-    auto Environment::advanceElectionTracker() -> std::size_t {
-        return 0;
+    auto Environment::restockCardPile() -> void {
+
+    }
+
+    auto Environment::incrementElectionTracker() -> std::size_t {
+        board->incrementElectionTracker();
+        return board->getElectionTracker();
     }
 
     /*
-    auto Environment::drawNCards(std::size_t number) -> CardRange {
-        return nullptr;
-    }*/
+    auto Environment::autoSelectCandidate(std::shared_ptr<Player> player) -> bool {
 
-    auto Environment::autoSelectCandidate(Player) -> bool {
         return false;
     }
 
     auto Environment::electCandidate() -> bool {
         return false;
     }
+    */
 
-    auto Environment::resetPastOffices() {
-        return nullptr;
+    auto Environment::resetPastOffices() -> void {
+
     }
 
-    auto Environment::killPlayer(Player) -> bool {
+    /*
+    auto Environment::killPlayer(std::shared_ptr<Player> player) -> bool {
         return false;
     }
 
-    auto Environment::getGameState(Player) -> std::string {
+    auto Environment::getGameState(std::shared_ptr<Player> player) -> std::string {
         return std::string();
     }
+    */
 
-    auto Environment::setPresident() {
-        return nullptr;
+    auto Environment::setPresident() -> void  {
+
     }
 }

@@ -10,14 +10,15 @@
 #include <utility>
 
 namespace GameModel {
-    CardRange::CardRange(std::shared_ptr<Board> board, unsigned int n) : board(std::move(board)) {
+
+    CardRange::CardRange(std::shared_ptr<Board> board, std::size_t number) : board(std::move(board)) {
         std::size_t drawableCards = this->board->getCardPile()->size();
-        if (n > drawableCards) {
-            throw std::runtime_error(std::string("Cannot create card range of size ") + std::to_string(n)
+        if (number > drawableCards) {
+            throw std::runtime_error(std::string("Cannot create card range of size ") + std::to_string(number)
                                      + "! Game has only " + std::to_string(drawableCards) + " left!");
         }
 
-        if (n > this->board->getCardPile()->size()) {
+        if (number > this->board->getCardPile()->size()) {
             //TODO this->board.restock....
         }
     }
