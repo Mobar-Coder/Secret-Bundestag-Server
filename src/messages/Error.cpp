@@ -7,11 +7,8 @@
 #include "Error.hpp"
 
 namespace messages {
-    GENERATE_TO(Error,
-                TO_MEMBER(message)
-    )
-
-    GENERATE_FROM(Error,
-                  FROM_MEMBER(message)
-    )
+    Error::Error() {
+        CLASS(Error)
+        PROPERTY(message)
+    }
 }

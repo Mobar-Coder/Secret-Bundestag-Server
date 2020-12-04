@@ -7,17 +7,14 @@
 #ifndef SECRETBUNDESTAGSERVER_ERROR_HPP
 #define SECRETBUNDESTAGSERVER_ERROR_HPP
 
-#include "../util/Serializable.hpp"
+#include "Message.hpp"
 
 namespace messages {
-    class Error {
-        private:
-            std::string message;
+    struct Error : public Message {
+        Error();
 
-            GENERATE_DECLARATION(Error)
-
+        std::string message;
     };
-
 }
 
 #endif //SECRETBUNDESTAGSERVER_ERROR_HPP
