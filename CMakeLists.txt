@@ -49,7 +49,7 @@ add_executable(${PROJECT_NAME} src/main.cpp ${SOURCES})
 target_link_libraries(${PROJECT_NAME} ${LIBS})
 
 add_subdirectory(test)
-add_subdirectory(lib/WebsocketCPP)
+add_subdirectory(lib/WebsocketCpp)
 
 set(JSON_BuildTests OFF CACHE INTERNAL "")
 add_subdirectory(lib/json)
