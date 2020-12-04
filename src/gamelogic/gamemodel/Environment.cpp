@@ -28,39 +28,46 @@ namespace GameModel {
     }
 
     auto Environment::restockCardPile() -> void {
-
+        board->restockCardPile();
     }
 
+    // ToDo: check for >3 ?
     auto Environment::incrementElectionTracker() -> std::size_t {
         board->incrementElectionTracker();
         return board->getElectionTracker();
     }
 
     /*
+    // ToDo: implement
     auto Environment::autoSelectCandidate(std::shared_ptr<Player> player) -> bool {
 
         return false;
     }
 
+    // ToDo: implement
     auto Environment::electCandidate() -> bool {
         return false;
     }
     */
 
+    // ToDo: implement
     auto Environment::resetPastOffices() -> void {
 
     }
 
+    // ToDo: implement
     /*
     auto Environment::killPlayer(std::shared_ptr<Player> player) -> bool {
         return false;
     }
 
+    // ToDo: implement
     auto Environment::getGameState(std::shared_ptr<Player> player) -> std::string {
         return std::string();
     }
     */
 
+    // ToDo: implement
     auto Environment::setPresident() -> void  {
 
     }

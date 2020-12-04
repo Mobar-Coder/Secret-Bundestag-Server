@@ -6,14 +6,15 @@
  */
 
 #include <search.h>
+#include <random>
 #include "Board.hpp"
 
 namespace GameModel {
 
     Board::Board() : electionTracker(0),
                      policyState(std::make_shared<std::unordered_map<CardType, std::size_t>>()),
-                     currentOffice(std::make_shared<std::unordered_map<Office, std::shared_ptr<Player>>>()),
-                     pastOffice(std::make_shared<std::unordered_map<Office, std::shared_ptr<Player>>>()),
+                     currentOffices(std::make_shared<std::unordered_map<Office, std::shared_ptr<Player>>>()),
+                     pastOffices(std::make_shared<std::unordered_map<Office, std::shared_ptr<Player>>>()),
                      cardPile(std::make_shared<std::vector<CardType>>()),
                      discardPile(std::make_shared<std::vector<CardType>>())
     {
@@ -27,12 +28,12 @@ namespace GameModel {
         return policyState;
     }
 
-    auto Board::getCurrentOffice() const -> std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> {
-        return currentOffice;
+    auto Board::getCurrentOffices() const -> std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> {
+        return currentOffices;
     }
 
-    auto Board::getPastOffice() const -> std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> {
-        return pastOffice;
+    auto Board::getPastOffices() const -> std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> {
+        return pastOffices;
     }
 
     auto Board::getCardPile() const -> std::shared_ptr<std::vector<CardType>> {
@@ -55,14 +56,14 @@ namespace GameModel {
         electionTracker = 0;
     }
 
-    auto Board::copyCurrentOfficeToPastOffice() -> void {
-        pastOffice->clear();
-        pastOffice->insert(currentOffice->begin(), currentOffice->end());
+    auto Board::copyCurrentOfficesToPastOffices() -> void {
+        pastOffices->clear();
+        pastOffices->insert(currentOffices->begin(), currentOffices->end());
     }
 
-    auto Board::addToCurrentOffice(Office office, std::shared_ptr<Player> player) -> bool{
-        if (currentOffice->find(office) == currentOffice->end()) {
-            currentOffice->emplace(office, player);
+    auto Board::addToCurrentOffices(Office office, std::shared_ptr<Player> player) -> bool{
+        if (currentOffices->find(office) == currentOffices->end()) {
+            currentOffices->emplace(office, player);
             return true;
         }
         else {
@@ -70,9 +71,9 @@ namespace GameModel {
         }
     }
 
-    auto Board::removeFromCurrentOffice(Office office) -> bool {
-        if (currentOffice->find(office) == currentOffice->end()) {
-            currentOffice->erase(office);
+    auto Board::removeFromCurrentOffices(Office office) -> bool {
+        if (currentOffices->find(office) == currentOffices->end()) {
+            currentOffices->erase(office);
             return true;
         }
         else {
@@ -88,8 +89,11 @@ namespace GameModel {
         discardPile->emplace_back(cardType);
     }
 
-    //TODO Implement
-    auto Board::restockCardPile() -> bool {
-        return false;
+    auto Board::restockCardPile() -> void {
+        auto rd = std::random_device {};
+        auto rng = std::default_random_engine { rd() };
+        std::shuffle(discardPile->begin(), discardPile->end(), rng);
+        cardPile->insert(cardPile->end(), discardPile->begin(), discardPile->end());
+        discardPile->clear();
     }
 }
