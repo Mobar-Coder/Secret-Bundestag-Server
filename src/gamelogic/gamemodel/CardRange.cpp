@@ -11,14 +11,14 @@
 
 namespace GameModel {
     CardRange::CardRange(std::shared_ptr<Board> board, unsigned int n) : board(std::move(board)) {
-        std::size_t drawableCards = this->board->getCardPile().size();
+        std::size_t drawableCards = this->board->getCardPile()->size();
         if (n > drawableCards) {
             throw std::runtime_error(std::string("Cannot create card range of size ") + std::to_string(n)
                                      + "! Game has only " + std::to_string(drawableCards) + " left!");
         }
 
         if (n > this->board->getCardPile()->size()) {
-            //TODO this->board.restock....
+            this->board->restockCardPile();
         }
     }
 
