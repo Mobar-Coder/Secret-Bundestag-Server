@@ -49,6 +49,7 @@ namespace GameModel {
             auto removeFromCurrentOffice(Office office) -> bool;
             auto emplaceBackToCardPile(CardType cardType) -> void;
             auto emplaceBackToDiscardPile(CardType cardType) -> void;
+            auto restockCardPile() -> bool;
     };
 }
 
