@@ -10,7 +10,6 @@
 #include <utility>
 
 namespace GameModel {
-
     CardRange::CardRange(std::shared_ptr<Board> board, std::size_t number) : board(std::move(board)) {
         std::size_t drawableCards = this->board->getCardPile()->size();
         if (number > drawableCards) {
@@ -19,7 +18,7 @@ namespace GameModel {
         }
 
         if (number > this->board->getCardPile()->size()) {
-            //TODO this->board.restock....
+            this->board->restockCardPile();
         }
     }
 
