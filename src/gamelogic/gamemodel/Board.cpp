@@ -87,4 +87,9 @@ namespace GameModel {
     auto Board::emplaceBackToDiscardPile(CardType cardType) {
         discardPile->emplace_back(cardType);
     }
+
+    //TODO Implement
+    auto Board::restockCardPile() -> bool {
+        return false;
+    }
 }

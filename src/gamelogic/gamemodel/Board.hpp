@@ -19,36 +19,50 @@ namespace GameModel {
 
     class Board {
 
-        private:
+    private:
 
-            std::size_t electionTracker;
-            std::shared_ptr<std::unordered_map<CardType, std::size_t>> policyState;
-            std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> currentOffice;
-            std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> pastOffice;
-            std::shared_ptr<std::vector<CardType>> cardPile;
-            std::shared_ptr<std::vector<CardType>> discardPile;
+        std::size_t electionTracker;
+        std::shared_ptr<std::unordered_map<CardType, std::size_t>> policyState;
+        std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> currentOffice;
+        std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> pastOffice;
+        std::shared_ptr<std::vector<CardType>> cardPile;
+        std::shared_ptr<std::vector<CardType>> discardPile;
 
-        public:
+    public:
 
-            Board();
+        Board();
 
-            [[nodiscard]] auto getElectionTracker() const -> size_t;
-            [[nodiscard]] auto getPolicyState() const -> std::shared_ptr<std::unordered_map<CardType, std::size_t>>;
-            [[nodiscard]] auto getCurrentOffice() const ->
-                std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>>;
-            [[nodiscard]] auto getPastOffice() const ->
-                std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>>;
-            [[nodiscard]] auto getCardPile() const -> std::shared_ptr<std::vector<CardType>>;
-            [[nodiscard]] auto getDiscardPile() const -> std::shared_ptr<std::vector<CardType>>;
+        [[nodiscard]] auto getElectionTracker() const -> size_t;
 
-            auto pushToPolicyState(CardType cardType, std::size_t policyNumber);
-            auto incrementElectionTracker();
-            auto resetElectionTracker();
-            auto copyCurrentOfficeToPastOffice();
-            auto addToCurrentOffice(Office office, std::shared_ptr<Player> player) -> bool;
-            auto removeFromCurrentOffice(Office office) -> bool;
-            auto emplaceBackToCardPile(CardType cardType);
-            auto emplaceBackToDiscardPile(CardType cardType);
+        [[nodiscard]] auto getPolicyState() const -> std::shared_ptr<std::unordered_map<CardType, std::size_t>>;
+
+        [[nodiscard]] auto getCurrentOffice() const ->
+        std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>>;
+
+        [[nodiscard]] auto getPastOffice() const ->
+        std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>>;
+
+        [[nodiscard]] auto getCardPile() const -> std::shared_ptr<std::vector<CardType>>;
+
+        [[nodiscard]] auto getDiscardPile() const -> std::shared_ptr<std::vector<CardType>>;
+
+        auto pushToPolicyState(CardType cardType, std::size_t policyNumber);
+
+        auto incrementElectionTracker();
+
+        auto resetElectionTracker();
+
+        auto copyCurrentOfficeToPastOffice();
+
+        auto addToCurrentOffice(Office office, std::shared_ptr<Player> player) -> bool;
+
+        auto removeFromCurrentOffice(Office office) -> bool;
+
+        auto emplaceBackToCardPile(CardType cardType);
+
+        auto emplaceBackToDiscardPile(CardType cardType);
+
+        auto restockCardPile() -> bool;
     };
 }
 
