@@ -11,7 +11,7 @@
 
 namespace GameModel {
 
-    Environment::Environment(std::shared_ptr<std::vector<Player>> players) : board(std::make_shared<Board>()) {
+    Environment::Environment(std::shared_ptr<std::vector<Player>> players) : board(std::make_shared<Board>()), players(std::move(players) {
         this->players = std::move(players);
     }
 
