@@ -1,6 +1,6 @@
-[submodule "lib/WebsocketCPP"]
-	path = lib/WebsocketCPP
-	url = https://github.com/Mobar-Coder/WebsocketCPP.git
 [submodule "lib/json"]
 	path = lib/json
 	url = https://github.com/nlohmann/json.git
+[submodule "lib/WebsocketCpp"]
+	path = lib/WebsocketCpp
+	url = https://github.com/Mobar-Coder/WebsocketCpp.git
