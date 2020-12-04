@@ -41,7 +41,7 @@ namespace GameModel {
             [[nodiscard]] auto getCardPile() const -> std::shared_ptr<std::vector<CardType>>;
             [[nodiscard]] auto getDiscardPile() const -> std::shared_ptr<std::vector<CardType>>;
 
-            auto pushToPolicyState(CardType cardType, std::size_t policyNumber);
+            auto pushToPolicyState(CardType cardType, std::size_t policyNumber) -> void;
             auto incrementElectionTracker() -> void;
             auto resetElectionTracker() -> void;
             auto copyCurrentOfficeToPastOffice() -> void;

@@ -43,7 +43,7 @@ namespace GameModel {
         return discardPile;
     }
 
-    auto Board::pushToPolicyState(CardType cardType, std::size_t policyNumber) {
+    auto Board::pushToPolicyState(CardType cardType, std::size_t policyNumber) -> void{
         policyState->emplace(cardType, policyNumber);
     }
 
