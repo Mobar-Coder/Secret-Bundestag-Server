@@ -7,8 +7,9 @@
 #include "JoinRequest.hpp"
 
 namespace messages {
+    CLASS(JoinRequest)
+
     JoinRequest::JoinRequest() {
-        CLASS(JoinRequest)
         PROPERTY(lobbyName)
     }
 }
