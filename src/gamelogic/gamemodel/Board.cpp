@@ -5,6 +5,7 @@
  * Description here TODO
  */
 
+#include <algorithm>
 #include <search.h>
 #include <random>
 #include "Board.hpp"

@@ -7,6 +7,7 @@
 
 #include "CardRange.hpp"
 
+#include <stdexcept>
 #include <utility>
 
 namespace GameModel {
