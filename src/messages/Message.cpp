@@ -45,8 +45,8 @@ namespace messages {
     }
 
 
-    auto Message::fromJson(const nlohmann::json &j) -> std::shared_ptr<Message> {
-        auto messageName = j.at("name").get<std::string>();
+    auto Message::fromJson(const nlohmann::json &json) -> std::shared_ptr<Message> {
+        auto messageName = json.at("name").get<std::string>();
         std::shared_ptr<Message> message = nullptr;
 
         for (const auto &[factory, _, name] : Message::getClassesList()) {
@@ -61,7 +61,7 @@ namespace messages {
         }
 
         for (const auto &[setter, _, name] : message->properties) {
-            setter(j["body"][name]);
+            setter(json["body"][name]);
         }
 
         return message;
