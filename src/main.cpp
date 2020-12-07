@@ -4,7 +4,7 @@
 #include "util/Logging.hpp"
 #include "comm/LobbyHandler.hpp"
 
-int main() {
+auto main() -> int {
     util::Logging log{std::cout, 4};
     comm::LobbyHandler lobbyHandler{8080, log};
 

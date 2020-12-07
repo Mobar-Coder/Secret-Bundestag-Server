@@ -6,7 +6,11 @@
  */
 #include "Lobby.hpp"
 
+#include <utility>
+
 namespace comm {
+    Lobby::Lobby(util::Logging log) : log{std::move(log)} {}
+
     void Lobby::onJoin(std::size_t) {
 
     }

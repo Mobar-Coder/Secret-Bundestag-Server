@@ -7,12 +7,17 @@
 #include "Message.hpp"
 
 namespace messages {
-    void Message::addProperty(const PropertySetter &setter, const PropertyGetter &getter, const std::string &name) {
+    void Message::addProperty(const PropertySetter &setter, const PropertyGetter &getter, const std::string &name,
+                              bool registered) {
+        if (not registered) {
+            throw std::runtime_error{"Class not registered!"};
+        }
         properties.emplace_back(setter, getter, name);
     }
 
-    bool
-    Message::addClass(const Message::Factory &factory, const Message::IsInstance &isInstance, const std::string &name) {
+    auto
+    Message::addClass(const Message::Factory &factory, const Message::IsInstance &isInstance,
+                      const std::string &name) noexcept -> bool {
         for (const auto &[f, i, className] : Message::getClassesList()) {
             if (className == name) {
                 return false;
@@ -65,15 +70,13 @@ namespace messages {
     auto Message::operator==(const Message &message) const -> bool {
         bool foundType = false;
         for (const auto &[f, isInstance, s]: Message::getClassesList()) {
-            if (isInstance(this) != isInstance(&message)) {
-                return false;
-            } else if (isInstance(this) and isInstance(&message)) {
+            if (isInstance(this) and isInstance(&message)) {
                 foundType = true;
                 break;
             }
         }
 
-        if (!foundType) {
+        if (not foundType) {
             return false;
         }
 

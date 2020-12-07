@@ -1,4 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 project(SecretBundestagServer)
 
 if(NOT CMAKE_BUILD_TYPE)
@@ -13,7 +16,6 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 endif ()
-
 
 set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/comm/ConnectionHandler.cpp
