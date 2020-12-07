@@ -1,13 +1,16 @@
-name: Check
+name: Static Analysis
 on: [pull_request]
 
 jobs:
-  test:
+  Clang-Tidy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           submodules: true
+      - name: Install Clang Tidy
+        run: |
+          sudo apt install clang-tidy
       - name: Install LWS
         run: |
           sudo apt install libssl-dev
