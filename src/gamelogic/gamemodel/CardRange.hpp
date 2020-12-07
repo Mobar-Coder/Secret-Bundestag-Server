@@ -19,23 +19,28 @@ namespace GameModel {
 
     class CardRange {
 
-        public:
-            CardRange(const CardRange &) = delete;
-            CardRange(std::shared_ptr<Board>  board, std::size_t number);
-            ~CardRange();
+    private:
+        std::vector<CardType> initialState;
+        std::vector<CardType> cards;
+        std::vector<CardType> discarded;
+        std::optional<CardType> policy;
+        std::shared_ptr<Board> board;
+        bool applied = false;
 
-            CardRange &operator=(const CardRange &) = delete;
-            [[nodiscard]] bool selectForPolicy( CardType cardType) const;
-            [[nodiscard]] bool discard(CardType cardType) const;
-            [[nodiscard]] bool applyToGame() const;
+    public:
+        CardRange(const CardRange &) = delete;
 
-        private:
-            std::vector<CardType> initialState;
-            std::vector<CardType> cards;
-            std::vector<CardType> discarded;
-            std::optional<CardType> policy;
-            std::shared_ptr<Board> board;
-            bool applied;
+        CardRange(std::shared_ptr<Board> board, std::size_t number);
+
+        ~CardRange();
+
+        CardRange &operator=(const CardRange &) = delete;
+
+        [[nodiscard]] bool selectForPolicy(CardType cardType);
+
+        [[nodiscard]] bool discard(CardType cardType);
+
+        [[nodiscard]] bool applyToGame();
     };
 }
 

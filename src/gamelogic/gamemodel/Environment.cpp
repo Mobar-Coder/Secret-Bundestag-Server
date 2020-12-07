@@ -15,25 +15,17 @@ namespace GameModel {
         board(std::make_shared<Board>()), players(std::move(players)) {
     }
 
-    auto Environment::getPlayers() const -> std::shared_ptr<std::vector<Player>> {
-        return players;
-    }
-
-    auto Environment::getBoard() const -> std::shared_ptr<Board> {
-        return board;
-    }
-
     auto Environment::drawNCards(std::size_t number) -> CardRange {
         return CardRange(board, number);
     }
 
     auto Environment::restockCardPile() -> void {
-        board->restockCardPile();
+
     }
 
     // ToDo: check for >3 ?
     auto Environment::incrementElectionTracker() -> std::size_t {
-        board->incrementElectionTracker();
+        board->setElectionTracker(board->getElectionTracker() + 1);
         return board->getElectionTracker();
     }
 
@@ -66,9 +58,4 @@ namespace GameModel {
         return std::string();
     }
     */
-
-    // ToDo: implement
-    auto Environment::setPresident() -> void  {
-
-    }
 }

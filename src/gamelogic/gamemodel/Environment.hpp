@@ -12,6 +12,7 @@
 #include "Board.hpp"
 #include "CardRange.hpp"
 #include "Player.hpp"
+#include "GameStateRepresentation.hpp"
 
 /**
  * @namespace The namespace for the game model.
@@ -23,91 +24,116 @@ namespace GameModel {
      */
     class Environment {
 
-        private:
-            std::shared_ptr<Board> board;
-            std::shared_ptr<std::vector<Player>> players;
+    private:
+        std::shared_ptr<Board> board;
+        std::shared_ptr<std::vector<Player>> players;
 
-        public:
+    public:
 
-            /**
-             * Main constructor for the Environment class.
-             * @param players
-             */
-            explicit Environment(std::shared_ptr<std::vector<Player>> players);
+        /**
+         * Main constructor for the Environment class.
+         * @param players
+         */
+        explicit Environment(std::shared_ptr<std::vector<Player>> players);
 
-            /**
-             * Get all players.
-             * @return All Players as std::shared_ptr<std::vector<Player>>.
-             */
-            [[nodiscard]] auto getPlayers() const -> std::shared_ptr<std::vector<Player>>;
+        /**
+         * Get all players.
+         * @return All Players as std::shared_ptr<std::vector<Player>>.
+         */
+        [[nodiscard]] auto getPlayers() const -> std::shared_ptr<std::vector<Player>>;
 
-            /**
-             * Get the game board.
-             * @return The game board as std::shared_ptr<Board>.
-             */
-            [[nodiscard]] auto getBoard() const -> std::shared_ptr<Board>;
+        /**
+         * //TODO schreiben
+         * @developer Bjoern
+         * Draw N cards from the normal card pile.
+         * @param number
+         * @return
+         */
+        auto drawNCards(std::size_t number) -> CardRange;
 
-            /**
-             * Draw N cards from the normal card pile.
-             * @param number
-             * @return
-             */
-            auto drawNCards(std::size_t number) -> CardRange;
+        /**
+         *
+         *
+         */
+        auto restockCardPile() -> void;
 
-            /**
-             *
-             * ToDo: Wir des benötigt, dass die Funktion nach außen geführt wird? Reicht es nicht im Board?
-             */
-            auto restockCardPile() -> void;
+        /**
+         *
+         *
+         * @return
+         */
+        auto incrementElectionTracker() -> std::size_t;
 
-            /**
-             *
-             * ToDo: Wir des benötigt, dass die Funktion nach außen geführt wird? Reicht es nicht im Board?
-             * @return
-             */
-            auto incrementElectionTracker() -> std::size_t;
+        /**
+         *
+         */
+        auto resetElectionTracker() -> bool;
 
-            /**
-             *
-             * ToDo: Was soll das tun? Mit dieser signatur ergibt das doch keinen Sinn oder verseth ich das falsch?
-             * @param player
-             * @return
-             */
-            auto autoSelectCandidate(std::shared_ptr<Player> player) -> bool;
+        /**
+         *
+         * @param player
+         * @return
+         */
+        auto autoSelectPresident() -> bool;
 
-            /**
-             *
-             * ToDo: Dazu braucht man eine object in dem der Kandidat hinterlegt ist.
-             * @return
-             */
-            auto electCandidate() -> bool;
+        /**
+         *
+         */
+        auto safePastOffices() -> void;
 
-            /**
-             *
-             */
-            auto resetPastOffices() -> void ;
+        /**
+         *
+         */
+        auto resetPastOffices() -> void;
 
-            /**
-             * Kill a Player.
-             * ToDo: Braucht man das hier wirklicht? Warum nicht gleich das Flag im Player setzen?
-             * @param player
-             * @return
-             */
-            auto killPlayer(std::shared_ptr<Player> player) -> bool;
+        /**
+         * Kill a Player.
+         * @param player
+         * @return
+         */
+        auto killPlayer(std::shared_ptr<Player> player) -> bool;
 
-            /**
-             *
-             * ToDo: Was soll hier nochmal zurück gegeben werden?
-             * @param player
-             * @return
-             */
-            auto getGameState(std::shared_ptr<Player> player) -> std::string;
+        /**
+         *
+         * ToDo: Was soll hier nochmal zurück gegeben werden?
+         * @param player
+         * @return
+         */
+        auto getGameState(std::shared_ptr<Player> player) -> GameStateRepresentation;
 
-            /**
-             *
-             * ToDo; Warum nur "setPresident" und nicht set Role, das wäre doch universaler oder nicht?
-             */
-            auto setPresident() -> void;
+
+        /**
+         *
+         * @return
+         */
+        auto setCandidateForChancelor(std::shared_ptr<Player> player) -> bool;
+
+        /**
+         *
+         * @return
+         */
+        auto electChancelor() -> bool;
+
+        /**
+         *
+         * @return
+         */
+        auto getPresident() -> std::shared_ptr<Player>;
+
+        /**
+         *
+         * @return
+         */
+        auto getChancelor() -> std::shared_ptr<Player>;
+
+        /**
+         *
+         * @param fraction
+         * @return
+         */
+        auto getParty(Fraction fraction) -> std::vector<std::shared_ptr<Player>>;
+
+
     };
 }
 

@@ -9,7 +9,7 @@ if (GTest_FOUND)
 
     include_directories(${CMAKE_SOURCE_DIR})
 
-    add_executable(${PROJECT_NAME} main.cpp ${SOURCES} ${TEST_SOURCES})
+    add_executable(${PROJECT_NAME} main.cpp ${SOURCES} ${TEST_SOURCES} CardRange.cpp)
 
     target_link_libraries(${PROJECT_NAME} ${LIBS} gmock gtest)
 

@@ -38,7 +38,9 @@ set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Environment.cpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Environment.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Player.cpp
-        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Player.hpp)
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Player.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/GameStateRepresentation.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/GameStateRepresentation.hpp)
 
 set(LIBS stdc++fs pthread WebsocketCpp)
 
