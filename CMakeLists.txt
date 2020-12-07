@@ -28,8 +28,8 @@ set(SOURCES
 
 set(LIBS stdc++fs pthread WebsocketCpp)
 
-include_directories(lib)
-include_directories(lib/json/single_include)
+include_directories(SYSTEM lib)
+include_directories(SYSTEM lib/json/single_include)
 
 add_executable(${PROJECT_NAME} src/main.cpp ${SOURCES})
 target_link_libraries(${PROJECT_NAME} ${LIBS})
