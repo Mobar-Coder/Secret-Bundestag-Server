@@ -15,7 +15,7 @@ namespace comm {
         this->webSocketServer.closeListener.subscribe([this](auto c) { closeListener(c); });
     }
 
-    void ConnectionHandler::connectListener(const std::shared_ptr<websocket::network::Connection> &connection) {
+    void ConnectionHandler::connectListener(const std::shared_ptr<websocketcpp::Connection> &connection) {
         this->connections.emplace(idCount, connection);
         connection->receiveListener.subscribe([this, id = this->idCount](auto msg) { receiveListener(id, msg); });
         onConnect(this->idCount);
@@ -54,7 +54,7 @@ namespace comm {
         }
     }
 
-    void ConnectionHandler::closeListener(const std::shared_ptr<websocket::network::Connection> &connection) {
+    void ConnectionHandler::closeListener(const std::shared_ptr<websocketcpp::Connection> &connection) {
         for (auto it = this->connections.begin(); it != this->connections.end(); ++it) {
             if (it->second.get() == connection.get()) {
                 closeConnection(it->first);

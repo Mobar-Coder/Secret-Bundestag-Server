@@ -16,11 +16,12 @@
 #include "Board.hpp"
 
 namespace GameModel {
+
     class CardRange {
 
         public:
             CardRange(const CardRange &) = delete;
-            CardRange(std::shared_ptr<Board>  board, unsigned int n);
+            CardRange(std::shared_ptr<Board>  board, std::size_t number);
             ~CardRange();
 
             CardRange &operator=(const CardRange &) = delete;
@@ -36,7 +37,6 @@ namespace GameModel {
             std::shared_ptr<Board> board;
             bool applied;
     };
-
 }
 
 #endif // SECRETBUNDESTAGSERVER_CARDRANGE_HPP
