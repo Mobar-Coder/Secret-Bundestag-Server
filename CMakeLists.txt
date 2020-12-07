@@ -16,19 +16,24 @@ endif ()
 
 
 set(SOURCES
-        ${CMAKE_SOURCE_DIR}/src/comm/MessageHandler.cpp
+        ${CMAKE_SOURCE_DIR}/src/comm/ConnectionHandler.cpp
+        ${CMAKE_SOURCE_DIR}/src/comm/LobbyHandler.cpp
+        ${CMAKE_SOURCE_DIR}/src/comm/Lobby.cpp
         ${CMAKE_SOURCE_DIR}/src/util/Logging.cpp
-        ${CMAKE_SOURCE_DIR}/src/messages/Error.cpp)
+        ${CMAKE_SOURCE_DIR}/src/messages/Error.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/JoinRequest.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/Message.cpp)
 
 set(LIBS stdc++fs pthread WebsocketCpp)
 
+include_directories(lib)
+include_directories(lib/json/single_include)
+
 add_executable(${PROJECT_NAME} src/main.cpp ${SOURCES})
 target_link_libraries(${PROJECT_NAME} ${LIBS})
-target_include_directories(${PROJECT_NAME} PRIVATE lib)
-target_include_directories(${PROJECT_NAME} PRIVATE lib/json/single_include)
 
 add_subdirectory(test)
-add_subdirectory(lib/WebsocketCPP)
+add_subdirectory(lib/WebsocketCpp)
 
 set(JSON_BuildTests OFF CACHE INTERNAL "")
 add_subdirectory(lib/json)
