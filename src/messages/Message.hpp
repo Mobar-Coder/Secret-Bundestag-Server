@@ -36,7 +36,7 @@ namespace messages {
             using PropertyInfo = std::tuple<PropertySetter, PropertyGetter, std::string>;
 
             using Factory = std::function<std::shared_ptr<Message>()>;
-            using IsInstance = std::function<bool(const Message*)>;
+            using IsInstance = std::function<bool(const Message *)>;
             using ClassInfo = std::tuple<Factory, IsInstance, std::string>;
         public:
             Message() = default;
@@ -49,6 +49,8 @@ namespace messages {
 
             auto operator=(Message &&message) = delete;
 
+            auto operator==(const Message &message) const -> bool;
+
             [[nodiscard]] auto toJson() const -> nlohmann::json;
 
             static auto fromJson(const nlohmann::json &json) -> std::shared_ptr<Message>;
@@ -56,13 +58,17 @@ namespace messages {
             virtual ~Message() = default;
 
             static bool addClass(const Factory &factory, const IsInstance &isInstance, const std::string &name);
+
         protected:
             void addProperty(const PropertySetter &setter, const PropertyGetter &getter, const std::string &name);
 
         private:
-            std::vector<PropertyInfo> properties;
+            /**
+             * @return a reference to a static local variable. Only used to handle initialization order.
+             */
+            static auto getClassesList() -> std::vector<ClassInfo>&;
 
-            static std::vector<ClassInfo> classes;
+            std::vector<PropertyInfo> properties;
     };
 }
 
