@@ -28,13 +28,16 @@ namespace GameModel {
         bool applied = false;
 
     public:
-        CardRange(const CardRange &) = delete;
 
         CardRange(std::shared_ptr<Board> board, std::size_t number);
 
         ~CardRange();
 
+        CardRange(const CardRange &) = delete;
+
         CardRange &operator=(const CardRange &) = delete;
+
+        CardRange &operator=(const CardRange &&) = delete;
 
         bool selectForPolicy(const CardType &cardType);
 
