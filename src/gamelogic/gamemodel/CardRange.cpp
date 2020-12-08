@@ -9,6 +9,7 @@
 
 #include <stdexcept>
 #include <utility>
+#include <algorithm>
 
 namespace GameModel {
     CardRange::CardRange(std::shared_ptr<Board> gameBoard, std::size_t number) : board(std::move(gameBoard)) {
