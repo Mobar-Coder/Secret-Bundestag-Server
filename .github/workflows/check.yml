@@ -30,4 +30,8 @@ jobs:
           cp compile_commands.json ..
       - name: Run Clang Tidy
         run: |
-          run-clang-tidy -j$(nproc) -quiet
+          run-clang-tidy -j$(nproc) -quiet | tee clangtidy.log
+      - name: Check Clang Tidy Result
+        run: |
+          if grep "error" clangtidy.log; then exit 1; fi;
+
