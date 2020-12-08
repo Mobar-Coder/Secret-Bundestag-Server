@@ -11,17 +11,17 @@
 #include <utility>
 
 namespace GameModel {
-    CardRange::CardRange(std::shared_ptr<Board> board, std::size_t number) : board(std::move(board)) {
+    CardRange::CardRange(std::shared_ptr<Board> gameBoard, std::size_t number) : board(std::move(gameBoard)) {
         std::size_t drawableCards = this->board->getCardPile()->size();
         if (number > drawableCards) {
             throw std::runtime_error(std::string("Cannot create card range of size ") + std::to_string(number)
                                      + "! Game has only " + std::to_string(drawableCards) + " left!");
         }
 
-        initialState = std::vector<CardType>(board->getCardPile()->rbegin(),
-                                             board->getCardPile()->rbegin() + number);
-        cards = std::vector<CardType>(board->getCardPile()->rbegin(), board->getCardPile()->rbegin() + number);
-        board->getCardPile()->erase(board->getCardPile()->end(), board->getCardPile()->end() - number);
+        initialState = std::vector<CardType>{board->getCardPile()->rbegin(),
+                                             board->getCardPile()->rbegin() + number};
+        cards = std::vector<CardType>{board->getCardPile()->rbegin(), board->getCardPile()->rbegin() + number};
+        board->getCardPile()->erase(board->getCardPile()->end() - number, board->getCardPile()->end());
     }
 
     CardRange::~CardRange() {

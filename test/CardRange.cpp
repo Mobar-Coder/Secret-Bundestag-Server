@@ -6,12 +6,13 @@
 #include "src/gamelogic/gamemodel/CardRange.hpp"
 
 TEST(card_range_test, select_policy) {
-    std::shared_ptr<GameModel::Board> board = std::make_shared<GameModel::Board>(GameModel::Board{});
-    board->getCardPile()->emplace_back(GameModel::CardType::Fascist);
-    board->getCardPile()->emplace_back(GameModel::CardType::Fascist);
-    board->getCardPile()->emplace_back(GameModel::CardType::Liberal);
-    board->getCardPile()->emplace_back(GameModel::CardType::Liberal);
+    GameModel::Board board{};
+    board.getCardPile()->emplace_back(GameModel::CardType::Fascist);
+    board.getCardPile()->emplace_back(GameModel::CardType::Fascist);
+    board.getCardPile()->emplace_back(GameModel::CardType::Liberal);
+    board.getCardPile()->emplace_back(GameModel::CardType::Liberal);
 
-    GameModel::CardRange cardRange{board, 3};
+    GameModel::CardRange cardRange{std::make_shared<GameModel::Board>(board), 1};
+    EXPECT_FALSE(cardRange.selectForPolicy(GameModel::CardType::Fascist));
     EXPECT_TRUE(cardRange.selectForPolicy(GameModel::CardType::Liberal));
 }
