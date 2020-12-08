@@ -11,7 +11,7 @@
 namespace comm {
     Lobby::Lobby(util::Logging log) : log{std::move(log)} {}
 
-    void Lobby::onJoin(std::size_t) {
+    void Lobby::onJoin(std::size_t) { // NOLINT @TODO add code
 
     }
 
