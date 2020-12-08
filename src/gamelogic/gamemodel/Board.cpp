@@ -24,7 +24,7 @@ namespace GameModel {
         return electionTracker;
     }
 
-    auto Board::setElectionTracker(std::size_t elecTracker) -> void {
+    void Board::setElectionTracker(std::size_t elecTracker) {
         this->electionTracker = elecTracker;
     }
 

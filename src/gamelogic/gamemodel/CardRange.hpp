@@ -36,7 +36,7 @@ namespace GameModel {
 
         CardRange &operator=(const CardRange &) = delete;
 
-        [[nodiscard]] bool selectForPolicy(CardType cardType);
+        bool selectForPolicy(const CardType &cardType);
 
         [[nodiscard]] bool discard(CardType cardType);
 

@@ -52,7 +52,7 @@ namespace GameModel {
          *
          * @param electionTracker
          */
-        auto setElectionTracker(std::size_t elecTracker) -> void;
+        void setElectionTracker(std::size_t elecTracker);
 
         /**
         * Get the current policy state, aka. all played cards.
