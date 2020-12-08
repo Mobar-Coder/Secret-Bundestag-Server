@@ -57,6 +57,7 @@ namespace GameModel {
         if (result != cards.end()) {
             discarded.emplace_back(card);
             cards.erase(result);
+            return true;
         }
 
         return false;
