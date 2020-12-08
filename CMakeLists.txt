@@ -48,7 +48,7 @@ include_directories(lib)
 include_directories(lib/json/single_include)
 
 add_executable(${PROJECT_NAME} src/main.cpp ${SOURCES})
-target_link_libraries(${PROJECT_NAME} ${LIBS})
+target_link_libraries(${PROJECT_NAME} ${LIBS} stdc++fs)
 
 add_subdirectory(test)
 add_subdirectory(lib/WebsocketCpp)
