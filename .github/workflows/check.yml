@@ -63,4 +63,5 @@ jobs:
           cp compile_commands.json ..
       - name: Run CppCheck
         run: |
+          cppcheck --version
           cppcheck --project=compile_commands.json --error-exitcode=1
