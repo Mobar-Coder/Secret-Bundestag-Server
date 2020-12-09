@@ -7,7 +7,6 @@
 
 #include "CardRange.hpp"
 
-#include <stdexcept>
 #include <utility>
 #include <algorithm>
 

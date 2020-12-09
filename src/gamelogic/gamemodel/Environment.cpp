@@ -8,6 +8,7 @@
 #include "Environment.hpp"
 
 #include <utility>
+#include <stdexcept>
 
 namespace GameModel {
 
