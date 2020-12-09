@@ -11,7 +11,7 @@
 
 namespace util {
     Logging::Logging(std::ostream &ostream, unsigned int loggingLevel) : ostream{ostream},
-                                                                         loggingLevel{loggingLevel}, prefixes{} {}
+                                                                         loggingLevel{loggingLevel} {}
 
     Logging::Logging(const Logging &log, const std::string& prefix) : ostream{log.ostream}, loggingLevel{log.loggingLevel},
                                                                       prefixes{log.prefixes} {
@@ -45,8 +45,10 @@ namespace util {
             auto timestamp = std::chrono::duration_cast<std::chrono::milliseconds>(
                     std::chrono::system_clock::now().time_since_epoch());
 
+            constexpr auto MILLISECONDS_PER_SECOND = 1000;
+
             this->ostream << "" << std::put_time(&time,"%F %T:")
-                          << std::setfill('0') <<std::setw(3) << (timestamp.count() % 1000)
+                          << std::setfill('0') <<std::setw(3) << (timestamp.count() % MILLISECONDS_PER_SECOND)
                           << "\t";
 
             for (const auto &prefix : this->prefixes) {

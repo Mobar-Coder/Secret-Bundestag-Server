@@ -1,0 +1,15 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <Objective-C>
+      <option name="INDENT_CLASS_MEMBERS" value="8" />
+      <option name="INDENT_VISIBILITY_KEYWORDS" value="4" />
+      <option name="INDENT_PREPROCESSOR_DIRECTIVE" value="4" />
+    </Objective-C>
+    <Objective-C-extensions>
+      <extensions>
+        <pair source="cpp" header="hpp" fileNamingConvention="NONE" />
+        <pair source="c" header="h" fileNamingConvention="NONE" />
+      </extensions>
+    </Objective-C-extensions>
+  </code_scheme>
+</component>

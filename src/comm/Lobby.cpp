@@ -6,16 +6,20 @@
  */
 #include "Lobby.hpp"
 
+#include <utility>
+
 namespace comm {
-    void Lobby::onJoin(std::size_t) {
+    Lobby::Lobby(util::Logging log) : log{std::move(log)} {}
+
+    void Lobby::onJoin(std::size_t) { // NOLINT @TODO add code
 
     }
 
-    void Lobby::onReceive(const std::shared_ptr<const messages::Message> &, std::size_t) {
+    void Lobby::onReceive(const std::shared_ptr<const messages::Message> &, std::size_t) { // NOLINT @TODO add code
 
     }
 
-    void Lobby::onClose(std::size_t) {
+    void Lobby::onClose(std::size_t) { // NOLINT @TODO add code
 
     }
 }
