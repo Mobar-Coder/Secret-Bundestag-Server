@@ -3,7 +3,7 @@ on: [pull_request]
 
 jobs:
   Clang-Tidy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
         with:
@@ -47,5 +47,4 @@ jobs:
           cp compile_commands.json ..
       - name: Run CppCheck
         run: |
-          cppcheck --version
           cppcheck --project=compile_commands.json --error-exitcode=1
