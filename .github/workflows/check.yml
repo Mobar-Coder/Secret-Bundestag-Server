@@ -13,15 +13,7 @@ jobs:
           sudo apt install clang-tidy
       - name: Install LWS
         run: |
-          sudo apt install libssl-dev
-          git clone https://github.com/warmcat/libwebsockets.git
-          cd libwebsockets
-          CC=gcc-10 CXX=g++-10 cmake .
-          make -j$(nproc)
-          sudo make install
-          cd ..
-          rm -rf libwebsockets
-          sudo ldconfig
+          sudo apt install libssl-dev libwebsockets-dev
       - name: Set up Build
         run: |
           mkdir build
@@ -46,15 +38,7 @@ jobs:
           sudo apt install cppcheck
       - name: Install LWS
         run: |
-          sudo apt install libssl-dev
-          git clone https://github.com/warmcat/libwebsockets.git
-          cd libwebsockets
-          CC=gcc-10 CXX=g++-10 cmake .
-          make -j$(nproc)
-          sudo make install
-          cd ..
-          rm -rf libwebsockets
-          sudo ldconfig
+          sudo apt install libssl-dev libwebsockets-dev
       - name: Set up Build
         run: |
           mkdir build

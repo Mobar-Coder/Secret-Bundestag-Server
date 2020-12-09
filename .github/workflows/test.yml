@@ -18,15 +18,7 @@ jobs:
           submodules: true
       - name: Install LWS
         run: |
-          sudo apt install libssl-dev
-          git clone https://github.com/warmcat/libwebsockets.git
-          cd libwebsockets
-          CC=gcc-10 CXX=g++-10 cmake .
-          make -j$(nproc)
-          sudo make install
-          cd ..
-          rm -rf libwebsockets
-          sudo ldconfig
+          sudo apt install libssl-dev libwebsockets-dev
       - name: Install GTest
         run: |
           sudo apt install libgtest-dev google-mock
