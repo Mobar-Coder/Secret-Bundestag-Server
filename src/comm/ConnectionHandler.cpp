@@ -55,9 +55,9 @@ namespace comm {
     }
 
     void ConnectionHandler::closeListener(const std::shared_ptr<websocketcpp::Connection> &connection) {
-        for (auto it = this->connections.begin(); it != this->connections.end(); ++it) {
-            if (it->second.get() == connection.get()) {
-                closeConnection(it->first);
+        for (const auto &[id, conn] : this->connections) {
+            if (conn.get() == connection.get()) {
+                closeConnection(id);
             }
         }
     }

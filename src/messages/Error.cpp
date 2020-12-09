@@ -7,8 +7,9 @@
 #include "Error.hpp"
 
 namespace messages {
+    CLASS(Error)
+
     Error::Error() {
-        CLASS(Error)
         PROPERTY(message)
     }
 }

@@ -7,7 +7,7 @@ if (GTest_FOUND)
 
     file(GLOB_RECURSE TEST_SOURCES . *.cpp)
 
-    include_directories(${CMAKE_SOURCE_DIR})
+    include_directories(${CMAKE_SOURCE_DIR}/src)
 
     add_executable(${PROJECT_NAME} main.cpp ${SOURCES} ${TEST_SOURCES})
 

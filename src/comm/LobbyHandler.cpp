@@ -25,7 +25,7 @@ namespace comm {
                 std::shared_ptr<Lobby> lobbyPtr;
                 if (lobbyNameMap.find(joinRequest->lobbyName) != lobbyNameMap.end()) {
                     log.info("Creating Lobby " + joinRequest->lobbyName + " for " + std::to_string(id));
-                    lobbyPtr = std::make_shared<Lobby>();
+                    lobbyPtr = std::make_shared<Lobby>(util::Logging{log, joinRequest->lobbyName});
                     lobbyNameMap.emplace(joinRequest->lobbyName, lobbyPtr);
                 } else {
                     log.info(std::to_string(id) + " joins " + joinRequest->lobbyName);
