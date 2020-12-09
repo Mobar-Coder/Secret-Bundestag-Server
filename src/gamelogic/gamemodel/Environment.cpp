@@ -10,6 +10,7 @@
 #include <utility>
 #include <stdexcept>
 #include <random>
+#include <algorithm>
 
 namespace GameModel {
 
