@@ -15,6 +15,9 @@
 #include "../enum/Office.hpp"
 #include "Player.hpp"
 
+#define NUMBER_LAWS_FASCISTS 11
+#define NUMBER_LAWS_LIBERALS 6
+
 /**
  * @namespace The namespace for the game model.
  */

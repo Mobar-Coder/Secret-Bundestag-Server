@@ -43,19 +43,17 @@ namespace GameModel {
         [[nodiscard]] auto getPlayers() const -> const std::vector<Player> &;
 
         /**
-         * //TODO schreiben
          * @developer Bjoern
          * Draw N cards from the normal card pile.
          * @param number
          * @return
          */
-        [[nodiscard]] auto drawNCards(std::size_t number) -> CardRange;
+        auto drawNCards(std::size_t number) -> CardRange;
 
         /**
-         *
-         *
+         * Shuffles the actual Cardpile
          */
-        void restockCardPile();
+        void shuffleCardPile();
 
         /**
          *
@@ -132,6 +130,13 @@ namespace GameModel {
          * @return
          */
         auto getParty(Fraction fraction) -> std::vector<std::shared_ptr<Player>>;
+
+    private:
+        /**
+         *
+         *
+         */
+        void restockCardPile();
 
 
     };

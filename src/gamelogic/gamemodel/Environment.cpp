@@ -9,25 +9,39 @@
 
 #include <utility>
 #include <stdexcept>
+#include <random>
 
 namespace GameModel {
 
     Environment::Environment(std::vector<Player> &players) : players(players) {
+        shuffleCardPile();
     }
 
     auto Environment::drawNCards(const std::size_t number) -> CardRange {
-        std::size_t drawableCards = board.getCardPile().size();
+        std::size_t drawableCards = board.getCardPile().size() + board.getDiscardPile().size();
         if (number > drawableCards) {
             throw std::runtime_error(std::string("Cannot create card range of size ") + std::to_string(number)
-                                     + "! Game has only " + std::to_string(drawableCards) + " left!");
+                                     + "! Game has only " + std::to_string(drawableCards) + " cards!");
         }
 
-        //TODO shuffle
+        if (number > board.getCardPile().size()) {
+            restockCardPile();
+        }
+
         return CardRange(board, number);
     }
 
     void Environment::restockCardPile() {
+        board.getCardPile().insert(board.getCardPile().cend(), board.getDiscardPile().cbegin(),
+                                   board.getDiscardPile().cend());
+        board.getDiscardPile().clear();
+        shuffleCardPile();
+    }
 
+    void Environment::shuffleCardPile() {
+        auto rd = std::random_device{};
+        auto rng = std::default_random_engine{rd()};
+        std::shuffle(board.getCardPile().begin(), board.getCardPile().end(), rng);
     }
 
     // ToDo: check for >3 ?

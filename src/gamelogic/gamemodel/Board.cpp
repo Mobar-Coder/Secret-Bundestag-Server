@@ -13,7 +13,6 @@
 namespace GameModel {
 
     Board::Board() : electionTracker(0),
-                     policyState(std::unordered_map<CardType, std::size_t>()),
                      currentOffices(std::unordered_map<Office, Player>()),
                      pastOffices(std::unordered_map<Office, Player>()),
                      cardPile(std::vector<CardType>()),
@@ -21,6 +20,15 @@ namespace GameModel {
         for (int i = CardType::Fascist; i <= CardType::Liberal; i++) {
             policyState.emplace(CardType(i), 0);
         }
+
+        //Fill CardPile with 6 liberal and 11 fascist laws
+        for (int i = 0; i < NUMBER_LAWS_LIBERALS; i++) {
+            cardPile.emplace_back(CardType::Liberal);
+        }
+        for (int i = 0; i < NUMBER_LAWS_FASCISTS; i++) {
+            cardPile.emplace_back(CardType::Fascist);
+        }
+
     }
 
     auto Board::getElectionTracker() const -> std::size_t {
