@@ -4,8 +4,7 @@
 
 #include <gtest/gtest.h>
 
-#include "src/gamelogic/gamemodel/Player.hpp"
-#include "src/gamelogic/gamemodel//Environment.hpp"
+#include "gamelogic/gamemodel/Environment.hpp"
 
 TEST(einvironment_test, draw_n_cards) {
     GameModel::Player player("Björn", GameModel::Fraction::LiberalParty, GameModel::Role::NoneRole, 0);

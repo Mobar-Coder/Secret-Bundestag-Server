@@ -3,7 +3,7 @@
 //
 
 #include <gtest/gtest.h>
-#include "src/gamelogic/gamemodel/CardRange.hpp"
+#include "gamelogic/gamemodel/CardRange.hpp"
 
 TEST(card_range_test, select_policy) {
     GameModel::Board board{};
