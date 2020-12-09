@@ -45,7 +45,7 @@ namespace GameModel {
         /**
          * //TODO schreiben
          * @developer Bjoern
-         * Draw N cards from the normal card pile., Must be sure, that n cards can be drawn otherwise exception or restock....
+         * Draw N cards from the normal card pile.
          * @param number
          * @return
          */
