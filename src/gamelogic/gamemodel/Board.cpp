@@ -12,11 +12,7 @@
 
 namespace GameModel {
 
-    Board::Board(const std::size_t numberFascistCards, const std::size_t numberLiberalCards) : electionTracker(0),
-                                                                                               currentOffices(),
-                                                                                               pastOffices(),
-                                                                                               cardPile(),
-                                                                                               discardPile() {
+    Board::Board(const std::size_t numberFascistCards, const std::size_t numberLiberalCards) {
         for (int i = CardType::Fascist; i <= CardType::Liberal; i++) {
             policyState.emplace(CardType(i), 0);
         }

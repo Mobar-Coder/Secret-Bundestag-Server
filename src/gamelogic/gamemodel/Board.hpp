@@ -27,8 +27,8 @@ namespace GameModel {
 
     private:
 
-        std::size_t electionTracker;
-        std::unordered_map<CardType, std::size_t> policyState;
+        std::size_t electionTracker{0};
+            std::unordered_map<CardType, std::size_t> policyState;
         std::unordered_map<Office, Player> currentOffices;
         std::unordered_map<Office, Player> pastOffices;
         // The lowest card in the pile is at position cardPile[0], so the next card for the game will be at the end
