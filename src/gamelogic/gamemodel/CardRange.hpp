@@ -35,6 +35,8 @@ namespace GameModel {
 
         CardRange(const CardRange &) = delete;
 
+        CardRange(const CardRange &&) = delete;
+
         CardRange &operator=(const CardRange &) = delete;
 
         CardRange &operator=(CardRange &&) = delete;
