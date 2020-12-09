@@ -29,7 +29,7 @@ namespace GameModel {
 
     public:
 
-        CardRange(Board &board, std::size_t number);
+        CardRange(Board &gameBoard, std::size_t number);
 
         ~CardRange();
 
@@ -41,9 +41,9 @@ namespace GameModel {
 
         auto operator=(CardRange &&) -> CardRange & = delete;
 
-        auto selectForPolicy(const CardType &cardType) -> bool;
+            auto selectForPolicy(const CardType &card) -> bool;
 
-        [[nodiscard]] auto discard(CardType cardType) -> bool;
+            [[nodiscard]] auto discard(CardType card) -> bool;
 
         [[nodiscard]] auto applyToGame() -> bool;
     };

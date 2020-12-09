@@ -42,7 +42,7 @@ namespace GameModel {
         return false;
     }
 
-    bool CardRange::discard(const CardType card) {
+    auto CardRange::discard(const CardType card) -> bool {
         if (applied) {
             return false;
         }
