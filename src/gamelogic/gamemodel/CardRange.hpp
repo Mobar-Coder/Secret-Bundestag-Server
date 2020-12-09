@@ -20,16 +20,16 @@ namespace GameModel {
     class CardRange {
 
     private:
-        std::vector<CardType> initialState;
+        const std::vector<CardType> initialState;
         std::vector<CardType> cards;
         std::vector<CardType> discarded;
         std::optional<CardType> policy;
-        std::shared_ptr<Board> board;
+        Board &board;
         bool applied = false;
 
     public:
 
-        CardRange(std::shared_ptr<Board> board, std::size_t number);
+        CardRange(Board &board, std::size_t number);
 
         ~CardRange();
 
@@ -37,7 +37,7 @@ namespace GameModel {
 
         CardRange &operator=(const CardRange &) = delete;
 
-        CardRange &operator=(const CardRange &&) = delete;
+        CardRange &operator=(CardRange &&) = delete;
 
         bool selectForPolicy(const CardType &cardType);
 

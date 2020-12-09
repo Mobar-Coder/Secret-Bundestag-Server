@@ -45,7 +45,7 @@ namespace GameModel {
         /**
          * //TODO schreiben
          * @developer Bjoern
-         * Draw N cards from the normal card pile.
+         * Draw N cards from the normal card pile., Must be sure, that n cards can be drawn otherwise exception or restock....
          * @param number
          * @return
          */
@@ -55,7 +55,7 @@ namespace GameModel {
          *
          *
          */
-        auto restockCardPile() -> void;
+        void restockCardPile();
 
         /**
          *
@@ -67,31 +67,31 @@ namespace GameModel {
         /**
          *
          */
-        auto resetElectionTracker() -> bool;
+        bool resetElectionTracker();
 
         /**
          *
          * @param player
          * @return
          */
-        auto autoSelectPresident() -> bool;
+        bool autoSelectPresident();
 
         /**
          *
          */
-        auto safePastOffices() -> void;
+        bool safePastOffices();
 
         /**
          *
          */
-        auto resetPastOffices() -> void;
+        bool resetPastOffices();
 
         /**
          * Kill a Player.
          * @param player
          * @return
          */
-        auto killPlayer(std::shared_ptr<Player> player) -> bool;
+        bool killPlayer(std::shared_ptr<Player> player);
 
         /**
          *
@@ -106,13 +106,13 @@ namespace GameModel {
          *
          * @return
          */
-        auto setCandidateForChancelor(std::shared_ptr<Player> player) -> bool;
+        bool setCandidateForChancelor(std::shared_ptr<Player> player);
 
         /**
          *
          * @return
          */
-        auto electChancelor() -> bool;
+        bool electChancelor();
 
         /**
          *

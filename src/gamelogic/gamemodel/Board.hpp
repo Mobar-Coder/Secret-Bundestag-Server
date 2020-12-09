@@ -28,12 +28,12 @@ namespace GameModel {
     private:
 
         std::size_t electionTracker;
-        std::shared_ptr<std::unordered_map<CardType, std::size_t>> policyState;
-        std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> currentOffices;
-        std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> pastOffices;
+        std::unordered_map<CardType, std::size_t> policyState;
+        std::unordered_map<Office, Player> currentOffices;
+        std::unordered_map<Office, Player> pastOffices;
         // The lowest card in the pile is at position cardPile[0], so the next card for the game will be at the end
-        std::shared_ptr<std::vector<CardType>> cardPile;
-        std::shared_ptr<std::vector<CardType>> discardPile;
+        std::vector<CardType> cardPile;
+        std::vector<CardType> discardPile;
 
     public:
 
@@ -58,33 +58,37 @@ namespace GameModel {
         * Get the current policy state, aka. all played cards.
         * @return The current policy state as std::shared_ptr<std::unordered_map<CardType, std::size_t>>.
         */
-        [[nodiscard]] auto getPolicyState() const -> std::shared_ptr<std::unordered_map<CardType, std::size_t>>;
+        [[nodiscard]] auto getPolicyState() const -> const std::unordered_map<CardType, std::size_t> &;
+
+        [[nodiscard]] auto getPolicyState() -> std::unordered_map<CardType, std::size_t> &;
 
         /**
         * Get all current offices.
         * @return The current offices as std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>>.
         */
-        [[nodiscard]] auto getCurrentOffices() const ->
-        std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>>;
+        [[nodiscard]] auto getCurrentOffices() const -> const std::unordered_map<Office, Player> &;
 
         /**
         * Get all offices from the last played round.
         * @return The offices from the last played round as std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>>.
         */
-        [[nodiscard]] auto getPastOffices() const ->
-        std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>>;
+        [[nodiscard]] auto getPastOffices() const -> const std::unordered_map<Office, Player> &;
 
         /**
         * Get the pile of normal cards.
         * @return The pile of normal cards as std::shared_ptr<std::vector<CardType>>.
         */
-        [[nodiscard]] auto getCardPile() const -> std::shared_ptr<std::vector<CardType>>;
+        [[nodiscard]] auto getCardPile() const -> const std::vector<CardType> &;
+
+        [[nodiscard]] auto getCardPile() -> std::vector<CardType> &;
 
         /**
         * Get the pile of discarded cards.
         * @return The pile of discarded cards as std::shared_ptr<std::vector<CardType>>.
         */
-        [[nodiscard]] auto getDiscardPile() const -> std::shared_ptr<std::vector<CardType>>;
+        [[nodiscard]] auto getDiscardPile() const -> const std::vector<CardType> &;
+
+        [[nodiscard]] auto getDiscardPile() -> std::vector<CardType> &;
     };
 }
 

@@ -13,38 +13,53 @@
 namespace GameModel {
 
     Board::Board() : electionTracker(0),
-                     policyState(std::make_shared<std::unordered_map<CardType, std::size_t>>()),
-                     currentOffices(std::make_shared<std::unordered_map<Office, std::shared_ptr<Player>>>()),
-                     pastOffices(std::make_shared<std::unordered_map<Office, std::shared_ptr<Player>>>()),
-                     cardPile(std::make_shared<std::vector<CardType>>()),
-                     discardPile(std::make_shared<std::vector<CardType>>()) {
+                     policyState(std::unordered_map<CardType, std::size_t>()),
+                     currentOffices(std::unordered_map<Office, Player>()),
+                     pastOffices(std::unordered_map<Office, Player>()),
+                     cardPile(std::vector<CardType>()),
+                     discardPile(std::vector<CardType>()) {
+        for (int i = CardType::Fascist; i <= CardType::Liberal; i++) {
+            policyState.emplace(CardType(i), 0);
+        }
     }
 
     auto Board::getElectionTracker() const -> std::size_t {
         return electionTracker;
     }
 
-    void Board::setElectionTracker(std::size_t elecTracker) {
+    void Board::setElectionTracker(const std::size_t elecTracker) {
         this->electionTracker = elecTracker;
     }
 
-    auto Board::getPolicyState() const -> std::shared_ptr<std::unordered_map<CardType, std::size_t>> {
+    auto Board::getPolicyState() const -> const std::unordered_map<CardType, std::size_t> & {
         return policyState;
     }
 
-    auto Board::getCurrentOffices() const -> std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> {
+    auto Board::getPolicyState() -> std::unordered_map<CardType, std::size_t> & {
+        return policyState;
+    }
+
+    auto Board::getCurrentOffices() const -> const std::unordered_map<Office, Player> & {
         return currentOffices;
     }
 
-    auto Board::getPastOffices() const -> std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>> {
+    auto Board::getPastOffices() const -> const std::unordered_map<Office, Player> & {
         return pastOffices;
     }
 
-    auto Board::getCardPile() const -> std::shared_ptr<std::vector<CardType>> {
+    auto Board::getCardPile() const -> const std::vector<CardType> & {
         return cardPile;
     }
 
-    auto Board::getDiscardPile() const -> std::shared_ptr<std::vector<CardType>> {
+    auto Board::getCardPile() -> std::vector<CardType> & {
+        return cardPile;
+    }
+
+    auto Board::getDiscardPile() const -> const std::vector<CardType> & {
+        return discardPile;
+    }
+
+    auto Board::getDiscardPile() -> std::vector<CardType> & {
         return discardPile;
     }
 }

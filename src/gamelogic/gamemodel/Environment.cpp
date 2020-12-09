@@ -12,14 +12,14 @@
 namespace GameModel {
 
     Environment::Environment(std::shared_ptr<std::vector<Player>> players) :
-        board(std::make_shared<Board>()), players(std::move(players)) {
+            board(std::make_shared<Board>()), players(std::move(players)) {
     }
 
     auto Environment::drawNCards(std::size_t number) -> CardRange {
-        return CardRange(board, number);
+        return CardRange(*board, number);
     }
 
-    auto Environment::restockCardPile() -> void {
+    void Environment::restockCardPile() {
 
     }
 
@@ -43,8 +43,9 @@ namespace GameModel {
     */
 
     // ToDo: implement
-    auto Environment::resetPastOffices() -> void {
+    bool Environment::resetPastOffices() {
 
+        return false;
     }
 
     // ToDo: implement
