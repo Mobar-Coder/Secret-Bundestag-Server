@@ -37,15 +37,15 @@ namespace GameModel {
 
         CardRange(const CardRange &&) = delete;
 
-        CardRange &operator=(const CardRange &) = delete;
+        auto operator=(const CardRange &) -> CardRange & = delete;
 
-        CardRange &operator=(CardRange &&) = delete;
+        auto operator=(CardRange &&) -> CardRange & = delete;
 
-        bool selectForPolicy(const CardType &cardType);
+        auto selectForPolicy(const CardType &cardType) -> bool;
 
-        [[nodiscard]] bool discard(CardType cardType);
+        [[nodiscard]] auto discard(CardType cardType) -> bool;
 
-        [[nodiscard]] bool applyToGame();
+        [[nodiscard]] auto applyToGame() -> bool;
     };
 }
 

@@ -27,7 +27,7 @@ namespace GameModel {
         }
     }
 
-    bool CardRange::selectForPolicy(const CardType &card) {
+    auto CardRange::selectForPolicy(const CardType &card) -> bool {
         if (policy.has_value() || applied) {
             return false;
         }
@@ -57,7 +57,7 @@ namespace GameModel {
         return false;
     }
 
-    bool CardRange::applyToGame() {
+    auto CardRange::applyToGame() -> bool {
         if (applied) {
             return false;
         }
