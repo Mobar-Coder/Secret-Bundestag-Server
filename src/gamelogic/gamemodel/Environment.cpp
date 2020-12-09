@@ -11,12 +11,18 @@
 
 namespace GameModel {
 
-    Environment::Environment(std::shared_ptr<std::vector<Player>> players) :
-            board(std::make_shared<Board>()), players(std::move(players)) {
+    Environment::Environment(std::vector<Player> &players) : players(players) {
     }
 
-    auto Environment::drawNCards(std::size_t number) -> CardRange {
-        return CardRange(*board, number);
+    auto Environment::drawNCards(const std::size_t number) -> CardRange {
+        std::size_t drawableCards = board.getCardPile().size();
+        if (number > drawableCards) {
+            throw std::runtime_error(std::string("Cannot create card range of size ") + std::to_string(number)
+                                     + "! Game has only " + std::to_string(drawableCards) + " left!");
+        }
+
+        //TODO shuffle
+        return CardRange(board, number);
     }
 
     void Environment::restockCardPile() {
@@ -25,8 +31,8 @@ namespace GameModel {
 
     // ToDo: check for >3 ?
     auto Environment::incrementElectionTracker() -> std::size_t {
-        board->setElectionTracker(board->getElectionTracker() + 1);
-        return board->getElectionTracker();
+        board.setElectionTracker(board.getElectionTracker() + 1);
+        return board.getElectionTracker();
     }
 
     /*

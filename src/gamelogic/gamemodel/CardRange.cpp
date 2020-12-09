@@ -15,11 +15,6 @@ namespace GameModel {
     CardRange::CardRange(Board &gameBoard, const std::size_t number) : initialState(
             std::vector<CardType>{gameBoard.getCardPile().crbegin(), gameBoard.getCardPile().crbegin() + number}),
                                                                        board(gameBoard) {
-        /*std::size_t drawableCards = this->board.getCardPile().size();
-        if (number > drawableCards) {
-            throw std::runtime_error(std::string("Cannot create card range of size ") + std::to_string(number)
-                                     + "! Game has only " + std::to_string(drawableCards) + " left!");
-        }*/
 
         cards = std::vector<CardType>{board.getCardPile().crbegin(), board.getCardPile().crbegin() + number};
         board.getCardPile().erase(board.getCardPile().cend() - number, board.getCardPile().cend());

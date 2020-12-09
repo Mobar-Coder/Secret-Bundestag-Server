@@ -25,8 +25,8 @@ namespace GameModel {
     class Environment {
 
     private:
-        std::shared_ptr<Board> board;
-        std::shared_ptr<std::vector<Player>> players;
+        Board board{};
+        std::vector<Player> players;
 
     public:
 
@@ -34,13 +34,13 @@ namespace GameModel {
          * Main constructor for the Environment class.
          * @param players
          */
-        explicit Environment(std::shared_ptr<std::vector<Player>> players);
+        Environment(std::vector<Player> &players);
 
         /**
          * Get all players.
          * @return All Players as std::shared_ptr<std::vector<Player>>.
          */
-        [[nodiscard]] auto getPlayers() const -> std::shared_ptr<std::vector<Player>>;
+        [[nodiscard]] auto getPlayers() const -> const std::vector<Player> &;
 
         /**
          * //TODO schreiben
@@ -49,7 +49,7 @@ namespace GameModel {
          * @param number
          * @return
          */
-        auto drawNCards(std::size_t number) -> CardRange;
+        [[nodiscard]] auto drawNCards(std::size_t number) -> CardRange;
 
         /**
          *
