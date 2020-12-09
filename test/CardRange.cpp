@@ -43,10 +43,16 @@ TEST(card_range_test, discard_card) {
 
 TEST(card_range_test, apply_to_game) {
     GameModel::Board board{};
+    GameModel::CardRange cardRange{board, 3};
 
-    GameModel::CardRange cardRange{board, 2};
+    EXPECT_TRUE(cardRange.discard(GameModel::CardType::Fascist));
+    EXPECT_TRUE(cardRange.discard(GameModel::CardType::Fascist));
     EXPECT_TRUE(cardRange.selectForPolicy(GameModel::CardType::Fascist));
+    EXPECT_EQ(board.getDiscardPile().size(), 0);
     EXPECT_TRUE(cardRange.applyToGame());
+
     EXPECT_EQ(board.getPolicyState().find(GameModel::CardType::Fascist)->second, 1);
     EXPECT_EQ(board.getPolicyState().find(GameModel::CardType::Liberal)->second, 0);
+    EXPECT_EQ(board.getCardPile().size(), 14);
+    EXPECT_EQ(board.getDiscardPile().size(), 2);
 }

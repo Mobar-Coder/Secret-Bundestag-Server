@@ -26,7 +26,7 @@ namespace GameModel {
 
     private:
         Board board{};
-        std::vector<Player> players;
+        const std::vector<Player> &players;
 
     public:
 
@@ -34,7 +34,7 @@ namespace GameModel {
          * Main constructor for the Environment class.
          * @param players
          */
-        Environment(std::vector<Player> &players);
+        explicit Environment(const std::vector<Player> &players);
 
         /**
          * Get all players.

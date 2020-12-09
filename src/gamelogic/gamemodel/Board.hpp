@@ -15,9 +15,6 @@
 #include "../enum/Office.hpp"
 #include "Player.hpp"
 
-#define NUMBER_LAWS_FASCISTS 11
-#define NUMBER_LAWS_LIBERALS 6
-
 /**
  * @namespace The namespace for the game model.
  */
@@ -43,7 +40,7 @@ namespace GameModel {
         /**
         * Main constructor for the Board class.
         */
-        Board();
+        explicit Board(std::size_t numberFascistCards = 11, std::size_t numberLiberalCards = 6);
 
         /**
         * Get the current value of the election tracker.
@@ -58,11 +55,15 @@ namespace GameModel {
         void setElectionTracker(std::size_t elecTracker);
 
         /**
-        * Get the current policy state, aka. all played cards.
-        * @return The current policy state as std::shared_ptr<std::unordered_map<CardType, std::size_t>>.
+        * Get the current policy state, aka. all played cards as const reference.
+        * @return The current policy state as const std::shared_ptr<std::unordered_map<CardType, std::size_t>>.
         */
         [[nodiscard]] auto getPolicyState() const -> const std::unordered_map<CardType, std::size_t> &;
 
+        /**
+        * Get the current policy state, aka. all played cards as non-const reference.
+        * @return The current policy state as std::shared_ptr<std::unordered_map<CardType, std::size_t>>.
+        */
         [[nodiscard]] auto getPolicyState() -> std::unordered_map<CardType, std::size_t> &;
 
         /**

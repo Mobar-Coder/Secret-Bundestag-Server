@@ -11,9 +11,9 @@
 #include <algorithm>
 
 namespace GameModel {
-    CardRange::CardRange(Board &gameBoard, const std::size_t number) : initialState(
-            std::vector<CardType>{gameBoard.getCardPile().crbegin(), gameBoard.getCardPile().crbegin() + number}),
-                                                                       board(gameBoard) {
+    CardRange::CardRange(Board &gameBoard, const std::size_t number) : initialState(gameBoard.getCardPile().crbegin(),
+                                                                                    gameBoard.getCardPile().crbegin() +
+                                                                                    number), board(gameBoard) {
 
         cards = std::vector<CardType>{board.getCardPile().crbegin(), board.getCardPile().crbegin() + number};
         board.getCardPile().erase(board.getCardPile().cend() - number, board.getCardPile().cend());
