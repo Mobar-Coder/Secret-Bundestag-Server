@@ -9,6 +9,7 @@
 
 #include <utility>
 #include <algorithm>
+#include <stdexcept>
 
 namespace GameModel {
     CardRange::CardRange(Board &gameBoard, const std::size_t number) : initialState(gameBoard.getCardPile().crbegin(),
@@ -35,7 +36,11 @@ namespace GameModel {
         auto result = std::find(cards.cbegin(), cards.cend(), card);
         if (result != cards.end()) {
             policy.emplace(card);
-            cards.erase(result);
+            for(auto rest : cards){
+                if(!discard(rest)){
+                    throw std::runtime_error("Could not discard alle left cards");
+                }
+            }
             return true;
         }
 
