@@ -66,7 +66,7 @@ namespace comm {
         auto it = this->connections.find(id);
         if (it != this->connections.end()) {
             this->connections.erase(it);
-            onClose(it->first);
+            onClose(id);
         }
     }
 }
