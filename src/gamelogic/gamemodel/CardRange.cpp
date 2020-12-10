@@ -9,7 +9,6 @@
 
 #include <utility>
 #include <algorithm>
-#include <stdexcept>
 
 namespace GameModel {
     CardRange::CardRange(Board &gameBoard, const std::size_t number) : initialState(gameBoard.getCardPile().crbegin(),

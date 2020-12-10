@@ -11,6 +11,7 @@
 #include <vector>
 #include <optional>
 #include <memory>
+#include <stdexcept>
 
 #include "../enum/CardType.hpp"
 #include "Board.hpp"
