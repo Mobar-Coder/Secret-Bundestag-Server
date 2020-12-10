@@ -65,14 +65,14 @@ namespace GameModel {
         /**
          *
          */
-        bool resetElectionTracker();
+        auto  resetElectionTracker() -> void;
 
         /**
          *
          * @param player
          * @return
          */
-        bool autoSelectPresident();
+        auto autoSelectPresident() -> void;
 
         /**
          *
@@ -82,7 +82,7 @@ namespace GameModel {
         /**
          *
          */
-        bool resetPastOffices();
+        auto resetPastOffices() -> void;
 
         /**
          * Kill a Player.
