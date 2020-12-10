@@ -65,7 +65,7 @@ namespace GameModel {
     */
 
     // ToDo: implement
-    auto Environment::resetPastOffices() ->void {
+    auto Environment::resetPastOffices() -> void {
 
     }
 

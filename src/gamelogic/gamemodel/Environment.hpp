@@ -24,119 +24,119 @@ namespace GameModel {
      */
     class Environment {
 
-    private:
-        Board board{};
-        const std::vector<Player> &players;
+        private:
+            Board board{};
+            const std::vector<Player> &players;
 
-    public:
+        public:
 
-        /**
-         * Main constructor for the Environment class.
-         * @param players
-         */
-        explicit Environment(const std::vector<Player> &players);
+            /**
+             * Main constructor for the Environment class.
+             * @param players
+             */
+            explicit Environment(const std::vector<Player> &players);
 
-        /**
-         * Get all players.
-         * @return All Players as std::shared_ptr<std::vector<Player>>.
-         */
-        [[nodiscard]] auto getPlayers() const -> const std::vector<Player> &;
+            /**
+             * Get all players.
+             * @return All Players as std::shared_ptr<std::vector<Player>>.
+             */
+            [[nodiscard]] auto getPlayers() const -> const std::vector<Player> &;
 
-        /**
-         * @developer Bjoern
-         * Draw N cards from the normal card pile.
-         * @param number
-         * @return
-         */
-        auto drawNCards(std::size_t number) -> CardRange;
+            /**
+             * @developer Bjoern
+             * Draw N cards from the normal card pile.
+             * @param number
+             * @return
+             */
+            auto drawNCards(std::size_t number) -> CardRange;
 
-        /**
-         * Shuffles the actual Cardpile
-         */
-        void shuffleCardPile();
+            /**
+             * Shuffles the actual Cardpile
+             */
+            void shuffleCardPile();
 
-        /**
-         *
-         *
-         * @return
-         */
-        auto incrementElectionTracker() -> std::size_t;
+            /**
+             *
+             *
+             * @return
+             */
+            auto incrementElectionTracker() -> std::size_t;
 
-        /**
-         *
-         */
-        auto  resetElectionTracker() -> void;
+            /**
+             *
+             */
+            auto resetElectionTracker() -> void;
 
-        /**
-         *
-         * @param player
-         * @return
-         */
-        auto autoSelectPresident() -> void;
+            /**
+             *
+             * @param player
+             * @return
+             */
+            auto autoSelectPresident() -> void;
 
-        /**
-         *
-         */
-        bool safePastOffices();
+            /**
+             *
+             */
+            bool safePastOffices();
 
-        /**
-         *
-         */
-        auto resetPastOffices() -> void;
+            /**
+             *
+             */
+            auto resetPastOffices() -> void;
 
-        /**
-         * Kill a Player.
-         * @param player
-         * @return
-         */
-        bool killPlayer(std::shared_ptr<Player> player);
+            /**
+             * Kill a Player.
+             * @param player
+             * @return
+             */
+            bool killPlayer(std::shared_ptr<Player> player);
 
-        /**
-         *
-         * ToDo: Was soll hier nochmal zurück gegeben werden?
-         * @param player
-         * @return
-         */
-        auto getGameState(std::shared_ptr<Player> player) -> GameStateRepresentation;
+            /**
+             *
+             * ToDo: Was soll hier nochmal zurück gegeben werden?
+             * @param player
+             * @return
+             */
+            auto getGameState(std::shared_ptr<Player> player) -> GameStateRepresentation;
 
 
-        /**
-         *
-         * @return
-         */
-        bool setCandidateForChancelor(std::shared_ptr<Player> player);
+            /**
+             *
+             * @return
+             */
+            bool setCandidateForChancelor(std::shared_ptr<Player> player);
 
-        /**
-         *
-         * @return
-         */
-        bool electChancelor();
+            /**
+             *
+             * @return
+             */
+            bool electChancelor();
 
-        /**
-         *
-         * @return
-         */
-        auto getPresident() -> std::shared_ptr<Player>;
+            /**
+             *
+             * @return
+             */
+            auto getPresident() -> std::shared_ptr<Player>;
 
-        /**
-         *
-         * @return
-         */
-        auto getChancelor() -> std::shared_ptr<Player>;
+            /**
+             *
+             * @return
+             */
+            auto getChancelor() -> std::shared_ptr<Player>;
 
-        /**
-         *
-         * @param fraction
-         * @return
-         */
-        auto getParty(Fraction fraction) -> std::vector<std::shared_ptr<Player>>;
+            /**
+             *
+             * @param fraction
+             * @return
+             */
+            auto getParty(Fraction fraction) -> std::vector<std::shared_ptr<Player>>;
 
-    private:
-        /**
-         *
-         *
-         */
-        void restockCardPile();
+        private:
+            /**
+             *
+             *
+             */
+            void restockCardPile();
 
 
     };

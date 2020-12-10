@@ -18,7 +18,7 @@ namespace GameModel {
 
         public:
 
-            Player(std::string  name, Fraction fraction, Role role, std::size_t sessId);
+            Player(std::string name, Fraction fraction, Role role, std::size_t sessId);
 
             [[nodiscard]] const std::string &getName() const;
 
