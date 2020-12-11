@@ -9,7 +9,9 @@
 #define SECRETBUNDESTAGSERVER_CARDTYPE_HPP
 
 namespace GameModel{
-    enum class CardType{Fascist, Liberal};
+    enum class CardType {
+            FASCIST, LIBERAL
+    };
 }
 
 #endif // SECRETBUNDESTAGSERVER_CARDTYPE_HPP

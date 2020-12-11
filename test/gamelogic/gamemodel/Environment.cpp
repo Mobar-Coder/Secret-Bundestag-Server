@@ -7,7 +7,7 @@
 #include "gamelogic/gamemodel/Environment.hpp"
 
 TEST(GameModel_Environment, draw_n_cards) {
-    GameModel::Player player("Björn", GameModel::Fraction::LiberalParty, GameModel::Role::NoneRole, 0);
+    GameModel::Player player("Björn", GameModel::Fraction::LIBERAL_PARTY, GameModel::Role::NONE_ROLE, 0);
     std::vector<GameModel::Player> players;
     players.emplace_back(player);
     GameModel::Environment environment(players);

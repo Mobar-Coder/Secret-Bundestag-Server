@@ -15,8 +15,8 @@ namespace GameModel {
     Board::Board(const std::size_t numberFascistCards, const std::size_t numberLiberalCards) {
 
         cardPile.resize(numberLiberalCards + numberFascistCards);
-        std::fill_n(cardPile.begin(), numberLiberalCards, CardType::Liberal);
-        std::fill_n(cardPile.begin() + numberLiberalCards, numberFascistCards, CardType::Fascist);
+        std::fill_n(cardPile.begin(), numberLiberalCards, CardType::LIBERAL);
+        std::fill_n(cardPile.begin() + numberLiberalCards, numberFascistCards, CardType::FASCIST);
 
     }
 

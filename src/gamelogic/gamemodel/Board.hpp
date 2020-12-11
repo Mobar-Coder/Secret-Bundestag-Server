@@ -26,8 +26,8 @@ namespace GameModel {
     class Board {
 
         private:
-            static constexpr int DEFAULTNUMBERFASCISTS = 11;
-            static constexpr int DEFAULTNUMBERLIBERAL = 6;
+            static constexpr int DEFAULT_NUMBER_FASCISTS = 11;
+            static constexpr int DEFAULT_NUMBER_LIBERAL = 6;
 
             std::size_t electionTracker{0};
             std::unordered_map<CardType, std::size_t> policyState;
@@ -42,8 +42,8 @@ namespace GameModel {
             /**
             * Main constructor for the Board class.
             */
-            explicit Board(std::size_t numberFascistCards = DEFAULTNUMBERFASCISTS,
-                           std::size_t numberLiberalCards = DEFAULTNUMBERLIBERAL);
+            explicit Board(std::size_t numberFascistCards = DEFAULT_NUMBER_FASCISTS,
+                           std::size_t numberLiberalCards = DEFAULT_NUMBER_LIBERAL);
 
             /**
             * Get the current value of the election tracker.
