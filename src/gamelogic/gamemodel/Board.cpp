@@ -2,7 +2,7 @@
  * @file Board.cpp
  * @author jonas
  * @date 01.12.20
- * Description here TODO
+ * Description here
  */
 
 #include <algorithm>
@@ -14,13 +14,9 @@ namespace GameModel {
 
     Board::Board(const std::size_t numberFascistCards, const std::size_t numberLiberalCards) {
 
-        //TODO std::fill_n
-        for (std::size_t i = 0; i < numberLiberalCards; i++) {
-            cardPile.emplace_back(CardType::Liberal);
-        }
-        for (std::size_t i = 0; i < numberFascistCards; i++) {
-            cardPile.emplace_back(CardType::Fascist);
-        }
+        cardPile.resize(numberLiberalCards + numberFascistCards);
+        std::fill_n(cardPile.begin(), numberLiberalCards, CardType::Liberal);
+        std::fill_n(cardPile.begin() + numberLiberalCards, numberFascistCards, CardType::Fascist);
 
     }
 

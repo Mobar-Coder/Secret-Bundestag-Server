@@ -2,7 +2,7 @@
  * @file CardRange.hpp
  * @author bjoern
  * @date 01.12.20
- * Description here TODO
+ * Description here
  */
 
 #ifndef SECRETBUNDESTAGSERVER_CARDRANGE_HPP
@@ -21,7 +21,7 @@ namespace GameModel {
     class CardRange {
 
         private:
-            const std::vector<CardType> initialState;
+            std::vector<CardType> initialState;
             std::vector<CardType> cards;
             std::vector<CardType> discarded;
             std::optional<CardType> policy;
@@ -43,6 +43,8 @@ namespace GameModel {
             auto operator=(CardRange &&) -> CardRange & = delete;
 
             auto selectForPolicy(const CardType &card) -> bool;
+
+            auto discardRemainingCards() -> bool;
 
             [[nodiscard]] auto discard(CardType card) -> bool;
 

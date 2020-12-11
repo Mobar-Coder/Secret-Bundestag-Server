@@ -2,7 +2,7 @@
  * @file CardRange.cpp
  * @author bjoern
  * @date 01.12.20
- * Description here TODO
+ * Description here
  */
 
 #include "CardRange.hpp"
@@ -11,11 +11,15 @@
 #include <algorithm>
 
 namespace GameModel {
-    //TODO initialstate nicht const
-    CardRange::CardRange(Board &gameBoard, const std::size_t number) : initialState(gameBoard.getCardPile().crbegin(),
-                                                                                    gameBoard.getCardPile().crbegin() +
-                                                                                    number), board(gameBoard) {
+    CardRange::CardRange(Board &gameBoard, const std::size_t number) : board(gameBoard) {
+        std::size_t drawableCards = board.getCardPile().size() + board.getDiscardPile().size();
+        if (number > drawableCards) {
+            throw std::runtime_error("Cannot create card range of size " + std::to_string(number)
+                                     + "! Game has only " + std::to_string(drawableCards) + " cards!");
+        }
 
+        initialState = std::vector<CardType>(gameBoard.getCardPile().crbegin(),
+                                             gameBoard.getCardPile().crbegin() + number);
         cards = std::vector<CardType>{board.getCardPile().crbegin(), board.getCardPile().crbegin() + number};
         board.getCardPile().erase(board.getCardPile().cend() - number, board.getCardPile().cend());
     }
@@ -36,16 +40,25 @@ namespace GameModel {
         auto result = std::find(cards.cbegin(), cards.cend(), card);
         if (result != cards.end()) {
             policy.emplace(card);
-            for(auto rest : cards){
-                //TODO discard remaining cards als extra methode
-                if(!discard(rest)){
-                    throw std::runtime_error("Could not discard alle left cards");
-                }
-            }
+            discarded.emplace_back(card);
+            cards.erase(result);
             return true;
         }
 
         return false;
+    }
+
+    auto CardRange::discardRemainingCards() -> bool {
+        if (applied) {
+            return false;
+        }
+
+        for (auto rest : cards) {
+            if (!discard(rest)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     auto CardRange::discard(const CardType card) -> bool {

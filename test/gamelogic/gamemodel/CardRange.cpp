@@ -6,15 +6,23 @@
 #include "gamelogic/gamemodel/CardRange.hpp"
 
 //TODO Test für mehr als 1 Karte wäheln und für falsche Karte
-TEST(GameModel_CardRange, select_policy) {
+TEST(GameModel_CardRange, select_policy0) {
     GameModel::Board board{};
 
     GameModel::CardRange cardRange{board, 1};
-    EXPECT_TRUE(cardRange.selectForPolicy(GameModel::CardType::Fascist));
     EXPECT_FALSE(cardRange.selectForPolicy(GameModel::CardType::Liberal));
+    EXPECT_TRUE(cardRange.selectForPolicy(GameModel::CardType::Fascist));
 }
 
-TEST(card_range_test, constructor0) {
+TEST(GameModel_CardRange, select_policy1) {
+    GameModel::Board board{};
+
+    GameModel::CardRange cardRange{board, 3};
+    EXPECT_TRUE(cardRange.selectForPolicy(GameModel::CardType::Fascist));
+    EXPECT_FALSE(cardRange.selectForPolicy(GameModel::CardType::Fascist));
+}
+
+TEST(GameModel_CardRange, constructor0) {
     GameModel::Board board{};
 
     GameModel::CardRange cardRange{board, 2};
@@ -23,7 +31,7 @@ TEST(card_range_test, constructor0) {
     EXPECT_EQ(board.getCardPile().size(), 15);
 }
 
-TEST(card_range_test, destructor) {
+TEST(GameModel_CardRange, destructor) {
     GameModel::Board board{};
 
     {
@@ -34,7 +42,7 @@ TEST(card_range_test, destructor) {
     EXPECT_EQ(board.getCardPile().size(), 17);
 }
 
-TEST(card_range_test, discard_card) {
+TEST(GameModel_CardRange, discard_card) {
     GameModel::Board board{};
 
     GameModel::CardRange cardRange{board, 2};
@@ -42,7 +50,7 @@ TEST(card_range_test, discard_card) {
     EXPECT_FALSE(cardRange.discard(GameModel::CardType::Liberal));
 }
 
-TEST(card_range_test, apply_to_game0) {
+TEST(GameModel_CardRange, apply_to_game0) {
     GameModel::Board board{};
     GameModel::CardRange cardRange{board, 3};
 
@@ -58,13 +66,29 @@ TEST(card_range_test, apply_to_game0) {
     EXPECT_EQ(board.getDiscardPile().size(), 3);
 }
 
-TEST(card_range_test, apply_to_game1) {
+TEST(GameModel_CardRange, apply_to_game1) {
     GameModel::Board board{};
     GameModel::CardRange cardRange{board, 3};
 
     EXPECT_TRUE(cardRange.discard(GameModel::CardType::Fascist));
     EXPECT_TRUE(cardRange.selectForPolicy(GameModel::CardType::Fascist));
     EXPECT_EQ(board.getDiscardPile().size(), 0);
+    EXPECT_TRUE(cardRange.applyToGame());
+
+    EXPECT_EQ(board.getNumberOfPolicy(GameModel::CardType::Fascist), 1);
+    EXPECT_EQ(board.getNumberOfPolicy(GameModel::CardType::Liberal), 0);
+    EXPECT_EQ(board.getCardPile().size(), 15);
+    EXPECT_EQ(board.getDiscardPile().size(), 2);
+}
+
+TEST(GameModel_CardRange, apply_to_game2) {
+    GameModel::Board board{};
+    GameModel::CardRange cardRange{board, 3};
+
+    EXPECT_TRUE(cardRange.discard(GameModel::CardType::Fascist));
+    EXPECT_TRUE(cardRange.selectForPolicy(GameModel::CardType::Fascist));
+    EXPECT_EQ(board.getDiscardPile().size(), 0);
+    EXPECT_TRUE(cardRange.discardRemainingCards());
     EXPECT_TRUE(cardRange.applyToGame());
 
     EXPECT_EQ(board.getNumberOfPolicy(GameModel::CardType::Fascist), 1);

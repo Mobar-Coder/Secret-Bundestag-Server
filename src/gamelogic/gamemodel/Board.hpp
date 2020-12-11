@@ -2,7 +2,7 @@
  * @file Board.hpp
  * @author jonas
  * @date 01.12.20
- * Description here TODO
+ * Description here
  */
 
 #ifndef SECRETBUNDESTAGSERVER_BOARD_HPP
@@ -26,6 +26,8 @@ namespace GameModel {
     class Board {
 
         private:
+            static constexpr int fascistCardsSHGameRules = 11;
+            static constexpr int liberalCardsSHGameRules = 6;
 
             std::size_t electionTracker{0};
             std::unordered_map<CardType, std::size_t> policyState;
@@ -40,8 +42,8 @@ namespace GameModel {
             /**
             * Main constructor for the Board class.
             */
-            //TODO const expr
-            explicit Board(std::size_t numberFascistCards = 11, std::size_t numberLiberalCards = 6);
+            explicit Board(std::size_t numberFascistCards = fascistCardsSHGameRules,
+                           std::size_t numberLiberalCards = liberalCardsSHGameRules);
 
             /**
             * Get the current value of the election tracker.
@@ -82,6 +84,11 @@ namespace GameModel {
 
             [[nodiscard]] auto getCardPile() -> std::vector<CardType> &;
 
+            /**
+             *
+             * @param card
+             * @param number
+             */
             void setNumberOfPolicy(CardType card, std::size_t number);
 
             /**
@@ -90,8 +97,15 @@ namespace GameModel {
             */
             [[nodiscard]] auto getDiscardPile() const -> const std::vector<CardType> &;
 
+            /**
+             *
+             * @return
+             */
             [[nodiscard]] auto getDiscardPile() -> std::vector<CardType> &;
 
+            /**
+             *
+             */
             friend class CardRange;
     };
 }

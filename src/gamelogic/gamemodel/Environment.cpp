@@ -18,11 +18,6 @@ namespace GameModel {
     }
 
     auto Environment::drawNCards(const std::size_t number) -> CardRange {
-        std::size_t drawableCards = board.getCardPile().size() + board.getDiscardPile().size();
-        if (number > drawableCards) {
-            throw std::runtime_error("Cannot create card range of size " + std::to_string(number)
-                                     + "! Game has only " + std::to_string(drawableCards) + " cards!");
-        }
 
         if (number > board.getCardPile().size()) {
             restockCardPile();
