@@ -40,7 +40,8 @@ namespace GameModel {
             /**
             * Main constructor for the Board class.
             */
-            explicit Board(std::size_t numberFascistCards = 11, std::size_t numberLiberalCards = 6);
+            //TODO const expr
+            Board(std::size_t numberFascistCards = 11, std::size_t numberLiberalCards = 6);
 
             /**
             * Get the current value of the election tracker.
@@ -55,16 +56,11 @@ namespace GameModel {
             void setElectionTracker(std::size_t elecTracker);
 
             /**
-            * Get the current policy state, aka. all played cards as const reference.
-            * @return The current policy state as const std::shared_ptr<std::unordered_map<CardType, std::size_t>>.
-            */
-            [[nodiscard]] auto getPolicyState() const -> const std::unordered_map<CardType, std::size_t> &;
-
-            /**
-            * Get the current policy state, aka. all played cards as non-const reference.
-            * @return The current policy state as std::shared_ptr<std::unordered_map<CardType, std::size_t>>.
-            */
-            [[nodiscard]] auto getPolicyState() -> std::unordered_map<CardType, std::size_t> &;
+             *
+             * @param card
+             * @return
+             */
+            auto getNumberOfPolicy(CardType card) const -> std::size_t;
 
             /**
             * Get all current offices.
@@ -86,6 +82,8 @@ namespace GameModel {
 
             [[nodiscard]] auto getCardPile() -> std::vector<CardType> &;
 
+            void setNumberOfPolicy(CardType card, std::size_t number);
+
             /**
             * Get the pile of discarded cards.
             * @return The pile of discarded cards as std::shared_ptr<std::vector<CardType>>.
@@ -93,6 +91,8 @@ namespace GameModel {
             [[nodiscard]] auto getDiscardPile() const -> const std::vector<CardType> &;
 
             [[nodiscard]] auto getDiscardPile() -> std::vector<CardType> &;
+
+            friend class CardRange;
     };
 }
 

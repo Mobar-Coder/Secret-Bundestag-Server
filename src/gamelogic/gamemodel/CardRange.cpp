@@ -11,6 +11,7 @@
 #include <algorithm>
 
 namespace GameModel {
+    //TODO initialstate nicht const
     CardRange::CardRange(Board &gameBoard, const std::size_t number) : initialState(gameBoard.getCardPile().crbegin(),
                                                                                     gameBoard.getCardPile().crbegin() +
                                                                                     number), board(gameBoard) {
@@ -36,6 +37,7 @@ namespace GameModel {
         if (result != cards.end()) {
             policy.emplace(card);
             for(auto rest : cards){
+                //TODO discard remaining cards als extra methode
                 if(!discard(rest)){
                     throw std::runtime_error("Could not discard alle left cards");
                 }
@@ -68,11 +70,10 @@ namespace GameModel {
 
         applied = true;
         if (policy.has_value()) {
-            auto &policyStateMap = board.getPolicyState();
-            policyStateMap.find(*policy)->second++;
+            board.setNumberOfPolicy(*policy, board.getNumberOfPolicy(*policy) + 1);
         }
 
-        for (const auto &card : discarded) {
+        for (auto card : discarded) {
             board.getDiscardPile().emplace_back(card);
         }
 

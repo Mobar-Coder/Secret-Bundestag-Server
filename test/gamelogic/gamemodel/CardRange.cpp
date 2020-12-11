@@ -5,7 +5,8 @@
 #include <gtest/gtest.h>
 #include "gamelogic/gamemodel/CardRange.hpp"
 
-TEST(card_range_test, select_policy) {
+//TODO Test für mehr als 1 Karte wäheln und für falsche Karte
+TEST(GameModel_CardRange, select_policy) {
     GameModel::Board board{};
 
     GameModel::CardRange cardRange{board, 1};
@@ -51,8 +52,8 @@ TEST(card_range_test, apply_to_game0) {
     EXPECT_EQ(board.getDiscardPile().size(), 0);
     EXPECT_TRUE(cardRange.applyToGame());
 
-    EXPECT_EQ(board.getPolicyState().find(GameModel::CardType::Fascist)->second, 1);
-    EXPECT_EQ(board.getPolicyState().find(GameModel::CardType::Liberal)->second, 0);
+    EXPECT_EQ(board.getNumberOfPolicy(GameModel::CardType::Fascist), 1);
+    EXPECT_EQ(board.getNumberOfPolicy(GameModel::CardType::Liberal), 0);
     EXPECT_EQ(board.getCardPile().size(), 14);
     EXPECT_EQ(board.getDiscardPile().size(), 3);
 }
@@ -66,8 +67,8 @@ TEST(card_range_test, apply_to_game1) {
     EXPECT_EQ(board.getDiscardPile().size(), 0);
     EXPECT_TRUE(cardRange.applyToGame());
 
-    EXPECT_EQ(board.getPolicyState().find(GameModel::CardType::Fascist)->second, 1);
-    EXPECT_EQ(board.getPolicyState().find(GameModel::CardType::Liberal)->second, 0);
+    EXPECT_EQ(board.getNumberOfPolicy(GameModel::CardType::Fascist), 1);
+    EXPECT_EQ(board.getNumberOfPolicy(GameModel::CardType::Liberal), 0);
     EXPECT_EQ(board.getCardPile().size(), 14);
     EXPECT_EQ(board.getDiscardPile().size(), 3);
 }

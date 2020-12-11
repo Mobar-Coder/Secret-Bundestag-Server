@@ -9,7 +9,7 @@
 #define SECRETBUNDESTAGSERVER_ROLE_HPP
 
 namespace GameModel{
-    enum Role{NoneRole, Hitler};
+    enum class Role{NoneRole, Hitler};
 }
 
 #endif // SECRETBUNDESTAGSERVER_ROLE_HPP

@@ -9,7 +9,7 @@
 #define SECRETBUNDESTAGSERVER_OFFICE_HPP
 
 namespace GameModel{
-    enum Office{Chancellor, President, Candidate};
+    enum class Office{Chancellor, President, Candidate};
 }
 
 #endif // SECRETBUNDESTAGSERVER_OFFICE_HPP
