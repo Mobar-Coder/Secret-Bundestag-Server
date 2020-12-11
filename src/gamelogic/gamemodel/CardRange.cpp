@@ -55,7 +55,7 @@ namespace GameModel {
 
         for (auto rest : cards) { //NOLINT
             if (!discard(rest)) {
-                return false;
+                throw std::runtime_error("Something went really wrong");
             }
         }
         return true;
