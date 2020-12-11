@@ -14,7 +14,7 @@
 
 #include <nlohmann/json.hpp>
 
-#define CLASS(c) addClass( \
+#define CLASS(c) static const auto _registered_ = Message::addClass( \
     std::make_shared<c>, \
     [] (const Message *msg) { return dynamic_cast<const c*>(msg) != nullptr;}, \
     #c \
@@ -23,8 +23,9 @@
 #define PROPERTY(p) addProperty( \
     [this] (const nlohmann::json &j) {this->p = j.get<decltype(this->p)>();}, \
     [this] () {return this->p;}, \
-    #p \
-);
+    #p,                          \
+    _registered_\
+); \
 
 namespace messages {
     class Message {
@@ -35,7 +36,7 @@ namespace messages {
             using PropertyInfo = std::tuple<PropertySetter, PropertyGetter, std::string>;
 
             using Factory = std::function<std::shared_ptr<Message>()>;
-            using IsInstance = std::function<bool(const Message*)>;
+            using IsInstance = std::function<bool(const Message *)>;
             using ClassInfo = std::tuple<Factory, IsInstance, std::string>;
         public:
             Message() = default;
@@ -48,21 +49,30 @@ namespace messages {
 
             auto operator=(Message &&message) = delete;
 
+            auto operator==(const Message &message) const -> bool;
+
             [[nodiscard]] auto toJson() const -> nlohmann::json;
 
             static auto fromJson(const nlohmann::json &json) -> std::shared_ptr<Message>;
 
             virtual ~Message() = default;
 
-        protected:
-            void addProperty(const PropertySetter &setter, const PropertyGetter &getter, const std::string &name);
+            /*
+             * Can throw an exception but if there is an exception we are fucked nonetheless
+             */
+            static auto addClass(const Factory &factory, const IsInstance &isInstance, const std::string &name) noexcept -> bool;
 
-            static void addClass(const Factory &factory, const IsInstance &isInstance, const std::string &name);
+        protected:
+            void addProperty(const PropertySetter &setter, const PropertyGetter &getter, const std::string &name,
+                             bool registered);
 
         private:
-            std::vector<PropertyInfo> properties;
+            /**
+             * @return a reference to a static local variable. Only used to handle initialization order.
+             */
+            static auto getClassesList() -> std::vector<ClassInfo>&;
 
-            static std::vector<ClassInfo> classes;
+            std::vector<PropertyInfo> properties;
     };
 }
 

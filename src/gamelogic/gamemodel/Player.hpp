@@ -2,7 +2,7 @@
  * @file Player.hpp
  * @author bjoern
  * @date 01.12.20
- * Description here TODO
+ * Definition of class Player
  */
 
 #ifndef SECRETBUNDESTAGSERVER_PLAYER_HPP
@@ -18,7 +18,7 @@ namespace GameModel {
 
         public:
 
-            Player(std::string  name, Fraction fraction, Role role, std::size_t sessId);
+            Player(std::string name, Fraction fraction, Role role, std::size_t sessId);
 
             [[nodiscard]] const std::string &getName() const;
 

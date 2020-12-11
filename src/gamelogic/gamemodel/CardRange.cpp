@@ -2,52 +2,98 @@
  * @file CardRange.cpp
  * @author bjoern
  * @date 01.12.20
- * Description here TODO
+ * Declaration of all CardRange Methods
  */
 
 #include "CardRange.hpp"
 
-#include <stdexcept>
 #include <utility>
+#include <algorithm>
 
 namespace GameModel {
-    CardRange::CardRange(std::shared_ptr<Board> board, std::size_t number) : board(std::move(board)) {
-        std::size_t drawableCards = this->board->getCardPile()->size();
+    CardRange::CardRange(Board &gameBoard, const std::size_t number) : board(gameBoard) {
+        std::size_t drawableCards = board.getCardPile().size() + board.getDiscardPile().size();
         if (number > drawableCards) {
-            throw std::runtime_error(std::string("Cannot create card range of size ") + std::to_string(number)
-                                     + "! Game has only " + std::to_string(drawableCards) + " left!");
+            throw std::runtime_error("Cannot create card range of size " + std::to_string(number)
+                                     + "! Game has only " + std::to_string(drawableCards) + " cards!");
         }
 
-        if (number > this->board->getCardPile()->size()) {
-            this->board->restockCardPile();
-        }
+        initialState = std::vector<CardType>(gameBoard.getCardPile().crbegin(),
+                                             gameBoard.getCardPile().crbegin() + number);
+        cards = std::vector<CardType>(board.getCardPile().crbegin(), board.getCardPile().crbegin() + number);
+        board.getCardPile().erase(board.getCardPile().cend() - number, board.getCardPile().cend());
     }
 
     CardRange::~CardRange() {
-        // TODO: fix !!!
+        if (!applied) {
+            for (auto it = initialState.crbegin(); it != initialState.crend(); it++) {
+                board.getCardPile().emplace_back(*it);
+            }
+        }
     }
 
-    bool CardRange::selectForPolicy(const CardType cardType) const {
-        if(policy.has_value() || applied){
+    auto CardRange::selectForPolicy(const CardType &card) -> bool {
+        if (policy.has_value() || applied) {
             return false;
         }
-        //TODO
-        if (cardType == CardType::Fascist) {
+
+        auto result = std::find(cards.cbegin(), cards.cend(), card);
+        if (result != cards.end()) {
+            policy.emplace(card);
+            discarded.emplace_back(card);
+            cards.erase(result);
             return true;
         }
+
         return false;
     }
 
-    bool CardRange::discard(const CardType cardType) const {
-        //TODO
-        if (cardType == CardType::Fascist) {
+    auto CardRange::discardRemainingCards() -> bool {
+        if (applied) {
+            return false;
+        }
+
+        for (auto rest : cards) { //NOLINT
+            if (!discard(rest)) {
+                throw std::runtime_error("Something went really wrong");
+            }
+        }
+        return true;
+    }
+
+    auto CardRange::discard(const CardType card) -> bool {
+        if (applied) {
+            return false;
+        }
+
+        auto result = std::find(cards.cbegin(), cards.cend(), card);
+        if (result != cards.end()) {
+            discarded.emplace_back(card);
+            cards.erase(result);
             return true;
         }
+
         return false;
     }
 
-    bool CardRange::applyToGame() const{
-        //TODO
-        return false;
+    auto CardRange::applyToGame() -> bool {
+        if (applied) {
+            return false;
+        }
+
+        applied = true;
+        if (policy.has_value()) {
+            board.setNumberOfPolicy(*policy, board.getNumberOfPolicy(*policy) + 1);
+        }
+
+        for (auto card : discarded) {
+            board.getDiscardPile().emplace_back(card);
+        }
+
+        for (auto it = cards.crbegin(); it != cards.crend(); it++) {
+            board.getCardPile().emplace_back(*it);
+        }
+
+        return true;
     }
 }

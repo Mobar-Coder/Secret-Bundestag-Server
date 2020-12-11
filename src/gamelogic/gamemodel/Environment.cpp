@@ -8,33 +8,41 @@
 #include "Environment.hpp"
 
 #include <utility>
+#include <random>
+#include <algorithm>
 
 namespace GameModel {
 
-    Environment::Environment(std::shared_ptr<std::vector<Player>> players) :
-        board(std::make_shared<Board>()), players(std::move(players)) {
+    Environment::Environment(const std::vector<Player> &players) : players(players) {
+        shuffleCardPile();
     }
 
-    auto Environment::getPlayers() const -> std::shared_ptr<std::vector<Player>> {
-        return players;
-    }
+    auto Environment::drawNCards(const std::size_t number) -> CardRange {
 
-    auto Environment::getBoard() const -> std::shared_ptr<Board> {
-        return board;
-    }
+        if (number > board.getCardPile().size()) {
+            restockCardPile();
+        }
 
-    auto Environment::drawNCards(std::size_t number) -> CardRange {
         return CardRange(board, number);
     }
 
-    auto Environment::restockCardPile() -> void {
-        board->restockCardPile();
+    void Environment::restockCardPile() {
+        board.getCardPile().insert(board.getCardPile().cend(), board.getDiscardPile().cbegin(),
+                                   board.getDiscardPile().cend());
+        board.getDiscardPile().clear();
+        shuffleCardPile();
+    }
+
+    void Environment::shuffleCardPile() {
+        auto rd = std::random_device{};
+        auto rng = std::default_random_engine{rd()};
+        std::shuffle(board.getCardPile().begin(), board.getCardPile().end(), rng);
     }
 
     // ToDo: check for >3 ?
     auto Environment::incrementElectionTracker() -> std::size_t {
-        board->incrementElectionTracker();
-        return board->getElectionTracker();
+        board.setElectionTracker(board.getElectionTracker() + 1);
+        return board.getElectionTracker();
     }
 
     /*
@@ -66,9 +74,4 @@ namespace GameModel {
         return std::string();
     }
     */
-
-    // ToDo: implement
-    auto Environment::setPresident() -> void  {
-
-    }
 }

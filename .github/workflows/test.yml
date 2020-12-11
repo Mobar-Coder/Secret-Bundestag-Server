@@ -1,8 +1,8 @@
-name: Compile
+name: Unit Tests
 on: [pull_request]
 
 jobs:
-  test:
+  GTest:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

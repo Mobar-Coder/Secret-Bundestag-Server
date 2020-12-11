@@ -8,10 +8,13 @@
 #define SECRETBUNDESTAGSERVER_LOBBY_HPP
 
 #include "../messages/Message.hpp"
+#include "../util/Logging.hpp"
 
 namespace comm {
     class Lobby {
         public:
+            explicit Lobby(util::Logging log);
+
             void onJoin(std::size_t id);
 
             void onReceive(const std::shared_ptr<const messages::Message> &msg, std::size_t id);
@@ -19,7 +22,7 @@ namespace comm {
             void onClose(std::size_t id);
 
         private:
-
+            util::Logging log;
     };
 }
 

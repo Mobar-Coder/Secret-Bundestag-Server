@@ -1,4 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 project(SecretBundestagServer)
 
 if(NOT CMAKE_BUILD_TYPE)
@@ -13,7 +16,6 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 endif ()
-
 
 set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/comm/ConnectionHandler.cpp
@@ -38,12 +40,14 @@ set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Environment.cpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Environment.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Player.cpp
-        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Player.hpp)
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Player.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/GameStateRepresentation.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/GameStateRepresentation.hpp)
 
 set(LIBS stdc++fs pthread WebsocketCpp)
 
-include_directories(lib)
-include_directories(lib/json/single_include)
+include_directories(SYSTEM lib)
+include_directories(SYSTEM lib/json/single_include)
 
 add_executable(${PROJECT_NAME} src/main.cpp ${SOURCES})
 target_link_libraries(${PROJECT_NAME} ${LIBS})

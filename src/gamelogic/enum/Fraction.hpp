@@ -9,7 +9,9 @@
 #define SECRETBUNDESTAGSERVER_FRACTION_HPP
 
 namespace GameModel{
-    enum Fraction{FascistParty, LiberalParty};
+    enum class Fraction {
+            FASCIST_PARTY, LIBERAL_PARTY
+    };
 }
 
 #endif // SECRETBUNDESTAGSERVER_FRACTION_HPP
