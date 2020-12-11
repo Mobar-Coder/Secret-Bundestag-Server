@@ -2,7 +2,7 @@
  * @file CardRange.cpp
  * @author bjoern
  * @date 01.12.20
- * Description here
+ * Declaration of all CardRange Methods
  */
 
 #include "CardRange.hpp"
@@ -53,7 +53,7 @@ namespace GameModel {
             return false;
         }
 
-        for (auto rest : cards) {
+        for (auto rest : cards) { //NOLINT
             if (!discard(rest)) {
                 return false;
             }

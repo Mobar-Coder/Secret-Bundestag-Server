@@ -2,7 +2,7 @@
  * @file Player.cpp
  * @author bjoern
  * @date 01.12.20
- * Description here TODO
+ * Declaration of all Player Methods
  */
 
 #include "Player.hpp"

@@ -2,7 +2,7 @@
  * @file CardRange.hpp
  * @author bjoern
  * @date 01.12.20
- * Description here
+ * Definition of class CardRange
  */
 
 #ifndef SECRETBUNDESTAGSERVER_CARDRANGE_HPP

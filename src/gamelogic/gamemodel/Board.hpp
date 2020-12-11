@@ -2,7 +2,7 @@
  * @file Board.hpp
  * @author jonas
  * @date 01.12.20
- * Description here
+ * Definition of class Board
  */
 
 #ifndef SECRETBUNDESTAGSERVER_BOARD_HPP
@@ -26,8 +26,8 @@ namespace GameModel {
     class Board {
 
         private:
-            static constexpr int fascistCardsSHGameRules = 11;
-            static constexpr int liberalCardsSHGameRules = 6;
+            static constexpr int DEFAULTNUMBERFASCISTS = 11;
+            static constexpr int DEFAULTNUMBERLIBERAL = 6;
 
             std::size_t electionTracker{0};
             std::unordered_map<CardType, std::size_t> policyState;
@@ -42,8 +42,8 @@ namespace GameModel {
             /**
             * Main constructor for the Board class.
             */
-            explicit Board(std::size_t numberFascistCards = fascistCardsSHGameRules,
-                           std::size_t numberLiberalCards = liberalCardsSHGameRules);
+            explicit Board(std::size_t numberFascistCards = DEFAULTNUMBERFASCISTS,
+                           std::size_t numberLiberalCards = DEFAULTNUMBERLIBERAL);
 
             /**
             * Get the current value of the election tracker.

@@ -2,7 +2,7 @@
  * @file Board.cpp
  * @author jonas
  * @date 01.12.20
- * Description here
+ * Declaration of all Board Methods
  */
 
 #include <algorithm>

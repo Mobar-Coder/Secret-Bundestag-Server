@@ -2,7 +2,7 @@
  * @file Player.hpp
  * @author bjoern
  * @date 01.12.20
- * Description here TODO
+ * Definition of class Player
  */
 
 #ifndef SECRETBUNDESTAGSERVER_PLAYER_HPP
