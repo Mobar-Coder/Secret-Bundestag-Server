@@ -20,7 +20,7 @@ namespace GameModel {
 
         initialState = std::vector<CardType>(gameBoard.getCardPile().crbegin(),
                                              gameBoard.getCardPile().crbegin() + number);
-        cards = std::vector<CardType>{board.getCardPile().crbegin(), board.getCardPile().crbegin() + number};
+        cards = std::vector<CardType>(board.getCardPile().crbegin(), board.getCardPile().crbegin() + number);
         board.getCardPile().erase(board.getCardPile().cend() - number, board.getCardPile().cend());
     }
 
