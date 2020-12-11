@@ -9,7 +9,7 @@
 #include <utility>
 
 namespace comm {
-    Lobby::Lobby(SendF sendToClient, util::Logging log) : sendToClient{sendToClient}, log{std::move(log)} {}
+    Lobby::Lobby(SendF sendToClient, util::Logging log) : sendToClient{std::move(sendToClient)}, log{std::move(log)} {}
 
     void Lobby::onJoin(std::size_t) { // NOLINT @TODO add code
 
