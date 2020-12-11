@@ -25,7 +25,11 @@ namespace comm {
                 std::shared_ptr<Lobby> lobbyPtr;
                 if (lobbyNameMap.find(joinRequest->lobbyName) != lobbyNameMap.end()) {
                     log.info("Creating Lobby " + joinRequest->lobbyName + " for " + std::to_string(id));
-                    lobbyPtr = std::make_shared<Lobby>(util::Logging{log, joinRequest->lobbyName});
+                    lobbyPtr = std::make_shared<Lobby>(
+                            [this](auto msg, auto id) {
+                                this->connectionHandler.send(msg, id);
+                            },
+                            util::Logging{log, joinRequest->lobbyName});
                     lobbyNameMap.emplace(joinRequest->lobbyName, lobbyPtr);
                 } else {
                     log.info(std::to_string(id) + " joins " + joinRequest->lobbyName);
@@ -52,13 +56,30 @@ namespace comm {
         auto lobbyIt = userLobbyMap.find(id);
         if (lobbyIt != userLobbyMap.end()) {
             lobbyIt->second->onClose(id);
-            for (auto &[name, lobbyPtr] : lobbyNameMap) {
-                if (lobbyPtr == lobbyIt->second) { // @TODO only remove if last user left
-                    lobbyNameMap.erase(name);
-                    log.info("Lobby " + name + " closed");
+
+            // Check if another user is in this lobby
+            auto userInLobby = false;
+            for (const auto &[id, lobbyPTr] : userLobbyMap) {
+                if (lobbyPTr == lobbyIt->second) {
+                    userInLobby = true;
                     break;
                 }
             }
+
+            // Definitely erase user
+            userLobbyMap.erase(id);
+
+            // If lobby is now empty also erase from lobbyNameMap
+            if (not userInLobby) {
+                for (auto &[name, lobbyPtr] : lobbyNameMap) {
+                    if (lobbyPtr == lobbyIt->second) {
+                        lobbyNameMap.erase(name);
+                        log.info("Lobby " + name + " closed");
+                        break;
+                    }
+                }
+            }
+
         } else {
             log.info("User without lobby left!");
         }
