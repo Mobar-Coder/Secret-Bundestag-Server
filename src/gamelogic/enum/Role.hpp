@@ -10,7 +10,7 @@
 
 namespace GameModel{
     enum class Role {
-            NONE_ROLE, HITLER
+            NONE, HITLER
     };
 }
 
