@@ -41,7 +41,7 @@ namespace GameModel {
             * Main constructor for the Board class.
             */
             //TODO const expr
-            Board(std::size_t numberFascistCards = 11, std::size_t numberLiberalCards = 6);
+            explicit Board(std::size_t numberFascistCards = 11, std::size_t numberLiberalCards = 6);
 
             /**
             * Get the current value of the election tracker.
