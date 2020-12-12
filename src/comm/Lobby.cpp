@@ -9,6 +9,7 @@
 #include "../util/IsType.hpp"
 #include "../messages/StartRequest.hpp"
 #include "../messages/Error.hpp"
+#include "../messages/GameStart.hpp"
 
 #include <utility>
 
@@ -27,7 +28,13 @@ namespace comm {
             if (id != playerIds.front()) {
                 sendError("You are not the lobby leader", id);
             } else {
-                sendError("Not implemented yet", id);
+                auto startMsg = std::make_shared<messages::GameStart>();
+                startMsg->fraction = "Liberal";
+                startMsg->players = {{"Test1", true, {}}, {"Test2", true, "Chancellor"}};
+                startMsg->hitler = {};
+                startMsg->role = "NONE";
+                startMsg->teamMates = {};
+                sendToClient(startMsg, id);
             }
         } else {
             sendError("Unknown message type", id);
