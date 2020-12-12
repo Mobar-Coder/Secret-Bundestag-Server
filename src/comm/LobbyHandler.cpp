@@ -57,7 +57,7 @@ namespace comm {
     void LobbyHandler::closeListener(std::size_t id) {
         auto lobbyIt = userLobbyMap.find(id);
         if (lobbyIt != userLobbyMap.end()) {
-            lobbyIt->second->onClose(id);
+            lobbyIt->second->onLeave(id);
 
             // Check if another user is in this lobby
             auto userInLobby = false;

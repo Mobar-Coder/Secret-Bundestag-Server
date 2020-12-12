@@ -20,7 +20,7 @@ namespace comm {
 
             void onReceive(const std::shared_ptr<const messages::Message> &msg, std::size_t id);
 
-            void onClose(std::size_t id);
+            void onLeave(std::size_t);
 
         private:
             SendF sendToClient;
