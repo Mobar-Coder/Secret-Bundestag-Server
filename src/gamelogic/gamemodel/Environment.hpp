@@ -15,12 +15,14 @@
 #include "GameStateRepresentation.hpp"
 
 /**
- * @namespace The namespace for the game model.
+ * The namespace for the game model.
+ * @namespace GameModel
  */
 namespace GameModel {
 
     /**
-     * @class The environment class represents the whole game environment containing all game objects and entities.
+     * The environment class represents the whole game environment containing all game objects and entities.
+     * @class Environment
      */
     class Environment {
 
@@ -92,9 +94,8 @@ namespace GameModel {
             bool killPlayer(std::shared_ptr<Player> player);
 
             /**
-             *
-             * ToDo: Was soll hier nochmal zurück gegeben werden?
-             * @param player
+             * Get the current game state for a specified player.
+             * @param player The specified player.
              * @return
              */
             auto getGameState(std::shared_ptr<Player> player) -> GameStateRepresentation;
