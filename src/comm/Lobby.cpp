@@ -14,7 +14,8 @@
 #include <utility>
 
 namespace comm {
-    Lobby::Lobby(SendF sendToClient, util::Logging log) : sendToClient{std::move(sendToClient)}, log{std::move(log)} {}
+    Lobby::Lobby(SendF sendToClient, KickF kickPlayer, util::Logging log) : sendToClient{std::move(sendToClient)},
+        kickPlayer(std::move(kickPlayer)), log{std::move(log)} {}
 
     void Lobby::onJoin(std::size_t id) {
         auto accMsg = std::make_shared<messages::Accept>();
@@ -35,9 +36,11 @@ namespace comm {
                 startMsg->role = "NONE";
                 startMsg->teamMates = {};
                 sendToClient(startMsg, id);
+                log.info("Game started");
             }
         } else {
             sendError("Unknown message type", id);
+            kickPlayer(id);
         }
     }
 

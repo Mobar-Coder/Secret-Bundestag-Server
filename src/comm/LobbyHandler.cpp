@@ -30,6 +30,9 @@ namespace comm {
                             [this](auto msg, auto id) {
                                 this->connectionHandler.send(msg, id);
                             },
+                            [this](std::size_t id) {
+                                this->connectionHandler.closeConnection(id);
+                            },
                             util::Logging{log, joinRequest->lobby});
                     lobbyNameMap.emplace(joinRequest->lobby, lobbyPtr);
                 } else {
@@ -59,22 +62,23 @@ namespace comm {
         if (lobbyIt != userLobbyMap.end()) {
             lobbyIt->second->onLeave(id);
 
+            // Definitely erase user
+            auto currLobbyPtr = lobbyIt->second;
+            userLobbyMap.erase(id);
+
             // Check if another user is in this lobby
             auto userInLobby = false;
             for (const auto &[id, lobbyPTr] : userLobbyMap) {
-                if (lobbyPTr == lobbyIt->second) {
+                if (lobbyPTr == currLobbyPtr) {
                     userInLobby = true;
                     break;
                 }
             }
 
-            // Definitely erase user
-            userLobbyMap.erase(id);
-
             // If lobby is now empty also erase from lobbyNameMap
             if (not userInLobby) {
-                for (auto &[name, lobbyPtr] : lobbyNameMap) {
-                    if (lobbyPtr == lobbyIt->second) {
+                for (auto [name, lobbyPtr] : lobbyNameMap) {
+                    if (lobbyPtr == currLobbyPtr) {
                         lobbyNameMap.erase(name);
                         log.info("Lobby " + name + " closed");
                         break;

@@ -13,8 +13,9 @@
 namespace comm {
     class Lobby {
             using SendF = std::function<void(const std::shared_ptr<messages::Message>&, std::size_t)>;
+            using KickF = std::function<void(std::size_t)>;
         public:
-            Lobby(SendF sendToClient, util::Logging log);
+            Lobby(SendF sendToClient, KickF kickPlayer, util::Logging log);
 
             void onJoin(std::size_t id);
 
@@ -24,6 +25,7 @@ namespace comm {
 
         private:
             SendF sendToClient;
+            KickF kickPlayer;
             util::Logging log;
             std::vector<std::size_t> playerIds;
             void sendError(const std::string &message, std::size_t id);
