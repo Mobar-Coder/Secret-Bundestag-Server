@@ -24,8 +24,8 @@ namespace comm {
 
         private:
             SendF sendToClient;
-
             util::Logging log;
+            std::vector<std::size_t> playerIds;
     };
 }
 

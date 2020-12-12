@@ -6,4 +6,8 @@
 
 namespace messages {
     CLASS(Accept)
+
+    Accept::Accept() {
+        PROPERTY(leader)
+    }
 }

@@ -25,7 +25,7 @@ namespace comm {
                 std::shared_ptr<Lobby> lobbyPtr;
                 if (lobbyNameMap.find(joinRequest->lobby) == lobbyNameMap.end()) {
                     log.info("Creating Lobby " + joinRequest->lobby + " for " +
-			joinRequest->name + " (" + std::to_string(id) + ")");
+                        joinRequest->name + " (" + std::to_string(id) + ")");
                     lobbyPtr = std::make_shared<Lobby>(
                             [this](auto msg, auto id) {
                                 this->connectionHandler.send(msg, id);
