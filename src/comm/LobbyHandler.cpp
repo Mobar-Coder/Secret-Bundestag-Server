@@ -23,13 +23,15 @@ namespace comm {
             if (!isInLobby) {
                 auto joinRequest = std::dynamic_pointer_cast<const messages::JoinRequest>(message);
                 std::shared_ptr<Lobby> lobbyPtr;
-                if (lobbyNameMap.find(joinRequest->lobbyName) != lobbyNameMap.end()) {
-                    log.info("Creating Lobby " + joinRequest->lobbyName + " for " + std::to_string(id));
-                    lobbyPtr = std::make_shared<Lobby>(util::Logging{log, joinRequest->lobbyName});
-                    lobbyNameMap.emplace(joinRequest->lobbyName, lobbyPtr);
+                if (lobbyNameMap.find(joinRequest->lobby) == lobbyNameMap.end()) {
+                    log.info("Creating Lobby " + joinRequest->lobby + " for " +
+                             joinRequest->name + " (" + std::to_string(id) + ")");
+                    lobbyPtr = std::make_shared<Lobby>(util::Logging{log, joinRequest->lobby});
+                    lobbyNameMap.emplace(joinRequest->lobby, lobbyPtr);
                 } else {
-                    log.info(std::to_string(id) + " joins " + joinRequest->lobbyName);
-                    lobbyPtr = lobbyNameMap.find(joinRequest->lobbyName)->second;
+                    log.info(joinRequest->name + " (" + std::to_string(id) + ")"
+                        + " joins " + joinRequest->lobby);
+                    lobbyPtr = lobbyNameMap.find(joinRequest->lobby)->second;
                 }
 
                 userLobbyMap.emplace(id, lobbyPtr);
