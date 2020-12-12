@@ -26,6 +26,7 @@ namespace comm {
             SendF sendToClient;
             util::Logging log;
             std::vector<std::size_t> playerIds;
+            void sendError(const std::string &message, std::size_t id);
     };
 }
 

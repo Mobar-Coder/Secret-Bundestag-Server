@@ -25,7 +25,9 @@ set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/messages/Error.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/JoinRequest.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/Message.cpp
-        ${CMAKE_SOURCE_DIR}/src/messages/Accept.cpp)
+        ${CMAKE_SOURCE_DIR}/src/messages/Accept.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/StartRequest.cpp
+        )
 
 set(LIBS stdc++fs pthread WebsocketCpp)
 
