@@ -12,8 +12,9 @@
 
 namespace comm {
     class Lobby {
+            using SendF = std::function<void(const std::shared_ptr<messages::Message>&, std::size_t)>;
         public:
-            explicit Lobby(util::Logging log);
+            Lobby(SendF sendToClient, util::Logging log);
 
             void onJoin(std::size_t id);
 
@@ -22,6 +23,8 @@ namespace comm {
             void onClose(std::size_t id);
 
         private:
+            SendF sendToClient;
+
             util::Logging log;
     };
 }
