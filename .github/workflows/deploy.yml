@@ -30,6 +30,7 @@ jobs:
         run: |
           mkdir build
           cd build
+          cmake ..
           make -j$(nproc)
           cp SecretBundestagServer $package_name_$package_version/usr/local/bin
       - name: Install LWS into Package
