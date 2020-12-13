@@ -22,9 +22,9 @@ namespace util {
 
         int arg;
         int portI = 8080;
-        int verbosityI = static_cast<int>(Logging::Level::ERROR);
+        auto verbosityI = static_cast<int>(Logging::Level::ERROR);
 
-        while ((arg = getopt_long(argc, argv, "hp:v:", options, nullptr)) != -1) {
+        while ((arg = getopt_long(argc, argv, "hp:v:", options, nullptr)) != -1) { // NOLINT
             switch (arg) {
                 case 'h':
                     printHelp();
