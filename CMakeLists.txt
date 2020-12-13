@@ -22,6 +22,7 @@ set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/comm/LobbyHandler.cpp
         ${CMAKE_SOURCE_DIR}/src/comm/Lobby.cpp
         ${CMAKE_SOURCE_DIR}/src/util/Logging.cpp
+        ${CMAKE_SOURCE_DIR}/src/util/ArgumentParser.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/Error.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/JoinRequest.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/Message.cpp)
