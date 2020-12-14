@@ -45,8 +45,8 @@ jobs:
         run: |
           mkdir -p ${dirname}/DEBIAN
           cp package/debian_control ${dirname}/DEBIAN/control
-          sed -i 's/PACKAGE_NAME/${package_name}/g' ${dirname}/DEBIAN/control
-          sed -i 's/PACKAGE_VERSION/${package_version}/g' ${dirname}/DEBIAN/control
+          sed -i 's/PACKAGE_NAME/$package_name/g' ${dirname}/DEBIAN/control
+          sed -i 's/PACKAGE_VERSION/$package_version/g' ${dirname}/DEBIAN/control
           cat ${dirname}/DEBIAN/control
       - name: Build Package
         run: dpkg-deb --build ${dirname}
