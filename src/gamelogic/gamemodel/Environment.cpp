@@ -63,6 +63,10 @@ namespace GameModel {
 
     }
 
+    auto Environment::getPlayers() const -> const std::vector<Player> & {
+        return players;
+    }
+
     // ToDo: implement
     /*
     auto Environment::killPlayer(std::shared_ptr<Player> player) -> bool {
