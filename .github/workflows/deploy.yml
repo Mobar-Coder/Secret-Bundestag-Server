@@ -6,7 +6,7 @@ jobs:
     env:
       package_name: secretbundestagserver
       package_version: 1.0-1
-      dirname: ${package_name}_${package_version}
+      dirname: "${package_name}_${package_version}"
       CC: gcc-10
       CXX: g++-10
 
@@ -19,6 +19,7 @@ jobs:
       - name: Setup .deb Directory
         run: |
           mkdir -p ${dirname}/usr/local/bin
+          ls
       - name: Install Lws
         run: |
           sudo apt install libssl-dev
