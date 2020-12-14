@@ -16,12 +16,13 @@ namespace GameModel {
 
     class SingleECardEventTrigger : AbstractEventTrigger {
 
-        public:
+        private:
             CardType cardType;
             std::size_t threshold{};
 
             TriggerComparator triggerComparator;
 
+        public:
             SingleECardEventTrigger(CardType cardType, std::size_t threshold, TriggerComparator triggerComparator);
 
             auto triggered(std::shared_ptr<const Environment> environment) -> bool override;

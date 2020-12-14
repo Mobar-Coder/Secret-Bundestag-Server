@@ -15,12 +15,13 @@ namespace GameModel {
 
     class EventTrigger : AbstractEventTrigger {
 
-        public:
+        private:
             std::shared_ptr<AbstractEventTrigger> lhs;
             std::shared_ptr<AbstractEventTrigger> rhs;
 
             TriggerCompositor triggerCompositor;
 
+        public:
             EventTrigger(std::shared_ptr<AbstractEventTrigger> lhs, std::shared_ptr<AbstractEventTrigger> rhs ,
                          TriggerCompositor triggerCompositor);
 

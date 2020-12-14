@@ -8,7 +8,8 @@
 #ifndef SECRETBUNDESTAGSERVER_EVENTTYPE_HPP
 #define SECRETBUNDESTAGSERVER_EVENTTYPE_HPP
 
-namespace GamerModel {
+namespace GameModel {
+
     enum class EventType {
             Execution, InvestigateLoyalty, Veto, PolicyPeek, SpecialElection
     };
