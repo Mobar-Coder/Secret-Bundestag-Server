@@ -37,7 +37,7 @@ jobs:
           cd build
           cmake ..
           make -j$(nproc)
-          cp SecretBundestagServer ${dirname}/usr/local/bin
+          cp SecretBundestagServer ${dirname}/usr/local/bin/
       - name: Install LWS into Package
         run: |
           cd libwebsockets
