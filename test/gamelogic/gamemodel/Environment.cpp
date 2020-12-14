@@ -8,8 +8,8 @@
 
 TEST(GameModel_Environment, draw_n_cards) {
     GameModel::Player player("Björn", GameModel::Fraction::LIBERAL_PARTY, GameModel::Role::NONE, 0);
-    std::vector<GameModel::Player> players;
-    players.emplace_back(player);
+    std::vector<std::shared_ptr<GameModel::Player>> players;
+    players.emplace_back(std::make_shared<GameModel::Player>(player));
     GameModel::Environment environment(players);
     EXPECT_ANY_THROW(environment.drawNCards(18));
     EXPECT_NO_THROW(environment.drawNCards(3));

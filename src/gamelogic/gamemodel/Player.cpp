@@ -47,4 +47,12 @@ namespace GameModel {
     void Player::setSessionId(size_t sessionId) {
         sessionID = sessionId;
     }
+
+    auto Player::isAlive() const -> bool {
+        return alive;
+    }
+
+    void Player::setAlive(bool isAlive) {
+        this->alive = isAlive;
+    }
 }

@@ -26,7 +26,7 @@ namespace GameModel {
 
         private:
             Board board{};
-            const std::vector<Player> &players;
+            const std::vector<std::shared_ptr<Player>> players;
 
         public:
 
@@ -34,13 +34,13 @@ namespace GameModel {
              * Main constructor for the Environment class.
              * @param players
              */
-            explicit Environment(const std::vector<Player> &players);
+            explicit Environment(std::vector<std::shared_ptr<Player>> players);
 
             /**
              * Get all players.
              * @return All Players as std::shared_ptr<std::vector<Player>>.
              */
-            [[nodiscard]] auto getPlayers() const -> const std::vector<Player> &;
+            [[nodiscard]] auto getPlayers() const -> std::vector<std::shared_ptr<const Player>>;
 
             /**
              * @developer Bjoern
@@ -68,68 +68,67 @@ namespace GameModel {
             auto resetElectionTracker() -> void;
 
             /**
-             *
-             * @param player
-             * @return
-             */
-            auto autoSelectPresident() -> void;
+              * Kill a Player.
+              * @param player
+              * @return
+              */
+            void killPlayer(const std::shared_ptr<Player> &player);
 
             /**
              *
-             */
-            bool safePastOffices();
-
-            /**
-             *
-             */
-            auto resetPastOffices() -> void;
-
-            /**
-             * Kill a Player.
-             * @param player
-             * @return
-             */
-            bool killPlayer(std::shared_ptr<Player> player);
-
-            /**
-             *
-             * ToDo: Was soll hier nochmal zurück gegeben werden?
              * @param player
              * @return
              */
             auto getGameState(std::shared_ptr<Player> player) -> GameStateRepresentation;
 
+            /**
+             *
+             * @param player
+             * @return
+             */
+            void autoSelectPresident();
+
+            /**
+             *
+             */
+            void resetPastOffices();
+
 
             /**
              *
              * @return
              */
-            bool setCandidateForChancelor(std::shared_ptr<Player> player);
+            void setCandidateForChancelor(const std::shared_ptr<Player> &player);
 
             /**
              *
              * @return
              */
-            bool electChancelor();
+            auto electChancelor() -> bool;
 
             /**
              *
              * @return
              */
-            auto getPresident() -> std::shared_ptr<Player>;
+            auto getPresident() -> std::shared_ptr<const Player>;
+
+            /**
+             *
+             */
+            void safeToPastOffices();
 
             /**
              *
              * @return
              */
-            auto getChancelor() -> std::shared_ptr<Player>;
+            auto getChancelor() const -> std::optional<std::shared_ptr<const Player>>;
 
             /**
              *
              * @param fraction
              * @return
              */
-            auto getParty(Fraction fraction) -> std::vector<std::shared_ptr<Player>>;
+            auto getParty(Fraction fraction) const -> std::vector<std::shared_ptr<const Player>>;
 
         private:
             /**

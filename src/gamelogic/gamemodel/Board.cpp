@@ -34,18 +34,42 @@ namespace GameModel {
 
     auto Board::getNumberOfPolicy(CardType card) const -> std::size_t {
         auto it = policyState.find(card);
-        if(it != policyState.cend()){
+        if (it != policyState.cend()) {
             return it->second;
         }
         return 0;
     }
 
-    auto Board::getCurrentOffices() const -> const std::unordered_map<Office, Player> & {
-        return currentOffices;
+    auto Board::getCurrentOffices(Office office) const -> std::optional<std::shared_ptr<const Player>> {
+        auto it = currentOffices.find(office);
+        if (it != currentOffices.end()) {
+            return it->second;
+        }
+        return std::nullopt;
     }
 
-    auto Board::getPastOffices() const -> const std::unordered_map<Office, Player> & {
+    void Board::setCurrentOffices(Office office, const std::shared_ptr<const Player> &player) {
+        currentOffices[office] = player;
+    }
+
+    auto Board::getPastOffices(Office office) const -> std::optional<std::shared_ptr<const Player>> {
+        auto it = pastOffices.find(office);
+        if (it != pastOffices.end()) {
+            return it->second;
+        }
+        return std::nullopt;
+    }
+
+    auto Board::getPastOffices() -> std::unordered_map<Office, std::optional<std::shared_ptr<const Player>>> {
         return pastOffices;
+    }
+
+    void Board::setPastOffices(Office office, const std::shared_ptr<const Player> &player) {
+        pastOffices[office] = player;
+    }
+
+    void Board::safeToPastOffices() {
+        pastOffices = currentOffices;
     }
 
     auto Board::getCardPile() const -> const std::vector<CardType> & {

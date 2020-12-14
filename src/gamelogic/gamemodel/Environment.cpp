@@ -13,8 +13,12 @@
 
 namespace GameModel {
 
-    Environment::Environment(const std::vector<Player> &players) : players(players) {
+    Environment::Environment(std::vector<std::shared_ptr<Player>> players) : players(std::move(players)) {
         shuffleCardPile();
+    }
+
+    auto Environment::getPlayers() const -> std::vector<std::shared_ptr<const Player>> {
+        return std::vector<std::shared_ptr<const Player>>(players.begin(), players.end());
     }
 
     auto Environment::drawNCards(const std::size_t number) -> CardRange {
@@ -45,33 +49,74 @@ namespace GameModel {
         return board.getElectionTracker();
     }
 
-    /*
-    // ToDo: implement
-    auto Environment::autoSelectCandidate(std::shared_ptr<Player> player) -> bool {
+    void Environment::resetElectionTracker() {
+        board.setElectionTracker(0);
+    }
 
+    void Environment::killPlayer(const std::shared_ptr<Player> &player) {
+        player->setAlive(false);
+    }
+
+    /*auto Environment::getGameState(std::shared_ptr<Player> player) -> GameStateRepresentation {
+        return GameModel::GameStateRepresentation();
+    }*/
+
+    void Environment::autoSelectPresident() {
+        auto player = board.getCurrentOffices(Office::PRESIDENT);
+        if (player.has_value()) {
+            //TODO: Endlosschleife!!!!!
+            auto it = std::find(players.cbegin(), players.cend(), player.value());
+            do {
+                it++;
+                if (it == players.cend()) {
+                    it = players.cbegin();
+                }
+            } while ((*it)->isAlive());
+            board.setCurrentOffices(Office::PRESIDENT, *it);
+        }
+    }
+
+    void Environment::resetPastOffices() {
+        board.getPastOffices().clear();
+    }
+
+    void Environment::setCandidateForChancelor(const std::shared_ptr<Player> &player) {
+        board.setCurrentOffices(Office::CANDIDATE, player);
+
+    }
+
+    auto Environment::electChancelor() -> bool {
+        auto player = board.getCurrentOffices(Office::CANDIDATE);
+        if (player.has_value()) {
+            board.setCurrentOffices(Office::CHANCELOR, player.value());
+            return true;
+        }
         return false;
     }
 
-    // ToDo: implement
-    auto Environment::electCandidate() -> bool {
-        return false;
-    }
-    */
-
-    // ToDo: implement
-    auto Environment::resetPastOffices() -> void {
-
+    auto Environment::getPresident() -> std::shared_ptr<const Player> {
+        auto player = board.getCurrentOffices(Office::PRESIDENT);
+        if (player.has_value()) {
+            return player.value();
+        }
+        throw std::runtime_error("No President is elected!!!");
     }
 
-    // ToDo: implement
-    /*
-    auto Environment::killPlayer(std::shared_ptr<Player> player) -> bool {
-        return false;
+    void Environment::safeToPastOffices() {
+        board.safeToPastOffices();
     }
 
-    // ToDo: implement
-    auto Environment::getGameState(std::shared_ptr<Player> player) -> std::string {
-        return std::string();
+    auto Environment::getChancelor() const -> std::optional<std::shared_ptr<const Player>> {
+        return board.getCurrentOffices(Office::CHANCELOR);
     }
-    */
+
+    auto Environment::getParty(Fraction fraction) const -> std::vector<std::shared_ptr<const Player>> {
+        std::vector<std::shared_ptr<const Player>> result;
+        for (const auto &player : players) {
+            if (player->getFraction() == fraction) {
+                result.emplace_back(player);
+            }
+        }
+        return result;
+    }
 }

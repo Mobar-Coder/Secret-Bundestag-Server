@@ -16,6 +16,13 @@
 namespace GameModel {
     class Player {
 
+        private:
+            std::string name;
+            Fraction fraction;
+            Role role;
+            std::size_t sessionID;
+            bool alive;
+
         public:
 
             Player(std::string name, Fraction fraction, Role role, std::size_t sessId);
@@ -36,11 +43,9 @@ namespace GameModel {
 
             void setSessionId(std::size_t sessionId);
 
-        private:
-            std::string name;
-            Fraction fraction;
-            Role role;
-            std::size_t sessionID;
+            [[nodiscard]] auto isAlive() const -> bool;
+
+            void setAlive(bool alive);
     };
 
 }
