@@ -6,6 +6,7 @@ jobs:
     env:
       package_name: secretbundestagserver
       package_version: 1.0-1
+      dirname: ${package_name}_${package_version}
       CC: gcc-10
       CXX: g++-10
 
@@ -17,7 +18,7 @@ jobs:
           submodules: true
       - name: Setup .deb Directory
         run: |
-          mkdir -p $package_name_$package_version/usr/local/bin
+          mkdir -p ${dirname}/usr/local/bin
       - name: Install Lws
         run: |
           sudo apt install libssl-dev
@@ -35,21 +36,21 @@ jobs:
           cd build
           cmake ..
           make -j$(nproc)
-          cp SecretBundestagServer $package_name_$package_version/usr/local/bin
+          cp SecretBundestagServer ${dirname}/usr/local/bin
       - name: Install LWS into Package
         run: |
           cd libwebsockets
-          cmake -DCMAKE_INSTALL_DIRECTORY=$package_name_$package_version/usr/local
+          cmake -DCMAKE_INSTALL_DIRECTORY=${dirname}/usr/local
           make -j$(nproc)
           sudo make install
       - name: Install Package config
         run: |
-          mkdir -p $package_name_$package_version/DEBIAN
-          cp package/debian_control $package_name_$package_version/DEBIAN/control
-          sed -i 's/PACKAGE_NAME/$package_name/g' $package_name_$package_version/DEBIAN/control
-          sed -i 's/PACKAGE_VERSION/$package_version/g' $package_name_$package_version/DEBIAN/control
+          mkdir -p ${dirname}/DEBIAN
+          cp package/debian_control ${dirname}/DEBIAN/control
+          sed -i 's/PACKAGE_NAME/${package_name}/g' ${dirname}/DEBIAN/control
+          sed -i 's/PACKAGE_VERSION/${package_version}/g' ${dirname}/DEBIAN/control
       - name: Build Package
-        run: dpkg-deb --build $package_name_$package_version
+        run: dpkg-deb --build ${dirname}
       - name: Move Package into deploy dir
         run: |
           mkdir deploy
