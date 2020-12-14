@@ -18,13 +18,17 @@ namespace util {
      */
     class Logging {
         public:
+            enum class Level {
+                    DEBUG, INFO, WARN, ERROR
+            };
+
             /**
              * CTor: pass an output-stream (by reference) and the logging level.
              * @see README for more information on logging-levels and verbosity
              * @param ostream some output-stream, for exmaple std::cout or a file
              * @param loggingLevel the level of verbosity between 0 (no information) and 4 (maximum), values larger 4 are the same as 4.
              */
-            Logging(std::ostream &ostream, unsigned int loggingLevel);
+            Logging(std::ostream &ostream, Level loggingLevel);
 
             /**
              * Construct a copy of the log which will always print a certain prefix in front of the message
@@ -72,10 +76,10 @@ namespace util {
              * @param colorFormat a format string according to the ansi standard (see: https://en.wikipedia.org/wiki/ANSI_escape_code)
              * @see CTor and README.
              */
-            void logImpl(const std::string &string, unsigned int level, const std::string &colorFormat);
+            void logImpl(const std::string &string, Level level, const std::string &colorFormat);
 
             std::ostream &ostream;
-            unsigned int loggingLevel;
+            Level loggingLevel;
             std::vector<std::string> prefixes;
     };
 }
