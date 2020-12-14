@@ -6,6 +6,8 @@ jobs:
     env:
       package_name: secretbundestagserver
       package_version: 1.0-1
+      CC: gcc-10
+      CXX: g++-10
 
     steps:
       - name: Checkout️
