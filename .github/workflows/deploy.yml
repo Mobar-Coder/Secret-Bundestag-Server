@@ -55,7 +55,7 @@ jobs:
       - name: Move Package into deploy dir
         run: |
           mkdir deploy
-          cp ${dirname}.deb deploy/
+          cp ${dirname}.deb deploy/${package_name}.deb
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
