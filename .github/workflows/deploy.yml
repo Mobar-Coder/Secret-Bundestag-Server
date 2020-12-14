@@ -50,10 +50,12 @@ jobs:
           cat ${dirname}/DEBIAN/control
       - name: Build Package
         run: dpkg-deb --build ${dirname}
+      - name: Test install
+        run: sudo dpkg -i ${dirname}.deb
       - name: Move Package into deploy dir
         run: |
           mkdir deploy
-          cp *.deb deploy/
+          cp ${dirname}.deb deploy/
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:

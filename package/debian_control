@@ -2,7 +2,7 @@ Package: PACKAGE_NAME
 Version: PACKAGE_VERSION
 Section: base
 Priority: optional
-Architecture: x86_64
+Architecture: amd64
 Depends: libssl
 Maintainer: Mobar Coders
 Description: This is a very good server!
