@@ -40,7 +40,7 @@ jobs:
       - name: Install LWS into Package
         run: |
           cd libwebsockets
-          cmake -DCMAKE_INSTALL_DIRECTORY=${dirname}/usr/local
+          cmake -DCMAKE_INSTALL_DIRECTORY=../${dirname}/usr/local
           make -j$(nproc)
           sudo make install
       - name: Install Package config
