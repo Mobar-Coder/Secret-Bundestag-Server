@@ -49,7 +49,7 @@ jobs:
         run: |
           mkdir -p ${dirname}/DEBIAN
           cp package/debian_control ${dirname}/DEBIAN/control
-          cp package/posinst ${dirname}/DEBIAN/postinst
+          cp package/postinst ${dirname}/DEBIAN/postinst
           sed -i "s/PACKAGE_NAME/$package_name/g" ${dirname}/DEBIAN/control
           sed -i "s/PACKAGE_VERSION/$package_version/g" ${dirname}/DEBIAN/control
           cat ${dirname}/DEBIAN/control
