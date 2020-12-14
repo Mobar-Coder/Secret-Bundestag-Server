@@ -27,8 +27,6 @@ jobs:
           cmake .
           make -j$(nproc)
           sudo make install
-          cd ..
-          rm -rf libwebsockets
           sudo ldconfig
       - name: Build Application
         run: |
