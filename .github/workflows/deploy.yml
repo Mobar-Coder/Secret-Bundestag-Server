@@ -19,7 +19,6 @@ jobs:
       - name: Setup .deb Directory
         run: |
           mkdir -p ${dirname}/usr/local/bin
-          ls
       - name: Install Lws
         run: |
           sudo apt install libssl-dev
@@ -37,7 +36,7 @@ jobs:
           cd build
           cmake ..
           make -j$(nproc)
-          cp SecretBundestagServer ${dirname}/usr/local/bin/
+          cp SecretBundestagServer ../${dirname}/usr/local/bin/
       - name: Install LWS into Package
         run: |
           cd libwebsockets
