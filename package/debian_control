@@ -1,0 +1,9 @@
+Package: PACKAGE_NAME
+Version: PACKAGE_VERSION
+Section: base
+Priority: optional
+Architecture: amd64
+Depends: libssl-dev
+Maintainer: Mobar Coders
+Description: This is a very good server!
+
