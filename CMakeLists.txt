@@ -37,7 +37,7 @@ target_link_libraries(${PROJECT_NAME} ${LIBS})
 
 add_subdirectory(test)
 
-set(WebsocketCppBuildStatic ON)
+set(WebsocketCppBuildStatic ON CACHE INTERNAL "")
 add_subdirectory(lib/WebsocketCpp)
 
 set(JSON_BuildTests OFF CACHE INTERNAL "")
