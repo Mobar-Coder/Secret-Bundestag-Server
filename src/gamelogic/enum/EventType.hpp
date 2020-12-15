@@ -11,7 +11,7 @@
 namespace GameModel {
 
     enum class EventType {
-            Execution, InvestigateLoyalty, Veto, PolicyPeek, SpecialElection
+            EXECUTION, INVESTIGATE_LOYALTY, VETO, POLICY_PEEK, SPECIAL_ELECTION
     };
 }
 

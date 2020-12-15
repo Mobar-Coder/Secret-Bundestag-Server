@@ -11,7 +11,7 @@
 namespace GameModel {
 
     enum class TriggerCompositor {
-            And, Or
+            AND, OR
     };
 }
 

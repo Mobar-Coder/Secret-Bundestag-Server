@@ -20,16 +20,16 @@ namespace GameModel {
         auto res = false;
 
         switch (triggerComparator) {
-            case TriggerComparator::Equal:
+            case TriggerComparator::EQUAL:
                 res = environment->getNumberOfPlayedPolicies(cardType) == threshold;
                 break;
-            case TriggerComparator::Less:
+            case TriggerComparator::LESS:
                 res = environment->getNumberOfPlayedPolicies(cardType) < threshold;
                 break;
-            case TriggerComparator::Greater:
+            case TriggerComparator::GREATER:
                 res = environment->getNumberOfPlayedPolicies(cardType) > threshold;
                 break;
-            case TriggerComparator::Unequal:
+            case TriggerComparator::UNEQUAL:
                 res = environment->getNumberOfPlayedPolicies(cardType) != threshold;
                 break;
         }

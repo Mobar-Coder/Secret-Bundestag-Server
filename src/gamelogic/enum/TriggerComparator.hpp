@@ -11,7 +11,7 @@
 namespace GameModel {
 
     enum class TriggerComparator {
-            Equal, Less, Greater, Unequal
+            EQUAL, LESS, GREATER, UNEQUAL
     };
 }
 

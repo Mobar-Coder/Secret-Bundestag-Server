@@ -22,10 +22,10 @@ namespace GameModel {
 
         switch (triggerCompositor) {
 
-            case TriggerCompositor::And:
+            case TriggerCompositor::AND:
                 res = lhs->triggered(environment) && rhs->triggered(environment);
                 break;
-            case TriggerCompositor::Or:
+            case TriggerCompositor::OR:
                 res = lhs->triggered(environment) || rhs->triggered(environment);
                 break;
         }
