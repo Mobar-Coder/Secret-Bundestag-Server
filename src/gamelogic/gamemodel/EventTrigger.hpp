@@ -22,7 +22,7 @@ namespace GameModel {
             TriggerCompositor triggerCompositor;
 
         public:
-            EventTrigger(std::shared_ptr<AbstractEventTrigger> lhs, std::shared_ptr<AbstractEventTrigger> rhs ,
+            EventTrigger(std::shared_ptr<AbstractEventTrigger> lhs, std::shared_ptr<AbstractEventTrigger> rhs,
                          TriggerCompositor triggerCompositor);
 
             auto triggered(std::shared_ptr<const Environment> environment) -> bool override;
