@@ -1,5 +1,5 @@
 /**
- * @file SingleCardEventTrigger.cpp.c
+ * @file SingleCardEventTrigger.cpp
  * @author jonas
  * @date 14.12.20
  * Description here TODO
@@ -9,24 +9,28 @@
 
 namespace GameModel {
 
-    SingleECardEventTrigger::SingleECardEventTrigger(CardType cardType, std::size_t threshold,
-                                                     TriggerComparator triggerComparator) :
+    SingleCardEventTrigger::SingleCardEventTrigger(CardType cardType, std::size_t threshold,
+                                                   TriggerComparator triggerComparator) :
                                                      cardType(cardType), threshold(threshold),
                                                      triggerComparator(triggerComparator) {
     }
 
-    auto SingleECardEventTrigger::triggered(std::shared_ptr<const Environment> environment) -> bool {
-        // ToDo: implement
+    auto SingleCardEventTrigger::triggered(std::shared_ptr<const Environment> environment) -> bool {
+
         auto res = false;
-        auto a = environment->getPlayers();
+
         switch (triggerComparator) {
             case TriggerComparator::Equal:
+                res = environment->getNumberOfPlayedPolicies(cardType) == threshold;
                 break;
             case TriggerComparator::Less:
+                res = environment->getNumberOfPlayedPolicies(cardType) < threshold;
                 break;
             case TriggerComparator::Greater:
+                res = environment->getNumberOfPlayedPolicies(cardType) > threshold;
                 break;
             case TriggerComparator::Unequal:
+                res = environment->getNumberOfPlayedPolicies(cardType) != threshold;
                 break;
         }
 

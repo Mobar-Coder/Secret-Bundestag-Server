@@ -1,5 +1,5 @@
 /**
- * @file SinglrCardEventTrigger.hpp.h
+ * @file SingleCardEventTrigger.hpp
  * @author jonas
  * @date 14.12.20
  * Description here TODO
@@ -12,19 +12,41 @@
 #include "Environment.hpp"
 #include "../enum/TriggerComparator.hpp"
 
+/**
+ * @namespace GameModel
+ * The namespace for the game model.
+ */
 namespace GameModel {
 
-    class SingleECardEventTrigger : AbstractEventTrigger {
+    /**
+     * @class SingleCardEventTrigger
+     * @extends AbstractEventTrigger
+     * This class represents a single card event.
+     */
+    class SingleCardEventTrigger : AbstractEventTrigger {
 
         private:
-            CardType cardType;
-            std::size_t threshold{};
 
+            CardType cardType;
+            std::size_t threshold;
             TriggerComparator triggerComparator;
 
         public:
-            SingleECardEventTrigger(CardType cardType, std::size_t threshold, TriggerComparator triggerComparator);
 
+            /**
+             * Main Constructor of the SingleCardEventTrigger class.
+             * @param cardType
+             * @param threshold
+             * @param triggerComparator
+             */
+            SingleCardEventTrigger(CardType cardType, std::size_t threshold, TriggerComparator triggerComparator);
+
+            /**
+             *
+             * @implements AbstractEventTrigger::triggered(std::shared_ptr<const Environment> environment)
+             * @param environment
+             * @return
+             */
             auto triggered(std::shared_ptr<const Environment> environment) -> bool override;
     };
 }

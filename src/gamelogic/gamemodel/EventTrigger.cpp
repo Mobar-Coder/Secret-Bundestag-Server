@@ -1,5 +1,5 @@
 /**
- * @file EventTrigger.cpp.c
+ * @file EventTrigger.cpp
  * @author jonas
  * @date 14.12.20
  * Description here TODO

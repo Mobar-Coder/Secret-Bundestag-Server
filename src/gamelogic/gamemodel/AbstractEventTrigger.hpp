@@ -1,5 +1,5 @@
 /**
- * @file AbstractEventTrigger.hpp.h
+ * @file AbstractEventTrigger.hpp
  * @author jonas
  * @date 14.12.20
  * Description here TODO
@@ -10,8 +10,16 @@
 
 #include "Environment.hpp"
 
+/**
+ * @namespace GameModel
+ * The namespace for the game model.
+ */
 namespace GameModel {
 
+    /**
+     * @class AbstractEventTrigger
+     * This class is an abstract interface for an event.
+     */
     class AbstractEventTrigger {
 
         public:

@@ -78,4 +78,8 @@ namespace GameModel {
         return std::string();
     }
     */
+
+    auto Environment::getNumberOfPlayedPolicies(CardType cardType) const -> std::size_t {
+        return board.getNumberOfPolicy(cardType);
+    }
 }
