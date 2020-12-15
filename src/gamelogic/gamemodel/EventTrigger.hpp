@@ -47,7 +47,7 @@ namespace GameModel {
              * @param environment
              * @return
              */
-            auto triggered(std::shared_ptr<const Environment> environment) -> bool override;
+            auto triggered(const std::shared_ptr<const Environment> &environment) -> bool override;
     };
 }
 

@@ -24,7 +24,7 @@ namespace GameModel {
 
         public:
 
-            virtual auto triggered(std::shared_ptr<const Environment> environment) -> bool = 0;
+            virtual auto triggered(const std::shared_ptr<const Environment> &environment) -> bool = 0;
     };
 }
 

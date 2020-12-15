@@ -15,7 +15,7 @@ namespace GameModel {
                                                      triggerComparator(triggerComparator) {
     }
 
-    auto SingleCardEventTrigger::triggered(std::shared_ptr<const Environment> environment) -> bool {
+    auto SingleCardEventTrigger::triggered(const std::shared_ptr<const Environment> &environment) -> bool {
 
         auto res = false;
 
@@ -32,6 +32,8 @@ namespace GameModel {
             case TriggerComparator::UNEQUAL:
                 res = environment->getNumberOfPlayedPolicies(cardType) != threshold;
                 break;
+            default:
+                throw std::logic_error("The selected trigger comparator option is not implemented!");
         }
 
         return res;
