@@ -19,9 +19,9 @@ namespace comm {
 
             void onJoin(std::size_t id);
 
-            void onReceive(const std::shared_ptr<const messages::Message> &msg, std::size_t id);
+            void onReceive(const std::shared_ptr<const messages::Message> &message, std::size_t id);
 
-            void onLeave(std::size_t);
+            void onLeave(std::size_t id);
 
         private:
             SendF sendToClient;

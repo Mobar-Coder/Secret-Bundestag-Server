@@ -9,7 +9,7 @@
 
 namespace messages {
     struct StartRequest : public Message {
-        StartRequest();
+        StartRequest() = default;
     };
 }
 

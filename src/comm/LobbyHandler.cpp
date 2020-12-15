@@ -77,10 +77,10 @@ namespace comm {
 
             // If lobby is now empty also erase from lobbyNameMap
             if (not userInLobby) {
-                for (auto [name, lobbyPtr] : lobbyNameMap) {
+                for (const auto &[name, lobbyPtr] : lobbyNameMap) {
                     if (lobbyPtr == currLobbyPtr) {
-                        lobbyNameMap.erase(name);
                         log.info("Lobby " + name + " closed");
+                        lobbyNameMap.erase(name);
                         break;
                     }
                 }

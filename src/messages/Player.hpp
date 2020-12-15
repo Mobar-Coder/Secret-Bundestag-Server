@@ -13,9 +13,9 @@ namespace messages {
         Player(std::string name, bool alive, std::optional<std::string> govRole);
         Player() = default;
 
-        std::string name;
-        bool alive;
-        std::optional<std::string> govRole;
+        std::string name{};
+        bool alive{};
+        std::optional<std::string> govRole{};
     };
 
     void to_json(nlohmann::json& j, const Player& p);

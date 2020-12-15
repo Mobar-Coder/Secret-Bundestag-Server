@@ -10,7 +10,7 @@
 namespace messages {
     struct Accept : public Message {
         Accept();
-        bool leader;
+        bool leader{};
     };
 }
 

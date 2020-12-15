@@ -6,7 +6,4 @@
 
 namespace messages {
     CLASS(StartRequest)
-
-    StartRequest::StartRequest() {
-    }
 }
