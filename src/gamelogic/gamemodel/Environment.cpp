@@ -63,6 +63,10 @@ namespace GameModel {
 
     }
 
+    auto Environment::getPlayers() const -> const std::vector<Player> & {
+        return players;
+    }
+
     // ToDo: implement
     /*
     auto Environment::killPlayer(std::shared_ptr<Player> player) -> bool {
@@ -74,4 +78,8 @@ namespace GameModel {
         return std::string();
     }
     */
+
+    auto Environment::getNumberOfPlayedPolicies(CardType cardType) const -> std::size_t {
+        return board.getNumberOfPolicy(cardType);
+    }
 }
