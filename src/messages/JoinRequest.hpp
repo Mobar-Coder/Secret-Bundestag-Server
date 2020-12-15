@@ -13,7 +13,8 @@ namespace messages {
     struct JoinRequest : public Message {
         JoinRequest();
 
-        std::string lobbyName;
+        std::string name;
+        std::string lobby;
     };
 }
 

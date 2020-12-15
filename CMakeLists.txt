@@ -25,7 +25,12 @@ set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/util/ArgumentParser.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/Error.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/JoinRequest.cpp
-        ${CMAKE_SOURCE_DIR}/src/messages/Message.cpp)
+        ${CMAKE_SOURCE_DIR}/src/messages/Message.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/Accept.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/StartRequest.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/Player.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/GameStart.cpp
+        )
 
 set(LIBS stdc++fs pthread WebsocketCpp)
 

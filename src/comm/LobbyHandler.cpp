@@ -23,17 +23,22 @@ namespace comm {
             if (!isInLobby) {
                 auto joinRequest = std::dynamic_pointer_cast<const messages::JoinRequest>(message);
                 std::shared_ptr<Lobby> lobbyPtr;
-                if (lobbyNameMap.find(joinRequest->lobbyName) != lobbyNameMap.end()) {
-                    log.info("Creating Lobby " + joinRequest->lobbyName + " for " + std::to_string(id));
+                if (lobbyNameMap.find(joinRequest->lobby) == lobbyNameMap.end()) {
+                    log.info("Creating Lobby " + joinRequest->lobby + " for " +
+                        joinRequest->name + " (" + std::to_string(id) + ")");
                     lobbyPtr = std::make_shared<Lobby>(
                             [this](auto msg, auto id) {
                                 this->connectionHandler.send(msg, id);
                             },
-                            util::Logging{log, joinRequest->lobbyName});
-                    lobbyNameMap.emplace(joinRequest->lobbyName, lobbyPtr);
+                            [this](std::size_t id) {
+                                this->connectionHandler.closeConnection(id);
+                            },
+                            util::Logging{log, joinRequest->lobby});
+                    lobbyNameMap.emplace(joinRequest->lobby, lobbyPtr);
                 } else {
-                    log.info(std::to_string(id) + " joins " + joinRequest->lobbyName);
-                    lobbyPtr = lobbyNameMap.find(joinRequest->lobbyName)->second;
+                    log.info(joinRequest->name + " (" + std::to_string(id) + ")"
+                        + " joins " + joinRequest->lobby);
+                    lobbyPtr = lobbyNameMap.find(joinRequest->lobby)->second;
                 }
 
                 userLobbyMap.emplace(id, lobbyPtr);
@@ -55,26 +60,27 @@ namespace comm {
     void LobbyHandler::closeListener(std::size_t id) {
         auto lobbyIt = userLobbyMap.find(id);
         if (lobbyIt != userLobbyMap.end()) {
-            lobbyIt->second->onClose(id);
+            lobbyIt->second->onLeave(id);
+
+            // Definitely erase user
+            auto currLobbyPtr = lobbyIt->second;
+            userLobbyMap.erase(id);
 
             // Check if another user is in this lobby
             auto userInLobby = false;
             for (const auto &[id, lobbyPTr] : userLobbyMap) {
-                if (lobbyPTr == lobbyIt->second) {
+                if (lobbyPTr == currLobbyPtr) {
                     userInLobby = true;
                     break;
                 }
             }
 
-            // Definitely erase user
-            userLobbyMap.erase(id);
-
             // If lobby is now empty also erase from lobbyNameMap
             if (not userInLobby) {
-                for (auto &[name, lobbyPtr] : lobbyNameMap) {
-                    if (lobbyPtr == lobbyIt->second) {
-                        lobbyNameMap.erase(name);
+                for (const auto &[name, lobbyPtr] : lobbyNameMap) {
+                    if (lobbyPtr == currLobbyPtr) {
                         log.info("Lobby " + name + " closed");
+                        lobbyNameMap.erase(name);
                         break;
                     }
                 }
