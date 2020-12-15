@@ -27,11 +27,14 @@ set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/messages/JoinRequest.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/Message.cpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/CardType.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/EventType.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/Fraction.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/Office.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/Role.hpp
-        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamecontroller/Controller.cpp
-        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamecontroller/Controller.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/TriggerComparator.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/TriggerCompositor.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/AbstractEventTrigger.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/AbstractEventTrigger.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamecontroller/Controller.cpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamecontroller/Controller.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Board.cpp
@@ -40,10 +43,16 @@ set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/CardRange.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Environment.cpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Environment.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/EventTrigger.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/EventTrigger.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/GameStateRepresentation.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/GameStateRepresentation.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Player.cpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Player.hpp
-        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/GameStateRepresentation.cpp
-        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/GameStateRepresentation.hpp)
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/RuleSet.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/RuleSet.hpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/SingleCardEventTrigger.hpp)
 
 set(LIBS stdc++fs pthread WebsocketCpp)
 
