@@ -26,6 +26,10 @@ set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/messages/Error.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/JoinRequest.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/Message.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/Accept.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/StartRequest.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/Player.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/GameStart.cpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/CardType.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/EventType.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/Fraction.hpp
@@ -52,7 +56,8 @@ set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/RuleSet.cpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/RuleSet.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp
-        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/SingleCardEventTrigger.hpp)
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/SingleCardEventTrigger.hpp
+        )
 
 set(LIBS stdc++fs pthread WebsocketCpp)
 
