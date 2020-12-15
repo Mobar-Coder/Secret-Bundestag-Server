@@ -14,7 +14,9 @@ namespace GameModel {
 
     class AbstractEventTrigger {
 
-           virtual auto triggered(std::shared_ptr<const Environment> environment) -> bool = 0;
+        public:
+
+            virtual auto triggered(std::shared_ptr<const Environment> environment) -> bool = 0;
     };
 }
 

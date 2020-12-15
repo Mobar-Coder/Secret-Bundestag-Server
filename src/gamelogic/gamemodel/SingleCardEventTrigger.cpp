@@ -17,7 +17,19 @@ namespace GameModel {
 
     auto SingleECardEventTrigger::triggered(std::shared_ptr<const Environment> environment) -> bool {
         // ToDo: implement
+        auto res = false;
         auto a = environment->getPlayers();
-        return false;
+        switch (triggerComparator) {
+            case TriggerComparator::Equal:
+                break;
+            case TriggerComparator::Less:
+                break;
+            case TriggerComparator::Greater:
+                break;
+            case TriggerComparator::Unequal:
+                break;
+        }
+
+        return res;
     }
 }

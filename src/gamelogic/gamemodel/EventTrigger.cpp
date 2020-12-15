@@ -17,8 +17,19 @@ namespace GameModel {
     }
 
     auto EventTrigger::triggered(std::shared_ptr<const Environment> environment) -> bool {
-        // ToDo: implement
-        auto a = environment->getPlayers();
-        return false;
+
+        auto res = false;
+
+        switch (triggerCompositor) {
+
+            case TriggerCompositor::And:
+                res = lhs->triggered(environment) && rhs->triggered(environment);
+                break;
+            case TriggerCompositor::Or:
+                res = lhs->triggered(environment) || rhs->triggered(environment);
+                break;
+        }
+
+        return res;
     }
 }
