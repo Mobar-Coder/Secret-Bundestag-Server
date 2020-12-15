@@ -11,6 +11,16 @@
 
 namespace GameModel {
 
+    // PlayerRepresentation class implementation -----------------------------------------------------------------------
+
+    PlayerRepresentation::PlayerRepresentation(std::string name, bool alive, std::optional<std::string> govRole) :
+            name(std::move(name)), alive(alive), govRole(std::move(govRole)) {
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
+
+    // Player class implementation -------------------------------------------------------------------------------------
+
     Player::Player(std::string name, const Fraction fraction, const Role role, const std::size_t sessId) : name(
             std::move(name)), fraction(fraction), role(role), sessionID(sessId) {
 
@@ -40,11 +50,27 @@ namespace GameModel {
         role = playerRole;
     }
 
-    size_t Player::getSessionId() const {
-        return sessionID;
+    void Player::setAlive(bool isPlayerAlive) {
+        this->alive = isPlayerAlive;
+    }
+
+    bool Player::getAlive() const {
+        return alive;
     }
 
     void Player::setSessionId(size_t sessionId) {
         sessionID = sessionId;
     }
+
+
+    size_t Player::getSessionId() const {
+        return sessionID;
+    }
+
+    // ToDo Fix return...
+    auto Player::getPlayerRepresentation() -> PlayerRepresentation {
+        return PlayerRepresentation(name, alive, "");
+    }
+
+    // -----------------------------------------------------------------------------------------------------------------
 }

@@ -16,12 +16,14 @@
 #include "Player.hpp"
 
 /**
- * @namespace The namespace for the game model.
+ * The namespace for the game model.
+ * @namespace GameModel
  */
 namespace GameModel {
 
     /**
-     * @class The Board class represents the game board which a player would see when playing the board game version.
+     * The Board class represents the game board which a player would see when playing the board game version.
+     * @class Board
      */
     class Board {
 

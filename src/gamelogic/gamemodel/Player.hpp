@@ -9,11 +9,33 @@
 #define SECRETBUNDESTAGSERVER_PLAYER_HPP
 
 #include <string>
+#include <optional>
 
 #include "../enum/Role.hpp"
 #include "../enum/Fraction.hpp"
 
+/**
+ * The namespace for the game model.
+ * @namespace GameModel
+ */
 namespace GameModel {
+
+    /**
+     * This class represents a player object which can be send to a game client.
+     * @class PlayerRepresentation
+     */
+    class PlayerRepresentation {
+        public:
+            std::string name;
+            bool alive;
+            std::optional<std::string> govRole;
+
+            explicit PlayerRepresentation(std::string name, bool alive, std::optional<std::string> govRole);
+    };
+
+    /**
+     * @class Player
+     */
     class Player {
 
         public:
@@ -34,15 +56,21 @@ namespace GameModel {
 
             [[nodiscard]] std::size_t getSessionId() const;
 
+            void setAlive(bool isPlayerAlive);
+
+            bool getAlive() const;
+
             void setSessionId(std::size_t sessionId);
+
+            auto  getPlayerRepresentation() -> PlayerRepresentation;
 
         private:
             std::string name;
             Fraction fraction;
             Role role;
+            bool alive;
             std::size_t sessionID;
     };
-
 }
 
 #endif // SECRETBUNDESTAGSERVER_PLAYER_HPP

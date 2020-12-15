@@ -16,8 +16,15 @@
 #include "../enum/CardType.hpp"
 #include "Board.hpp"
 
+/**
+ * The namespace for the game model.
+ * @namespace GameModel
+ */
 namespace GameModel {
 
+    /**
+     * @class CardRange
+     */
     class CardRange {
 
         private:
