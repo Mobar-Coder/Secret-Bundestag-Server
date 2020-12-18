@@ -21,7 +21,7 @@ namespace GameModel {
             Fraction fraction;
             Role role;
             std::size_t sessionID;
-            bool alive;
+            bool alive = true;
 
         public:
 
@@ -45,7 +45,7 @@ namespace GameModel {
 
             [[nodiscard]] auto isAlive() const -> bool;
 
-            void setAlive(bool alive);
+            void setAlive(bool isAlive);
     };
 
 }

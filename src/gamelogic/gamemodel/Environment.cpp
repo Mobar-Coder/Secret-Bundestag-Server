@@ -65,11 +65,15 @@ namespace GameModel {
         auto player = board.getCurrentOffices(Office::PRESIDENT);
         if (player.has_value()) {
             //TODO: Endlosschleife!!!!!
-            auto it = std::find(players.cbegin(), players.cend(), player.value());
+            auto iterator_start = std::find(players.cbegin(), players.cend(), player.value());
+            auto it = iterator_start;
             do {
                 it++;
                 if (it == players.cend()) {
                     it = players.cbegin();
+                }
+                if (std::distance(iterator_start, it) == 0) {
+                    throw std::runtime_error("All Plyers are killer!");
                 }
             } while ((*it)->isAlive());
             board.setCurrentOffices(Office::PRESIDENT, *it);
