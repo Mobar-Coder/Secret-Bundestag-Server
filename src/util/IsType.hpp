@@ -11,7 +11,7 @@
 
 namespace util {
     template<typename T, typename P>
-    auto isType(P p) { return std::dynamic_pointer_cast<T>(p) != nullptr; }
+    auto isType(P p) { return std::dynamic_pointer_cast<const T>(p) != nullptr; }
 
 }
 

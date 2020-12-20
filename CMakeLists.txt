@@ -10,7 +10,7 @@ endif(NOT CMAKE_BUILD_TYPE)
 
 set(CMAKE_CXX_STANDARD 20)
 
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wpedantic -Werror -mtune=native -march=native")
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wpedantic -Werror -mtune=native")
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address -fno-omit-frame-pointer")
 else()
@@ -22,6 +22,7 @@ set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/comm/LobbyHandler.cpp
         ${CMAKE_SOURCE_DIR}/src/comm/Lobby.cpp
         ${CMAKE_SOURCE_DIR}/src/util/Logging.cpp
+        ${CMAKE_SOURCE_DIR}/src/util/ArgumentParser.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/Error.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/JoinRequest.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/Message.cpp
@@ -42,7 +43,12 @@ set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Player.cpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Player.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/GameStateRepresentation.cpp
-        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/GameStateRepresentation.hpp)
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/GameStateRepresentation.hpp
+        ${CMAKE_SOURCE_DIR}/src/messages/Accept.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/StartRequest.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/Player.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/GameStart.cpp
+        )
 
 set(LIBS stdc++fs pthread WebsocketCpp)
 
@@ -53,6 +59,8 @@ add_executable(${PROJECT_NAME} src/main.cpp ${SOURCES})
 target_link_libraries(${PROJECT_NAME} ${LIBS})
 
 add_subdirectory(test)
+
+set(WebsocketCppBuildStatic ON CACHE INTERNAL "")
 add_subdirectory(lib/WebsocketCpp)
 
 set(JSON_BuildTests OFF CACHE INTERNAL "")

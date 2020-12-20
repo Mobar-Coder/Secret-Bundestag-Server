@@ -9,4 +9,12 @@
 
 namespace GameController {
 
+    Controller::Controller(const int &players) {
+        environment = new Environment(&players);
+    }
+
+
+
+
+
 }
