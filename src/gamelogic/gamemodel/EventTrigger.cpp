@@ -18,20 +18,16 @@ namespace GameModel {
 
     auto EventTrigger::triggered(const std::shared_ptr<const Environment> &environment) -> bool {
 
-        auto res = false;
-
         switch (triggerCompositor) {
 
             case TriggerCompositor::AND:
-                res = lhs->triggered(environment) && rhs->triggered(environment);
-                break;
+                return lhs->triggered(environment) && rhs->triggered(environment);
+
             case TriggerCompositor::OR:
-                res = lhs->triggered(environment) || rhs->triggered(environment);
-                break;
+                return lhs->triggered(environment) || rhs->triggered(environment);
+
             default:
                 throw std::logic_error("The selected trigger compositor option is not implemented!");
         }
-
-        return res;
     }
 }

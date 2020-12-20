@@ -37,7 +37,6 @@ set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/Role.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/TriggerComparator.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/enum/TriggerCompositor.hpp
-        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/AbstractEventTrigger.cpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/AbstractEventTrigger.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamecontroller/Controller.cpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamecontroller/Controller.hpp
