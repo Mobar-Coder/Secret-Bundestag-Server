@@ -131,6 +131,13 @@ namespace GameModel {
              */
             auto getParty(Fraction fraction) -> std::vector<std::shared_ptr<Player>>;
 
+            /**
+             * Get the number of played policies of a certain type.
+             * @param cardType
+             * @return
+             */
+            auto getNumberOfPlayedPolicies(CardType cardType) const -> std::size_t;
+
         private:
             /**
              *
