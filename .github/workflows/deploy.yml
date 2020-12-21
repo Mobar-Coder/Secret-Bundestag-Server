@@ -1,0 +1,69 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      package_name: secretbundestagserver
+      package_version: 1.0-1
+      dirname: secretbundestagserver_1.0-1
+      CC: gcc-10
+      CXX: g++-10
+
+    steps:
+      - name: Checkout️
+        uses: actions/checkout@v2.3.1
+        with:
+          persist-credentials: false
+          submodules: true
+      - name: Setup .deb Directory
+        run: |
+          mkdir -p ${dirname}/usr/local/bin
+      - name: Install Lws
+        run: |
+          sudo apt install libssl-dev
+          git clone https://github.com/warmcat/libwebsockets.git
+          cd libwebsockets
+          cmake .
+          make -j$(nproc)
+          sudo make install
+          sudo ldconfig
+      - name: Build Application
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          make -j$(nproc)
+          cp SecretBundestagServer ../${dirname}/usr/local/bin/
+      - name: Install LWS into Package
+        run: |
+          cd libwebsockets
+          cmake -DCMAKE_INSTALL_PREFIX=../${dirname}/usr/local .
+          make -j$(nproc)
+          sudo make install
+      - name: Install Package config
+        run: |
+          mkdir -p ${dirname}/DEBIAN
+          cp package/debian_control ${dirname}/DEBIAN/control
+          sed -i "s/PACKAGE_NAME/$package_name/g" ${dirname}/DEBIAN/control
+          sed -i "s/PACKAGE_VERSION/$package_version/g" ${dirname}/DEBIAN/control
+          cp package/postinst ${dirname}/DEBIAN/postinst
+          chmod 0555 ${dirname}/DEBIAN/postinst
+      - name: Build Package
+        run: dpkg-deb --build ${dirname}
+      - name: Test install
+        run: sudo dpkg -i ${dirname}.deb
+      - name: Move Package into deploy dir
+        run: |
+          mkdir deploy
+          cp ${dirname}.deb deploy/${package_name}.deb
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.MOBAR_BOT_DEPLOY_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: deploy
+          CLEAN: true
