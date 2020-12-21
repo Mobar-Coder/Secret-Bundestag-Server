@@ -285,3 +285,45 @@ TEST(GameModel_Environment, number_card_piles0) {
     EXPECT_EQ(environment.getNumberCardsCardPile(), 10);
     EXPECT_EQ(environment.getNumberCardsDiscardPile(), 7);
 }
+
+TEST(GameModel_Environment, number_of_policies) {
+    GameModel::Player player("Björn", GameModel::Fraction::LIBERAL_PARTY, GameModel::Role::NONE, 0);
+    std::vector<std::shared_ptr<GameModel::Player>> players;
+    players.emplace_back(std::make_shared<GameModel::Player>(player));
+    GameModel::EnvironmentTest environment(players);
+
+    {
+        auto cardRange = environment.drawNCards(6);
+        EXPECT_TRUE(cardRange.selectForPolicy(GameModel::CardType::FASCIST));
+        EXPECT_TRUE(cardRange.discardRemainingCards());
+        EXPECT_TRUE(cardRange.applyToGame());
+        EXPECT_EQ(environment.getNumberOfPlayedPolicies(GameModel::CardType::FASCIST), 1);
+        EXPECT_EQ(environment.getNumberOfPlayedPolicies(GameModel::CardType::LIBERAL), 0);
+    }
+
+    {
+        auto cardRange = environment.drawNCards(6);
+        EXPECT_TRUE(cardRange.selectForPolicy(GameModel::CardType::FASCIST));
+        EXPECT_TRUE(cardRange.discardRemainingCards());
+        EXPECT_TRUE(cardRange.applyToGame());
+        EXPECT_EQ(environment.getNumberOfPlayedPolicies(GameModel::CardType::FASCIST), 2);
+        EXPECT_EQ(environment.getNumberOfPlayedPolicies(GameModel::CardType::LIBERAL), 0);
+    }
+
+    {
+        auto cardRange = environment.drawNCards(6);
+        EXPECT_TRUE(cardRange.selectForPolicy(GameModel::CardType::LIBERAL));
+        EXPECT_TRUE(cardRange.discardRemainingCards());
+        EXPECT_TRUE(cardRange.applyToGame());
+        EXPECT_EQ(environment.getNumberOfPlayedPolicies(GameModel::CardType::FASCIST), 2);
+        EXPECT_EQ(environment.getNumberOfPlayedPolicies(GameModel::CardType::LIBERAL), 1);
+    }
+    {
+        auto cardRange = environment.drawNCards(2);
+        EXPECT_TRUE(cardRange.selectForPolicy(GameModel::CardType::LIBERAL));
+        EXPECT_TRUE(cardRange.discardRemainingCards());
+        EXPECT_TRUE(cardRange.applyToGame());
+        EXPECT_EQ(environment.getNumberOfPlayedPolicies(GameModel::CardType::FASCIST), 2);
+        EXPECT_EQ(environment.getNumberOfPlayedPolicies(GameModel::CardType::LIBERAL), 2);
+    }
+}
