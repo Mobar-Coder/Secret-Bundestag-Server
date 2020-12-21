@@ -84,12 +84,12 @@ namespace GameModel {
         board.getPastOffices().clear();
     }
 
-    void Environment::setCandidateForChancelor(const std::shared_ptr<Player> &player) {
+    void Environment::setCandidateForChancellor(const std::shared_ptr<Player> &player) {
         board.setCurrentOffices(Office::CANDIDATE, player);
 
     }
 
-    auto Environment::electChancelor() -> bool {
+    auto Environment::electChancellor() -> bool {
         auto player = board.getCurrentOffices(Office::CANDIDATE);
         if (player.has_value()) {
             board.setCurrentOffices(Office::CHANCELOR, player.value());
@@ -110,7 +110,7 @@ namespace GameModel {
         board.safeToPastOffices();
     }
 
-    auto Environment::getChancelor() const -> std::optional<std::shared_ptr<const Player>> {
+    auto Environment::getChancellor() const -> std::optional<std::shared_ptr<const Player>> {
         return board.getCurrentOffices(Office::CHANCELOR);
     }
 

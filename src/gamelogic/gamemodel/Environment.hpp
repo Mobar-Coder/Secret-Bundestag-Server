@@ -46,7 +46,7 @@ namespace GameModel {
              * @developer Bjoern
              * Draw N cards from the normal card pile.
              * @param number
-             * @return
+             * @return A Cardrange with the given cards
              */
             auto drawNCards(std::size_t number) -> CardRange;
 
@@ -56,89 +56,84 @@ namespace GameModel {
             void shuffleCardPile();
 
             /**
-             *
-             *
-             * @return
+             * increment the election tracker by one
+             * @return the actual value of the election tracker
              */
             auto incrementElectionTracker() -> std::size_t;
 
             /**
-             *
+             * resets the election tracker to zero
              */
             auto resetElectionTracker() -> void;
 
             /**
               * Kill a Player.
-              * @param player
-              * @return
+              * @param player to kill
               */
             void killPlayer(const std::shared_ptr<Player> &player);
 
             /**
-             *
+             * //TODO
              * @param player
              * @return
              */
             auto getGameState(std::shared_ptr<Player> player) -> GameStateRepresentation;
 
             /**
-             *
-             * @param player
-             * @return
+             * selects automatically the next president in the vector of players, fails if all players are dead
              */
             void autoSelectPresident();
 
             /**
-             *
+             * reset the whole past offices
              */
             void resetPastOffices();
 
 
             /**
-             *
-             * @return
+             * set the given player as candidate for chancellor
              */
-            void setCandidateForChancelor(const std::shared_ptr<Player> &player);
+            void setCandidateForChancellor(const std::shared_ptr<Player> &player);
 
             /**
-             *
-             * @return
+             * elect the chancellor candidate, but there must be a candidate
+             * @return true if success
              */
-            auto electChancelor() -> bool;
+            auto electChancellor() -> bool;
 
             /**
-             *
-             * @return
+             * returns the actual president
+             * @return shared_ptr to the player which is president
              */
             auto getPresident() -> std::shared_ptr<const Player>;
 
             /**
-             *
+             * safe the current offices to the past offices
              */
             void safeToPastOffices();
 
             /**
-             *
-             * @return
+             * return the actual chancellor
+             * @return is an optional, if no chancellor is not elected
              */
-            auto getChancelor() const -> std::optional<std::shared_ptr<const Player>>;
+            auto getChancellor() const -> std::optional<std::shared_ptr<const Player>>;
 
             /**
-             *
-             * @param fraction
-             * @return
+             * delivers all player of a party
+             * @param fraction we want to have the players
+             * @return a vector of the searched players
              */
             auto getParty(Fraction fraction) const -> std::vector<std::shared_ptr<const Player>>;
 
             /**
-             *
-             * @return
+             * The number of cards in the non-discarded card pile
+             * @return number
              */
             auto getNumberCardsCardPile() const -> std::size_t;
 
             /**
-             *
-             * @return
+             * The number of cards in the discarded card pile
+             * @return number
              */
             auto getNumberCardsDiscardPile() const -> std::size_t;
 
@@ -151,15 +146,14 @@ namespace GameModel {
 
         protected:
             /**
-             *
-             * @return
+             * Return a reference to the actual Board, is only needed for testing
+             * @return reference to board
              */
             auto getBoard() const -> const Board &;
 
         private:
             /**
-             *
-             *
+             * restock the card pile from the discarded card pile
              */
             void restockCardPile();
 

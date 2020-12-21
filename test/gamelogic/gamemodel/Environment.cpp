@@ -173,14 +173,14 @@ TEST(GameModel_Environment, set_chancelor_candidate) {
     players.emplace_back(std::make_shared<GameModel::Player>(player3));
     GameModel::EnvironmentTest environment(players);
 
-    EXPECT_FALSE(environment.getChancelor().has_value());
-    EXPECT_FALSE(environment.electChancelor());
-    environment.setCandidateForChancelor(players[1]);
+    EXPECT_FALSE(environment.getChancellor().has_value());
+    EXPECT_FALSE(environment.electChancellor());
+    environment.setCandidateForChancellor(players[1]);
     EXPECT_TRUE(environment.getBoard().getCurrentOffices(GameModel::Office::CANDIDATE).has_value());
     EXPECT_EQ(player2.getName(),
               environment.getBoard().getCurrentOffices(GameModel::Office::CANDIDATE).value()->getName());
 
-    environment.setCandidateForChancelor(players[2]);
+    environment.setCandidateForChancellor(players[2]);
     EXPECT_TRUE(environment.getBoard().getCurrentOffices(GameModel::Office::CANDIDATE).has_value());
     EXPECT_EQ(player3.getName(),
               environment.getBoard().getCurrentOffices(GameModel::Office::CANDIDATE).value()->getName());
@@ -196,11 +196,11 @@ TEST(GameModel_Environment, elect_chancelor) {
     players.emplace_back(std::make_shared<GameModel::Player>(player3));
     GameModel::EnvironmentTest environment(players);
 
-    EXPECT_FALSE(environment.getChancelor().has_value());
-    EXPECT_FALSE(environment.electChancelor());
-    environment.setCandidateForChancelor(players[1]);
-    EXPECT_TRUE(environment.electChancelor());
-    EXPECT_TRUE(environment.getChancelor().has_value());
+    EXPECT_FALSE(environment.getChancellor().has_value());
+    EXPECT_FALSE(environment.electChancellor());
+    environment.setCandidateForChancellor(players[1]);
+    EXPECT_TRUE(environment.electChancellor());
+    EXPECT_TRUE(environment.getChancellor().has_value());
 }
 
 TEST(GameModel_Environment, reset_past_offices) {
@@ -213,11 +213,11 @@ TEST(GameModel_Environment, reset_past_offices) {
     players.emplace_back(std::make_shared<GameModel::Player>(player3));
     GameModel::EnvironmentTest environment(players);
 
-    EXPECT_FALSE(environment.getChancelor().has_value());
-    EXPECT_FALSE(environment.electChancelor());
-    environment.setCandidateForChancelor(players[1]);
-    EXPECT_TRUE(environment.electChancelor());
-    EXPECT_TRUE(environment.getChancelor().has_value());
+    EXPECT_FALSE(environment.getChancellor().has_value());
+    EXPECT_FALSE(environment.electChancellor());
+    environment.setCandidateForChancellor(players[1]);
+    EXPECT_TRUE(environment.electChancellor());
+    EXPECT_TRUE(environment.getChancellor().has_value());
     EXPECT_FALSE(environment.getBoard().getPastOffices(GameModel::Office::CANDIDATE).has_value());
     environment.safeToPastOffices();
     EXPECT_TRUE(environment.getBoard().getPastOffices(GameModel::Office::CANDIDATE).has_value());
@@ -246,11 +246,11 @@ TEST(GameModel_Environment, get_chancelor) {
     players.emplace_back(std::make_shared<GameModel::Player>(player2));
     players.emplace_back(std::make_shared<GameModel::Player>(player3));
     GameModel::EnvironmentTest environment(players);
-    EXPECT_FALSE(environment.getChancelor().has_value());
+    EXPECT_FALSE(environment.getChancellor().has_value());
 
-    environment.setCandidateForChancelor(players[1]);
-    EXPECT_TRUE(environment.electChancelor());
-    EXPECT_TRUE(environment.getChancelor().has_value());
+    environment.setCandidateForChancellor(players[1]);
+    EXPECT_TRUE(environment.electChancellor());
+    EXPECT_TRUE(environment.getChancellor().has_value());
 }
 
 TEST(GameModel_Environment, get_party) {
