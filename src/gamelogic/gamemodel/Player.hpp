@@ -27,19 +27,19 @@ namespace GameModel {
 
             Player(std::string name, Fraction fraction, Role role, std::size_t sessId);
 
-            [[nodiscard]] const std::string &getName() const;
+            [[nodiscard]] auto getName() const -> const std::string &;
 
             void setName(const std::string &playerName);
 
-            [[nodiscard]] Fraction getFraction() const;
+            [[nodiscard]] auto getFraction() const -> Fraction;
 
             void setFraction(Fraction playerFraction);
 
-            [[nodiscard]] Role getRole() const;
+            [[nodiscard]] auto getRole() const -> Role;
 
             void setRole(Role playerRole);
 
-            [[nodiscard]] std::size_t getSessionId() const;
+            [[nodiscard]] auto getSessionId() const -> std::size_t;
 
             void setSessionId(std::size_t sessionId);
 

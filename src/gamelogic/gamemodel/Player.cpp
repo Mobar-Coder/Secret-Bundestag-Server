@@ -16,7 +16,7 @@ namespace GameModel {
 
     }
 
-    const std::string &Player::getName() const {
+    auto Player::getName() const -> const std::string & {
         return name;
     }
 
@@ -24,7 +24,7 @@ namespace GameModel {
         name = playerName;
     }
 
-    Fraction Player::getFraction() const {
+    auto Player::getFraction() const -> Fraction {
         return fraction;
     }
 
@@ -32,7 +32,7 @@ namespace GameModel {
         fraction = playerFraction;
     }
 
-    Role Player::getRole() const {
+    auto Player::getRole() const -> Role {
         return role;
     }
 
@@ -40,7 +40,7 @@ namespace GameModel {
         role = playerRole;
     }
 
-    size_t Player::getSessionId() const {
+    auto Player::getSessionId() const -> size_t {
         return sessionID;
     }
 

@@ -14,7 +14,7 @@
 namespace GameModel {
 
     Environment::Environment(std::vector<std::shared_ptr<Player>> players) : players(std::move(players)) {
-        shuffleCardPile();
+        board.setCurrentOffices(Office::PRESIDENT, this->players[0]);
     }
 
     auto Environment::getPlayers() const -> std::vector<std::shared_ptr<const Player>> {
@@ -54,7 +54,8 @@ namespace GameModel {
     }
 
     void Environment::killPlayer(const std::shared_ptr<Player> &player) {
-        player->setAlive(false);
+        auto it = std::find(players.cbegin(), players.cend(), player);
+        it->get()->setAlive(false);
     }
 
     /*auto Environment::getGameState(std::shared_ptr<Player> player) -> GameStateRepresentation {
@@ -64,7 +65,6 @@ namespace GameModel {
     void Environment::autoSelectPresident() {
         auto player = board.getCurrentOffices(Office::PRESIDENT);
         if (player.has_value()) {
-            //TODO: Endlosschleife!!!!!
             auto iterator_start = std::find(players.cbegin(), players.cend(), player.value());
             auto it = iterator_start;
             do {
@@ -73,9 +73,9 @@ namespace GameModel {
                     it = players.cbegin();
                 }
                 if (std::distance(iterator_start, it) == 0) {
-                    throw std::runtime_error("All Plyers are killer!");
+                    throw std::runtime_error("All Plyers have been killed!");
                 }
-            } while ((*it)->isAlive());
+            } while (!(*it)->isAlive());
             board.setCurrentOffices(Office::PRESIDENT, *it);
         }
     }
@@ -122,5 +122,17 @@ namespace GameModel {
             }
         }
         return result;
+    }
+
+    auto Environment::getBoard() const -> const Board & {
+        return board;
+    }
+
+    auto Environment::getNumberCardsCardPile() const -> std::size_t {
+        return board.getCardPile().size();
+    }
+
+    auto Environment::getNumberCardsDiscardPile() const -> std::size_t {
+        return board.getDiscardPile().size();
     }
 }

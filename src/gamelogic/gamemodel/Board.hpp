@@ -83,7 +83,7 @@ namespace GameModel {
             */
             [[nodiscard]] auto getPastOffices(Office office) const -> std::optional<std::shared_ptr<const Player>>;
 
-            auto getPastOffices() -> std::unordered_map<Office, std::optional<std::shared_ptr<const Player>>>;
+            auto getPastOffices() -> std::unordered_map<Office, std::optional<std::shared_ptr<const Player>>> &;
 
             /**
              *

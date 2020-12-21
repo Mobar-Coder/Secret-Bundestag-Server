@@ -53,8 +53,9 @@ namespace GameModel {
             return false;
         }
 
-        for (auto rest : cards) { //NOLINT
-            if (!discard(rest)) {
+        std::size_t tmp = cards.size();
+        for (std::size_t i = 0; i < tmp; i++) { //NOLINT
+            if (!discard(cards[0])) {
                 throw std::runtime_error("Something went really wrong");
             }
         }

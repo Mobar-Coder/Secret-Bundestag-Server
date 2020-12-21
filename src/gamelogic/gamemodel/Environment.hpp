@@ -130,6 +130,25 @@ namespace GameModel {
              */
             auto getParty(Fraction fraction) const -> std::vector<std::shared_ptr<const Player>>;
 
+            /**
+             *
+             * @return
+             */
+            auto getNumberCardsCardPile() const -> std::size_t;
+
+            /**
+             *
+             * @return
+             */
+            auto getNumberCardsDiscardPile() const -> std::size_t;
+
+        protected:
+            /**
+             *
+             * @return
+             */
+            auto getBoard() const -> const Board &;
+
         private:
             /**
              *

@@ -17,7 +17,6 @@ namespace GameModel {
         cardPile.resize(numberLiberalCards + numberFascistCards);
         std::fill_n(cardPile.begin(), numberLiberalCards, CardType::LIBERAL);
         std::fill_n(cardPile.begin() + numberLiberalCards, numberFascistCards, CardType::FASCIST);
-
     }
 
     auto Board::getElectionTracker() const -> std::size_t {
@@ -60,7 +59,7 @@ namespace GameModel {
         return std::nullopt;
     }
 
-    auto Board::getPastOffices() -> std::unordered_map<Office, std::optional<std::shared_ptr<const Player>>> {
+    auto Board::getPastOffices() -> std::unordered_map<Office, std::optional<std::shared_ptr<const Player>>> & {
         return pastOffices;
     }
 
