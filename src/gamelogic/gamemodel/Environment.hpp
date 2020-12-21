@@ -64,7 +64,7 @@ namespace GameModel {
             /**
              * resets the election tracker to zero
              */
-            auto resetElectionTracker() -> void;
+            void resetElectionTracker();
 
             /**
               * Kill a Player.
