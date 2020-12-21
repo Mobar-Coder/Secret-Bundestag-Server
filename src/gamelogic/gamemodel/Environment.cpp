@@ -95,6 +95,8 @@ namespace GameModel {
             board.setCurrentOffices(Office::CHANCELOR, player.value());
             return true;
         }
+        return false;
+    }
 
     auto Environment::getPresident() -> std::shared_ptr<const Player> {
         auto player = board.getCurrentOffices(Office::PRESIDENT);

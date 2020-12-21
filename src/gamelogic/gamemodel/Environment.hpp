@@ -142,19 +142,19 @@ namespace GameModel {
              */
             auto getNumberCardsDiscardPile() const -> std::size_t;
 
-        protected:
-            /**
-             *
-             * @return
-             */
-            auto getBoard() const -> const Board &;
-
             /**
              * Get the number of played policies of a certain type.
              * @param cardType
              * @return
              */
             auto getNumberOfPlayedPolicies(CardType cardType) const -> std::size_t;
+
+        protected:
+            /**
+             *
+             * @return
+             */
+            auto getBoard() const -> const Board &;
 
         private:
             /**
