@@ -302,7 +302,7 @@ TEST(GameModel_Environment, number_of_policies) {
     }
 
     {
-        auto cardRange = environment.drawNCards(6);
+        auto cardRange = environment.drawNCards(3);
         EXPECT_TRUE(cardRange.selectForPolicy(GameModel::CardType::FASCIST));
         EXPECT_TRUE(cardRange.discardRemainingCards());
         EXPECT_TRUE(cardRange.applyToGame());
