@@ -31,8 +31,8 @@ namespace GameModel {
 
             std::size_t electionTracker{0};
             std::unordered_map<CardType, std::size_t> policyState;
-            std::unordered_map<Office, std::optional<std::shared_ptr<const Player>>> currentOffices;
-            std::unordered_map<Office, std::optional<std::shared_ptr<const Player>>> pastOffices;
+            std::unordered_map<Office, std::shared_ptr<const Player>> currentOffices;
+            std::unordered_map<Office, std::shared_ptr<const Player>> pastOffices;
             // The lowest card in the pile is at position cardPile[0], so the next card for the game will be at the end
             std::vector<CardType> cardPile;
             std::vector<CardType> discardPile;
@@ -52,15 +52,14 @@ namespace GameModel {
             [[nodiscard]] auto getElectionTracker() const -> std::size_t;
 
             /**
-             *
-             * @param electionTracker
+             * Sets the election tracker so a given number
+             * @param electionTracker the number
              */
             void setElectionTracker(std::size_t elecTracker);
 
             /**
-             *
-             * @param card
-             * @return
+             * @param card The Cardtype which want to be known
+             * @return the number of the Cards of the given Cardtype
              */
             auto getNumberOfPolicy(CardType card) const -> std::size_t;
 
@@ -68,29 +67,27 @@ namespace GameModel {
             * Get all current offices.
             * @return The current offices as std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>>.
             */
-            [[nodiscard]] auto getCurrentOffices(Office office) const -> std::optional<std::shared_ptr<const Player>>;
+            [[nodiscard]] auto
+            getPlayerInCurrentOffice(Office office) const -> std::optional<std::shared_ptr<const Player>>;
 
             /**
-             *
-             * @param office
-             * @param player
+             * Sets in the current offices a player to a given office
+             * @param office the office to set
+             * @param player the player to be set
              */
-            void setCurrentOffices(Office office, const std::shared_ptr<const Player> &player);
+            void setCurrentOffice(Office office, const std::shared_ptr<const Player> &player);
 
             /**
             * Get all offices from the last played round.
             * @return The offices from the last played round as std::shared_ptr<std::unordered_map<Office, std::shared_ptr<Player>>>.
             */
-            [[nodiscard]] auto getPastOffices(Office office) const -> std::optional<std::shared_ptr<const Player>>;
-
-            auto getPastOffices() -> std::unordered_map<Office, std::optional<std::shared_ptr<const Player>>> &;
+            [[nodiscard]] auto
+            getPlayerInPastOffice(Office office) const -> std::optional<std::shared_ptr<const Player>>;
 
             /**
-             *
-             * @param office
-             * @param player
+             * Resets the past offices
              */
-            void setPastOffices(Office office, const std::shared_ptr<const Player> &player);
+            void clearPastOffices();
 
             /**
             * Get the pile of normal cards.
@@ -101,30 +98,28 @@ namespace GameModel {
             [[nodiscard]] auto getCardPile() -> std::vector<CardType> &;
 
             /**
-             *
-             * @param card
-             * @param number
+             * Sets the number of cards to a given policy
+             * @param card the policy to set
+             * @param number the number to set
              */
             void setNumberOfPolicy(CardType card, std::size_t number);
 
             /**
-            * Get the pile of discarded cards.
+            * Get the pile of discarded cards as a const reference.
             * @return The pile of discarded cards as std::shared_ptr<std::vector<CardType>>.
             */
             [[nodiscard]] auto getDiscardPile() const -> const std::vector<CardType> &;
 
             /**
-             *
-             * @return
-             */
+            * Get the pile of discarded cards as non-const reference.
+            * @return The pile of discarded cards as std::shared_ptr<std::vector<CardType>>.
+            */
             [[nodiscard]] auto getDiscardPile() -> std::vector<CardType> &;
 
-            void safeToPastOffices();
-
             /**
-             *
+             * Safes the current offices to the past offices
              */
-            friend class CardRange;
+            void safeToPastOffices();
     };
 }
 

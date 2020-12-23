@@ -20,7 +20,7 @@ namespace GameModel {
 
         initialState = std::vector<CardType>(gameBoard.getCardPile().crbegin(),
                                              gameBoard.getCardPile().crbegin() + number);
-        cards = std::vector<CardType>(board.getCardPile().crbegin(), board.getCardPile().crbegin() + number);
+        cards = initialState;
         board.getCardPile().erase(board.getCardPile().cend() - number, board.getCardPile().cend());
     }
 
@@ -54,7 +54,7 @@ namespace GameModel {
         }
 
         std::size_t tmp = cards.size();
-        for (std::size_t i = 0; i < tmp; i++) { //NOLINT
+        for (std::size_t i = 0; i < tmp; i++) {
             if (!discard(cards[0])) {
                 throw std::runtime_error("Something went really wrong");
             }

@@ -29,19 +29,11 @@ namespace GameModel {
 
             [[nodiscard]] auto getName() const -> const std::string &;
 
-            void setName(const std::string &playerName);
-
             [[nodiscard]] auto getFraction() const -> Fraction;
-
-            void setFraction(Fraction playerFraction);
 
             [[nodiscard]] auto getRole() const -> Role;
 
-            void setRole(Role playerRole);
-
             [[nodiscard]] auto getSessionId() const -> std::size_t;
-
-            void setSessionId(std::size_t sessionId);
 
             [[nodiscard]] auto isAlive() const -> bool;
 

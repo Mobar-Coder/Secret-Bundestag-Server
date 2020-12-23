@@ -14,11 +14,11 @@
 namespace GameModel {
 
     Environment::Environment(std::vector<std::shared_ptr<Player>> players) : players(std::move(players)) {
-        board.setCurrentOffices(Office::PRESIDENT, this->players[0]);
+        board.setCurrentOffice(Office::PRESIDENT, this->players[0]);
     }
 
     auto Environment::getPlayers() const -> std::vector<std::shared_ptr<const Player>> {
-        return std::vector<std::shared_ptr<const Player>>(players.begin(), players.end());
+        return std::vector<std::shared_ptr<const Player>>(players.cbegin(), players.cend());
     }
 
     auto Environment::drawNCards(const std::size_t number) -> CardRange {
@@ -53,9 +53,13 @@ namespace GameModel {
         board.setElectionTracker(0);
     }
 
-    void Environment::killPlayer(const std::shared_ptr<Player> &player) {
+    auto Environment::killPlayer(const std::shared_ptr<Player> &player) -> bool {
         auto it = std::find(players.cbegin(), players.cend(), player);
-        it->get()->setAlive(false);
+        if (it != players.cend()) {
+            it->get()->setAlive(false);
+            return true;
+        }
+        return false;
     }
 
     /*auto Environment::getGameState(std::shared_ptr<Player> player) -> GameStateRepresentation {
@@ -63,7 +67,7 @@ namespace GameModel {
     }*/
 
     void Environment::autoSelectPresident() {
-        auto player = board.getCurrentOffices(Office::PRESIDENT);
+        auto player = board.getPlayerInCurrentOffice(Office::PRESIDENT);
         if (player.has_value()) {
             auto iterator_start = std::find(players.cbegin(), players.cend(), player.value());
             auto it = iterator_start;
@@ -72,34 +76,34 @@ namespace GameModel {
                 if (it == players.cend()) {
                     it = players.cbegin();
                 }
-                if (std::distance(iterator_start, it) == 0) {
+                if (iterator_start == it) {
                     throw std::runtime_error("All Plyers have been killed!");
                 }
             } while (!(*it)->isAlive());
-            board.setCurrentOffices(Office::PRESIDENT, *it);
+            board.setCurrentOffice(Office::PRESIDENT, *it);
         }
     }
 
     void Environment::resetPastOffices() {
-        board.getPastOffices().clear();
+        board.clearPastOffices();
     }
 
     void Environment::setCandidateForChancellor(const std::shared_ptr<Player> &player) {
-        board.setCurrentOffices(Office::CANDIDATE, player);
+        board.setCurrentOffice(Office::CANDIDATE, player);
 
     }
 
     auto Environment::electChancellor() -> bool {
-        auto player = board.getCurrentOffices(Office::CANDIDATE);
+        auto player = board.getPlayerInCurrentOffice(Office::CANDIDATE);
         if (player.has_value()) {
-            board.setCurrentOffices(Office::CHANCELOR, player.value());
+            board.setCurrentOffice(Office::CHANCELOR, player.value());
             return true;
         }
         return false;
     }
 
     auto Environment::getPresident() -> std::shared_ptr<const Player> {
-        auto player = board.getCurrentOffices(Office::PRESIDENT);
+        auto player = board.getPlayerInCurrentOffice(Office::PRESIDENT);
         if (player.has_value()) {
             return player.value();
         }
@@ -111,7 +115,7 @@ namespace GameModel {
     }
 
     auto Environment::getChancellor() const -> std::optional<std::shared_ptr<const Player>> {
-        return board.getCurrentOffices(Office::CHANCELOR);
+        return board.getPlayerInCurrentOffice(Office::CHANCELOR);
     }
 
     auto Environment::getParty(Fraction fraction) const -> std::vector<std::shared_ptr<const Player>> {

@@ -70,7 +70,7 @@ namespace GameModel {
               * Kill a Player.
               * @param player to kill
               */
-            void killPlayer(const std::shared_ptr<Player> &player);
+            auto killPlayer(const std::shared_ptr<Player> &player) -> bool;
 
             /**
              * //TODO
