@@ -57,7 +57,7 @@ namespace GameModel {
 
             /**
              * increment the election tracker by one
-             * @return the actual value of the election tracker
+             * @return the current value of the election tracker
              */
             auto incrementElectionTracker() -> std::size_t;
 
