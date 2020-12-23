@@ -73,7 +73,7 @@ namespace GameModel {
                     it = players.cbegin();
                 }
                 if (std::distance(iterator_start, it) == 0) {
-                    throw std::runtime_error("All Plyers have been killed!");
+                    throw std::runtime_error("All Players have been killed!");
                 }
             } while (!(*it)->isAlive());
             board.setCurrentOffices(Office::PRESIDENT, *it);
