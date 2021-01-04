@@ -53,9 +53,8 @@ namespace GameModel {
             return false;
         }
 
-        std::size_t tmp = cards.size();
-        for (std::size_t i = 0; i < tmp; i++) {
-            if (!discard(cards[0])) {
+        while (!cards.empty()) {
+            if (!discard(cards.back())) {
                 throw std::runtime_error("Something went really wrong");
             }
         }

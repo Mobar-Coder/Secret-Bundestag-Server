@@ -6,7 +6,7 @@
  */
 
 #include "Environment.hpp"
-#include "util/RandomGenerator.hpp"
+#include "../../util/RandomGenerator.hpp"
 
 #include <utility>
 #include <random>
@@ -79,7 +79,7 @@ namespace GameModel {
                     it = players.cbegin();
                 }
                 if (iterator_start == it) {
-                    throw std::runtime_error("All Plyers have been killed!");
+                    throw std::runtime_error("All Players have been killed!");
                 }
             } while (!(*it)->isAlive());
             board.setCurrentOffice(Office::PRESIDENT, *it);
