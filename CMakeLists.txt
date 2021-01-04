@@ -30,6 +30,10 @@ set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/messages/StartRequest.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/Player.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/GameStart.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/GameEnd.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/GameState.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/GenericReply.cpp
+        ${CMAKE_SOURCE_DIR}/src/messages/RequestDecision.cpp
         )
 
 set(LIBS stdc++fs pthread WebsocketCpp)
