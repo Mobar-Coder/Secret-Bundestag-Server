@@ -56,7 +56,7 @@ set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/RuleSet.hpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp
         ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/SingleCardEventTrigger.hpp
-        )
+        ${CMAKE_SOURCE_DIR}/src/util/RandomGenerator.cpp)
 
 set(LIBS stdc++fs pthread WebsocketCpp)
 

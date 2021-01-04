@@ -6,15 +6,21 @@
  */
 
 #include "Environment.hpp"
+#include "../../util/RandomGenerator.hpp"
 
 #include <utility>
 #include <random>
 #include <algorithm>
+#include <cassert>
 
 namespace GameModel {
 
-    Environment::Environment(const std::vector<Player> &players) : players(players) {
-        shuffleCardPile();
+    Environment::Environment(std::vector<std::shared_ptr<Player>> players) : players(std::move(players)) {
+        board.setCurrentOffice(Office::PRESIDENT, this->players[Util::rng(0, this->players.size() - 1)]);
+    }
+
+    auto Environment::getPlayers() const -> std::vector<std::shared_ptr<const Player>> {
+        return std::vector<std::shared_ptr<const Player>>(players.cbegin(), players.cend());
     }
 
     auto Environment::drawNCards(const std::size_t number) -> CardRange {
@@ -45,39 +51,91 @@ namespace GameModel {
         return board.getElectionTracker();
     }
 
-    /*
-    // ToDo: implement
-    auto Environment::autoSelectCandidate(std::shared_ptr<Player> player) -> bool {
+    void Environment::resetElectionTracker() {
+        board.setElectionTracker(0);
+    }
 
+    auto Environment::killPlayer(const std::shared_ptr<Player> &player) -> bool {
+        auto it = std::find(players.cbegin(), players.cend(), player);
+        if (it != players.cend()) {
+            it->get()->setAlive(false);
+            return true;
+        }
         return false;
     }
 
-    // ToDo: implement
-    auto Environment::electCandidate() -> bool {
+    /*auto Environment::getGameState(std::shared_ptr<Player> player) -> GameStateRepresentation {
+        return GameModel::GameStateRepresentation();
+    }*/
+
+    void Environment::autoSelectPresident() {
+        auto player = board.getPlayerInCurrentOffice(Office::PRESIDENT);
+        if (player.has_value()) {
+            auto iterator_start = std::find(players.cbegin(), players.cend(), player.value());
+            auto it = iterator_start;
+            do {
+                it++;
+                if (it == players.cend()) {
+                    it = players.cbegin();
+                }
+                if (iterator_start == it) {
+                    throw std::runtime_error("All Players have been killed!");
+                }
+            } while (!(*it)->isAlive());
+            board.setCurrentOffice(Office::PRESIDENT, *it);
+        }
+    }
+
+    void Environment::resetPastOffices() {
+        board.clearPastOffices();
+    }
+
+    void Environment::setCandidateForChancellor(const std::shared_ptr<Player> &player) {
+        board.setCurrentOffice(Office::CANDIDATE, player);
+
+    }
+
+    auto Environment::electChancellor() -> bool {
+        auto player = board.getPlayerInCurrentOffice(Office::CANDIDATE);
+        if (player.has_value()) {
+            board.setCurrentOffice(Office::CHANCELOR, player.value());
+            return true;
+        }
         return false;
     }
-    */
 
-    // ToDo: implement
-    auto Environment::resetPastOffices() -> void {
-
+    auto Environment::getPresident() -> std::shared_ptr<const Player> {
+        auto player = board.getPlayerInCurrentOffice(Office::PRESIDENT);
+        assert(player.has_value());
+        return player.value();
     }
 
-    auto Environment::getPlayers() const -> const std::vector<Player> & {
-        return players;
+    void Environment::safeToPastOffices() {
+        board.safeToPastOffices();
     }
 
-    // ToDo: implement
-    /*
-    auto Environment::killPlayer(std::shared_ptr<Player> player) -> bool {
-        return false;
+    auto Environment::getChancellor() const -> std::optional<std::shared_ptr<const Player>> {
+        return board.getPlayerInCurrentOffice(Office::CHANCELOR);
     }
 
-    // ToDo: implement
-    auto Environment::getGameState(std::shared_ptr<Player> player) -> std::string {
-        return std::string();
+    auto Environment::getParty(Fraction fraction) const -> std::vector<std::shared_ptr<const Player>> {
+        std::vector<std::shared_ptr<const Player>> result;
+        std::copy_if(players.cbegin(), players.cend(), std::back_inserter(result),
+                     [fraction](const auto &player) { return fraction == player->getFraction(); });
+        return result;
     }
-    */
+
+    auto Environment::getBoard() const -> const Board & {
+        return board;
+    }
+
+    auto Environment::getNumberCardsCardPile() const -> std::size_t {
+        return board.getCardPile().size();
+    }
+
+    auto Environment::getNumberCardsDiscardPile() const -> std::size_t {
+        return board.getDiscardPile().size();
+    }
 
     auto Environment::getNumberOfPlayedPolicies(CardType cardType) const -> std::size_t {
         return board.getNumberOfPolicy(cardType);

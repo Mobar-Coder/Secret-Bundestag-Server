@@ -11,6 +11,9 @@
 namespace GameController {
     class Controller {
 
+        public:
+            //TODO: Get Round State
+
     };
 }
 
