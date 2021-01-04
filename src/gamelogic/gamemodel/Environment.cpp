@@ -6,15 +6,17 @@
  */
 
 #include "Environment.hpp"
+#include "util/RandomGenerator.hpp"
 
 #include <utility>
 #include <random>
 #include <algorithm>
+#include <cassert>
 
 namespace GameModel {
 
     Environment::Environment(std::vector<std::shared_ptr<Player>> players) : players(std::move(players)) {
-        board.setCurrentOffice(Office::PRESIDENT, this->players[0]);
+        board.setCurrentOffice(Office::PRESIDENT, this->players[Util::rng(0, this->players.size())]);
     }
 
     auto Environment::getPlayers() const -> std::vector<std::shared_ptr<const Player>> {
@@ -104,10 +106,8 @@ namespace GameModel {
 
     auto Environment::getPresident() -> std::shared_ptr<const Player> {
         auto player = board.getPlayerInCurrentOffice(Office::PRESIDENT);
-        if (player.has_value()) {
-            return player.value();
-        }
-        throw std::runtime_error("No President is elected!!!");
+        assert(player.has_value());
+        return player.value();
     }
 
     void Environment::safeToPastOffices() {
@@ -120,11 +120,8 @@ namespace GameModel {
 
     auto Environment::getParty(Fraction fraction) const -> std::vector<std::shared_ptr<const Player>> {
         std::vector<std::shared_ptr<const Player>> result;
-        for (const auto &player : players) {
-            if (player->getFraction() == fraction) {
-                result.emplace_back(player);
-            }
-        }
+        std::copy_if(players.cbegin(), players.cend(), std::back_inserter(result),
+                     [fraction](const auto &player) { return fraction == player->getFraction(); });
         return result;
     }
 

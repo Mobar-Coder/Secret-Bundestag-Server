@@ -41,7 +41,7 @@ namespace GameModel {
 
     auto Board::getPlayerInCurrentOffice(Office office) const -> std::optional<std::shared_ptr<const Player>> {
         auto it = currentOffices.find(office);
-        if (it != currentOffices.end()) {
+        if (it != currentOffices.cend()) {
             return it->second;
         }
         return std::nullopt;
