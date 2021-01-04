@@ -1,0 +1,167 @@
+[
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/main.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/main.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/main.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/comm/ConnectionHandler.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/comm/ConnectionHandler.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/comm/ConnectionHandler.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/comm/LobbyHandler.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/comm/LobbyHandler.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/comm/LobbyHandler.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/comm/Lobby.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/comm/Lobby.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/comm/Lobby.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/util/Logging.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/util/Logging.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/util/Logging.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/util/ArgumentParser.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/util/ArgumentParser.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/util/ArgumentParser.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/messages/Error.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Error.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Error.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/messages/JoinRequest.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/JoinRequest.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/JoinRequest.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/messages/Message.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Message.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Message.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/messages/Accept.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Accept.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Accept.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/messages/StartRequest.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/StartRequest.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/StartRequest.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/messages/Player.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Player.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Player.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/messages/GameStart.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameStart.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameStart.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamecontroller/Controller.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamecontroller/Controller.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Board.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/Board.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/Board.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/CardRange.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/CardRange.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/CardRange.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Environment.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/Environment.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/Environment.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/EventTrigger.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/EventTrigger.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/EventTrigger.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/GameStateRepresentation.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/GameStateRepresentation.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/GameStateRepresentation.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Player.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/Player.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/Player.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/RuleSet.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/RuleSet.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/RuleSet.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Werror -Wpedantic -march=native -mtune=native -g   -std=gnu++1z -o CMakeFiles/WebsocketCpp.dir/src/Server/WebSocketServer.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Server/WebSocketServer.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Server/WebSocketServer.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Werror -Wpedantic -march=native -mtune=native -g   -std=gnu++1z -o CMakeFiles/WebsocketCpp.dir/src/Server/Connection.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Server/Connection.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Server/Connection.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Werror -Wpedantic -march=native -mtune=native -g   -std=gnu++1z -o CMakeFiles/WebsocketCpp.dir/src/Client/WebSocketClient.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Client/WebSocketClient.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Client/WebSocketClient.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/examples",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Werror -Wpedantic -march=native -mtune=native -g   -Wno-unknown-pragmas -std=gnu++1z -o CMakeFiles/WebSocketCppClientExample.dir/ClientTest.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/examples/ClientTest.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/examples/ClientTest.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/examples",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Werror -Wpedantic -march=native -mtune=native -g   -Wno-unknown-pragmas -std=gnu++1z -o CMakeFiles/WebSocketCppClientExample.dir/__/src/Server/WebSocketServer.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Server/WebSocketServer.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Server/WebSocketServer.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/examples",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Werror -Wpedantic -march=native -mtune=native -g   -Wno-unknown-pragmas -std=gnu++1z -o CMakeFiles/WebSocketCppClientExample.dir/__/src/Server/Connection.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Server/Connection.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Server/Connection.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/examples",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Werror -Wpedantic -march=native -mtune=native -g   -Wno-unknown-pragmas -std=gnu++1z -o CMakeFiles/WebSocketCppClientExample.dir/__/src/Client/WebSocketClient.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Client/WebSocketClient.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Client/WebSocketClient.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/examples",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Werror -Wpedantic -march=native -mtune=native -g   -Wno-unknown-pragmas -std=gnu++1z -o CMakeFiles/WebsocketCppServerExample.dir/ServerTest.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/examples/ServerTest.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/examples/ServerTest.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/examples",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Werror -Wpedantic -march=native -mtune=native -g   -Wno-unknown-pragmas -std=gnu++1z -o CMakeFiles/WebsocketCppServerExample.dir/__/src/Server/WebSocketServer.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Server/WebSocketServer.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Server/WebSocketServer.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/examples",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Werror -Wpedantic -march=native -mtune=native -g   -Wno-unknown-pragmas -std=gnu++1z -o CMakeFiles/WebsocketCppServerExample.dir/__/src/Server/Connection.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Server/Connection.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Server/Connection.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/examples",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Werror -Wpedantic -march=native -mtune=native -g   -Wno-unknown-pragmas -std=gnu++1z -o CMakeFiles/WebsocketCppServerExample.dir/__/src/Client/WebSocketClient.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Client/WebSocketClient.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src/Client/WebSocketClient.cpp"
+}
+]

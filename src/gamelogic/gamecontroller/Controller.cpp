@@ -10,8 +10,11 @@
 namespace GameController {
 
     Controller::Controller(const int &players) {
-        environment = new Environment(&players);
+        environment = new GameModel::Environment(&players);
+        phase = GameController::Phase::PASSCANDIDACY;
     }
+
+
 
 
 

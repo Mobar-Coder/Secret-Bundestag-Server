@@ -34,7 +34,7 @@ namespace GameModel {
              * Main constructor for the Environment class.
              * @param players
              */
-            explicit Environment(const std::vector<Player> &players);
+            explicit Environment(const int *players);
 
             /**
              * Get all players.

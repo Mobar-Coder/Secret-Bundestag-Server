@@ -8,7 +8,9 @@
 #ifndef SECRETBUNDESTAGSERVER_CONTROLLER_HPP
 #define SECRETBUNDESTAGSERVER_CONTROLLER_HPP
 
-#include "../Environment.hpp"
+#include "../gamemodel/Environment.hpp"
+#include "../../messages/Error.hpp"
+#include "../../messages/Message.hpp"
 
 namespace GameController {
 
@@ -25,11 +27,13 @@ namespace GameController {
     class Controller {
 
         private:
-            Environment environment;
+            GameModel::Environment environment;
             Phase phase;
 
         public:
-            explicit Controller(const std::vector<Player> &players);
+            explicit Controller(const std::vector<GameModel::Player> &players);
+            void processMessage();
+
     };
 }
 

@@ -13,7 +13,7 @@
 
 namespace GameModel {
 
-    Environment::Environment(const std::vector<Player> &players) : players(players) {
+    Environment::Environment(const int *players) : players(players) {
         shuffleCardPile();
     }
 

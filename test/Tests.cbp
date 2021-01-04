@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Tests"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\test\;CMake Files\lib\;CMake Files\lib\WebsocketCpp\;CMake Files\lib\WebsocketCpp\test\;CMake Files\lib\WebsocketCpp\examples\;CMake Files\lib\json\;CMake Files\lib\json\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/tarik/Mobar-Coder/Secret-Bundestag-Server/test"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/tarik/Mobar-Coder/Secret-Bundestag-Server/test/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/tarik/Mobar-Coder/Secret-Bundestag-Server/test/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/tarik/Mobar-Coder/Secret-Bundestag-Server/test/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/tarik/Mobar-Coder/Secret-Bundestag-Server/test/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/tarik/Mobar-Coder/Secret-Bundestag-Server/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\test\"/>
+		</Unit>
+		<Unit filename="/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\WebsocketCpp\"/>
+		</Unit>
+		<Unit filename="/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\WebsocketCpp\test\"/>
+		</Unit>
+		<Unit filename="/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/examples/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\WebsocketCpp\examples\"/>
+		</Unit>
+		<Unit filename="/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\json\"/>
+		</Unit>
+		<Unit filename="/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/cmake/config.cmake.in">
+			<Option virtualFolder="CMake Files\lib\json\cmake\"/>
+		</Unit>
+		<Unit filename="/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/cmake/nlohmann_jsonConfigVersion.cmake.in">
+			<Option virtualFolder="CMake Files\lib\json\cmake\"/>
+		</Unit>
+		<Unit filename="/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/cmake/pkg-config.pc.in">
+			<Option virtualFolder="CMake Files\lib\json\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
