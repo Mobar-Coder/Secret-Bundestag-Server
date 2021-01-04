@@ -145,25 +145,6 @@ TEST(GameModel_Environment, auto_select_president1) {
     EXPECT_ANY_THROW(environment.autoSelectPresident());
 }
 
-TEST(GameModel_Environment, auto_select_president2) {
-    GameModel::Player player1("Test0", GameModel::Fraction::LIBERAL_PARTY, GameModel::Role::NONE, 0);
-    GameModel::Player player2("Test1", GameModel::Fraction::FASCIST_PARTY, GameModel::Role::HITLER, 0);
-    GameModel::Player player3("Test2", GameModel::Fraction::FASCIST_PARTY, GameModel::Role::NONE, 0);
-    std::vector<std::shared_ptr<GameModel::Player>> players;
-    players.emplace_back(std::make_shared<GameModel::Player>(player1));
-    players.emplace_back(std::make_shared<GameModel::Player>(player2));
-    players.emplace_back(std::make_shared<GameModel::Player>(player3));
-    GameModel::Environment environment(players);
-
-    auto president1 = environment.getPresident();
-    environment.autoSelectPresident();
-
-    environment.killPlayer(players[1]);
-    environment.killPlayer(players[2]);
-    environment.autoSelectPresident();
-    EXPECT_EQ(president1->getName(), environment.getPresident()->getName());
-}
-
 TEST(GameModel_Environment, set_chancelor_candidate) {
     GameModel::Player player1("Test0", GameModel::Fraction::LIBERAL_PARTY, GameModel::Role::NONE, 0);
     GameModel::Player player2("Test1", GameModel::Fraction::FASCIST_PARTY, GameModel::Role::HITLER, 0);

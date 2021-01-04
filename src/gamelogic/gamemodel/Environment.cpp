@@ -16,7 +16,7 @@
 namespace GameModel {
 
     Environment::Environment(std::vector<std::shared_ptr<Player>> players) : players(std::move(players)) {
-        board.setCurrentOffice(Office::PRESIDENT, this->players[Util::rng(0, this->players.size())]);
+        board.setCurrentOffice(Office::PRESIDENT, this->players[Util::rng(0, this->players.size() - 1)]);
     }
 
     auto Environment::getPlayers() const -> std::vector<std::shared_ptr<const Player>> {
