@@ -28,7 +28,9 @@ TEST(GameModel_Environment, draw_n_cards0) {
     EXPECT_TRUE(cardRange.selectForPolicy(GameModel::CardType::FASCIST));
     EXPECT_TRUE(cardRange.applyToGame());
     EXPECT_EQ(environment.getBoard().getCardPile().size(), 16);
-    EXPECT_EQ(environment.getBoard().getDiscardPile().size(), 1);
+    EXPECT_EQ(environment.getBoard().getDiscardPile().size(), 0);
+    EXPECT_EQ(environment.getBoard().getNumberOfPolicy(GameModel::CardType::FASCIST), 1);
+    EXPECT_EQ(environment.getBoard().getNumberOfPolicy(GameModel::CardType::LIBERAL), 0);
 }
 
 TEST(GameModel_Environment, draw_n_cards1) {
@@ -44,10 +46,12 @@ TEST(GameModel_Environment, draw_n_cards1) {
     EXPECT_TRUE(cardRange.discardRemainingCards());
     EXPECT_TRUE(cardRange.applyToGame());
     EXPECT_EQ(environment.getBoard().getCardPile().size(), 2);
-    EXPECT_EQ(environment.getBoard().getDiscardPile().size(), 15);
+    EXPECT_EQ(environment.getBoard().getDiscardPile().size(), 14);
+    EXPECT_EQ(environment.getBoard().getNumberOfPolicy(GameModel::CardType::FASCIST), 1);
+    EXPECT_EQ(environment.getBoard().getNumberOfPolicy(GameModel::CardType::LIBERAL), 0);
 
     auto cardRange1 = environment.drawNCards(3);
-    EXPECT_EQ(environment.getBoard().getCardPile().size(), 14);
+    EXPECT_EQ(environment.getBoard().getCardPile().size(), 13);
     EXPECT_EQ(environment.getBoard().getDiscardPile().size(), 0);
 }
 
@@ -265,7 +269,7 @@ TEST(GameModel_Environment, number_card_piles0) {
     EXPECT_TRUE(cardRange.discardRemainingCards());
     EXPECT_TRUE(cardRange.applyToGame());
     EXPECT_EQ(environment.getNumberCardsCardPile(), 10);
-    EXPECT_EQ(environment.getNumberCardsDiscardPile(), 7);
+    EXPECT_EQ(environment.getNumberCardsDiscardPile(), 6);
 }
 
 TEST(GameModel_Environment, number_of_policies) {

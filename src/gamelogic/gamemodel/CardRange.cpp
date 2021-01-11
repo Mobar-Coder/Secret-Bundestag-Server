@@ -40,7 +40,6 @@ namespace GameModel {
         auto result = std::find(cards.cbegin(), cards.cend(), card);
         if (result != cards.end()) {
             policy.emplace(card);
-            discarded.emplace_back(card);
             cards.erase(result);
             return true;
         }

@@ -63,7 +63,7 @@ TEST(GameModel_CardRange, apply_to_game0) {
     EXPECT_EQ(board.getNumberOfPolicy(GameModel::CardType::FASCIST), 1);
     EXPECT_EQ(board.getNumberOfPolicy(GameModel::CardType::LIBERAL), 0);
     EXPECT_EQ(board.getCardPile().size(), 14);
-    EXPECT_EQ(board.getDiscardPile().size(), 3);
+    EXPECT_EQ(board.getDiscardPile().size(), 2);
 }
 
 TEST(GameModel_CardRange, apply_to_game1) {
@@ -78,7 +78,7 @@ TEST(GameModel_CardRange, apply_to_game1) {
     EXPECT_EQ(board.getNumberOfPolicy(GameModel::CardType::FASCIST), 1);
     EXPECT_EQ(board.getNumberOfPolicy(GameModel::CardType::LIBERAL), 0);
     EXPECT_EQ(board.getCardPile().size(), 15);
-    EXPECT_EQ(board.getDiscardPile().size(), 2);
+    EXPECT_EQ(board.getDiscardPile().size(), 1);
 }
 
 TEST(GameModel_CardRange, apply_to_game2) {
@@ -94,5 +94,5 @@ TEST(GameModel_CardRange, apply_to_game2) {
     EXPECT_EQ(board.getNumberOfPolicy(GameModel::CardType::FASCIST), 1);
     EXPECT_EQ(board.getNumberOfPolicy(GameModel::CardType::LIBERAL), 0);
     EXPECT_EQ(board.getCardPile().size(), 14);
-    EXPECT_EQ(board.getDiscardPile().size(), 3);
+    EXPECT_EQ(board.getDiscardPile().size(), 2);
 }

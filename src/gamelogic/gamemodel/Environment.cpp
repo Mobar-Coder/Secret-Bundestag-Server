@@ -70,20 +70,19 @@ namespace GameModel {
 
     void Environment::autoSelectPresident() {
         auto player = board.getPlayerInCurrentOffice(Office::PRESIDENT);
-        if (player.has_value()) {
-            auto iterator_start = std::find(players.cbegin(), players.cend(), player.value());
-            auto it = iterator_start;
-            do {
-                it++;
-                if (it == players.cend()) {
-                    it = players.cbegin();
-                }
-                if (iterator_start == it) {
-                    throw std::runtime_error("All Players have been killed!");
-                }
-            } while (!(*it)->isAlive());
-            board.setCurrentOffice(Office::PRESIDENT, *it);
-        }
+        assert(player.has_value());
+        auto iterator_start = std::find(players.cbegin(), players.cend(), player.value());
+        auto it = iterator_start;
+        do {
+            it++;
+            if (it == players.cend()) {
+                it = players.cbegin();
+            }
+            if (iterator_start == it) {
+                throw std::runtime_error("All Players have been killed!");
+            }
+        } while (!(*it)->isAlive());
+        board.setCurrentOffice(Office::PRESIDENT, *it);
     }
 
     void Environment::resetPastOffices() {
