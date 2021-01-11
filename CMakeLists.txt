@@ -34,6 +34,16 @@ set(SOURCES
         ${CMAKE_SOURCE_DIR}/src/messages/GameState.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/GenericReply.cpp
         ${CMAKE_SOURCE_DIR}/src/messages/RequestDecision.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamecontroller/Controller.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Board.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/CardRange.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Environment.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/EventTrigger.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/GameStateRepresentation.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/Player.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/RuleSet.cpp
+        ${CMAKE_SOURCE_DIR}/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp
+        ${CMAKE_SOURCE_DIR}/src/util/RandomGenerator.cpp
         )
 
 set(LIBS stdc++fs pthread WebsocketCpp)
