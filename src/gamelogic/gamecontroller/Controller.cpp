@@ -9,8 +9,8 @@
 
 namespace GameController {
 
-    Controller::Controller(const int &players) {
-        environment = new GameModel::Environment(&players);
+    Controller::Controller(std::vector<std::shared_ptr<GameModel::Environment>> environment)
+            : environment(environment) {
         phase = GameController::Phase::PASSCANDIDACY;
     }
 

@@ -47,6 +47,9 @@ CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.o: src/gamelogic/gamemodel/Environment.hpp
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.o: src/gamelogic/gamemodel/GameStateRepresentation.hpp
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.o: src/gamelogic/gamemodel/Player.hpp
+CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.o: src/messages/Error.hpp
+CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.o: src/messages/Message.hpp
+CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.o: lib/json/single_include/nlohmann/json.hpp
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Board.cpp.o: src/gamelogic/enum/CardType.hpp
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Board.cpp.o: src/gamelogic/enum/Fraction.hpp
@@ -75,6 +78,7 @@ CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Environment.cpp.o: 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Environment.cpp.o: src/gamelogic/gamemodel/Environment.hpp
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Environment.cpp.o: src/gamelogic/gamemodel/GameStateRepresentation.hpp
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Environment.cpp.o: src/gamelogic/gamemodel/Player.hpp
+CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Environment.cpp.o: src/util/RandomGenerator.hpp
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/EventTrigger.cpp.o: src/gamelogic/enum/CardType.hpp
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/EventTrigger.cpp.o: src/gamelogic/enum/Fraction.hpp
@@ -148,12 +152,29 @@ CMakeFiles/SecretBundestagServer.dir/src/messages/Error.cpp.o: src/messages/Erro
 CMakeFiles/SecretBundestagServer.dir/src/messages/Error.cpp.o: src/messages/Message.hpp
 CMakeFiles/SecretBundestagServer.dir/src/messages/Error.cpp.o: lib/json/single_include/nlohmann/json.hpp
 
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.o: src/messages/GameEnd.cpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.o: src/messages/GameEnd.hpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.o: src/messages/Message.hpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.o: lib/json/single_include/nlohmann/json.hpp
+
 CMakeFiles/SecretBundestagServer.dir/src/messages/GameStart.cpp.o: src/messages/GameStart.cpp
 CMakeFiles/SecretBundestagServer.dir/src/messages/GameStart.cpp.o: src/messages/GameStart.hpp
 CMakeFiles/SecretBundestagServer.dir/src/messages/GameStart.cpp.o: src/messages/Message.hpp
 CMakeFiles/SecretBundestagServer.dir/src/messages/GameStart.cpp.o: src/messages/OptionalSerializer.hpp
 CMakeFiles/SecretBundestagServer.dir/src/messages/GameStart.cpp.o: src/messages/Player.hpp
 CMakeFiles/SecretBundestagServer.dir/src/messages/GameStart.cpp.o: lib/json/single_include/nlohmann/json.hpp
+
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.o: src/messages/GameState.cpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.o: src/messages/GameState.hpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.o: src/messages/Message.hpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.o: src/messages/OptionalSerializer.hpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.o: src/messages/Player.hpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.o: lib/json/single_include/nlohmann/json.hpp
+
+CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.o: src/messages/GenericReply.cpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.o: src/messages/GenericReply.hpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.o: src/messages/Message.hpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.o: lib/json/single_include/nlohmann/json.hpp
 
 CMakeFiles/SecretBundestagServer.dir/src/messages/JoinRequest.cpp.o: src/messages/JoinRequest.cpp
 CMakeFiles/SecretBundestagServer.dir/src/messages/JoinRequest.cpp.o: src/messages/JoinRequest.hpp
@@ -169,6 +190,11 @@ CMakeFiles/SecretBundestagServer.dir/src/messages/Player.cpp.o: src/messages/Pla
 CMakeFiles/SecretBundestagServer.dir/src/messages/Player.cpp.o: src/messages/Player.hpp
 CMakeFiles/SecretBundestagServer.dir/src/messages/Player.cpp.o: lib/json/single_include/nlohmann/json.hpp
 
+CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.o: src/messages/Message.hpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.o: src/messages/RequestDecision.cpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.o: src/messages/RequestDecision.hpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.o: lib/json/single_include/nlohmann/json.hpp
+
 CMakeFiles/SecretBundestagServer.dir/src/messages/StartRequest.cpp.o: src/messages/Message.hpp
 CMakeFiles/SecretBundestagServer.dir/src/messages/StartRequest.cpp.o: src/messages/StartRequest.cpp
 CMakeFiles/SecretBundestagServer.dir/src/messages/StartRequest.cpp.o: src/messages/StartRequest.hpp
@@ -180,4 +206,7 @@ CMakeFiles/SecretBundestagServer.dir/src/util/ArgumentParser.cpp.o: src/util/Log
 
 CMakeFiles/SecretBundestagServer.dir/src/util/Logging.cpp.o: src/util/Logging.cpp
 CMakeFiles/SecretBundestagServer.dir/src/util/Logging.cpp.o: src/util/Logging.hpp
+
+CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.o: src/util/RandomGenerator.cpp
+CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.o: src/util/RandomGenerator.hpp
 

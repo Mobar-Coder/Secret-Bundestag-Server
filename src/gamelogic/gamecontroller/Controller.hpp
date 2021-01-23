@@ -11,6 +11,7 @@
 #include "../gamemodel/Environment.hpp"
 #include "../../messages/Error.hpp"
 #include "../../messages/Message.hpp"
+#include "../gamemodel/Player.hpp"
 
 namespace GameController {
 
@@ -27,11 +28,11 @@ namespace GameController {
     class Controller {
 
         private:
-            GameModel::Environment environment;
+            const std::vector<std::shared_ptr<GameModel::Environment>> environment;
             Phase phase;
 
         public:
-            explicit Controller(const std::vector<GameModel::Player> &players);
+            Controller(std::vector<std::shared_ptr<GameModel::Environment>> environment);
             void processMessage();
 
     };

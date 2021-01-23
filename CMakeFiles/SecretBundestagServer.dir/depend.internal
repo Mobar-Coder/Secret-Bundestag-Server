@@ -48,6 +48,9 @@ CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/Environment.hpp
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/GameStateRepresentation.hpp
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/Player.hpp
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Error.hpp
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Message.hpp
+ lib/json/single_include/nlohmann/json.hpp
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Board.cpp.o
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/enum/CardType.hpp
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/enum/Fraction.hpp
@@ -76,6 +79,7 @@ CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Environment.cpp.o
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/Environment.hpp
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/GameStateRepresentation.hpp
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/Player.hpp
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/util/RandomGenerator.hpp
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/EventTrigger.cpp.o
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/enum/CardType.hpp
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/enum/Fraction.hpp
@@ -148,12 +152,29 @@ CMakeFiles/SecretBundestagServer.dir/src/messages/Error.cpp.o
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Error.hpp
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Message.hpp
  lib/json/single_include/nlohmann/json.hpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.o
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameEnd.cpp
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameEnd.hpp
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Message.hpp
+ lib/json/single_include/nlohmann/json.hpp
 CMakeFiles/SecretBundestagServer.dir/src/messages/GameStart.cpp.o
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameStart.cpp
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameStart.hpp
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Message.hpp
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/OptionalSerializer.hpp
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Player.hpp
+ lib/json/single_include/nlohmann/json.hpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.o
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameState.cpp
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameState.hpp
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Message.hpp
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/OptionalSerializer.hpp
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Player.hpp
+ lib/json/single_include/nlohmann/json.hpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.o
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GenericReply.cpp
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GenericReply.hpp
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Message.hpp
  lib/json/single_include/nlohmann/json.hpp
 CMakeFiles/SecretBundestagServer.dir/src/messages/JoinRequest.cpp.o
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/JoinRequest.cpp
@@ -169,6 +190,11 @@ CMakeFiles/SecretBundestagServer.dir/src/messages/Player.cpp.o
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Player.cpp
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Player.hpp
  lib/json/single_include/nlohmann/json.hpp
+CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.o
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Message.hpp
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/RequestDecision.cpp
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/RequestDecision.hpp
+ lib/json/single_include/nlohmann/json.hpp
 CMakeFiles/SecretBundestagServer.dir/src/messages/StartRequest.cpp.o
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/Message.hpp
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/StartRequest.cpp
@@ -181,3 +207,6 @@ CMakeFiles/SecretBundestagServer.dir/src/util/ArgumentParser.cpp.o
 CMakeFiles/SecretBundestagServer.dir/src/util/Logging.cpp.o
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/util/Logging.cpp
  /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/util/Logging.hpp
+CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.o
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/util/RandomGenerator.cpp
+ /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/util/RandomGenerator.hpp
