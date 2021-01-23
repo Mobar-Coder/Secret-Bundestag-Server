@@ -5,10 +5,10 @@
 #ifndef SECRETBUNDESTAGSERVER_GAMESTATEREPRESENTATION_HPP
 #define SECRETBUNDESTAGSERVER_GAMESTATEREPRESENTATION_HPP
 
+namespace GameModel {
+    class GameStateRepresentation {
 
-class GameStateRepresentation {
-
-};
-
+    };
+}
 
 #endif //SECRETBUNDESTAGSERVER_GAMESTATEREPRESENTATION_HPP

@@ -17,7 +17,6 @@ namespace GameModel {
         cardPile.resize(numberLiberalCards + numberFascistCards);
         std::fill_n(cardPile.begin(), numberLiberalCards, CardType::LIBERAL);
         std::fill_n(cardPile.begin() + numberLiberalCards, numberFascistCards, CardType::FASCIST);
-
     }
 
     auto Board::getElectionTracker() const -> std::size_t {
@@ -34,18 +33,38 @@ namespace GameModel {
 
     auto Board::getNumberOfPolicy(CardType card) const -> std::size_t {
         auto it = policyState.find(card);
-        if(it != policyState.cend()){
+        if (it != policyState.cend()) {
             return it->second;
         }
         return 0;
     }
 
-    auto Board::getCurrentOffices() const -> const std::unordered_map<Office, Player> & {
-        return currentOffices;
+    auto Board::getPlayerInCurrentOffice(Office office) const -> std::optional<std::shared_ptr<const Player>> {
+        auto it = currentOffices.find(office);
+        if (it != currentOffices.cend()) {
+            return it->second;
+        }
+        return std::nullopt;
     }
 
-    auto Board::getPastOffices() const -> const std::unordered_map<Office, Player> & {
-        return pastOffices;
+    void Board::setCurrentOffice(Office office, const std::shared_ptr<const Player> &player) {
+        currentOffices[office] = player;
+    }
+
+    auto Board::getPlayerInPastOffice(Office office) const -> std::optional<std::shared_ptr<const Player>> {
+        auto it = pastOffices.find(office);
+        if (it != pastOffices.cend()) {
+            return it->second;
+        }
+        return std::nullopt;
+    }
+
+    void Board::clearPastOffices() {
+        pastOffices.clear();
+    }
+
+    void Board::safeToPastOffices() {
+        pastOffices = currentOffices;
     }
 
     auto Board::getCardPile() const -> const std::vector<CardType> & {

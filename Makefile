@@ -997,6 +997,33 @@ src/messages/Error.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/messages/Error.cpp.s
 .PHONY : src/messages/Error.cpp.s
 
+src/messages/GameEnd.o: src/messages/GameEnd.cpp.o
+
+.PHONY : src/messages/GameEnd.o
+
+# target to build an object file
+src/messages/GameEnd.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.o
+.PHONY : src/messages/GameEnd.cpp.o
+
+src/messages/GameEnd.i: src/messages/GameEnd.cpp.i
+
+.PHONY : src/messages/GameEnd.i
+
+# target to preprocess a source file
+src/messages/GameEnd.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.i
+.PHONY : src/messages/GameEnd.cpp.i
+
+src/messages/GameEnd.s: src/messages/GameEnd.cpp.s
+
+.PHONY : src/messages/GameEnd.s
+
+# target to generate assembly for a file
+src/messages/GameEnd.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.s
+.PHONY : src/messages/GameEnd.cpp.s
+
 src/messages/GameStart.o: src/messages/GameStart.cpp.o
 
 .PHONY : src/messages/GameStart.o
@@ -1023,6 +1050,60 @@ src/messages/GameStart.s: src/messages/GameStart.cpp.s
 src/messages/GameStart.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/messages/GameStart.cpp.s
 .PHONY : src/messages/GameStart.cpp.s
+
+src/messages/GameState.o: src/messages/GameState.cpp.o
+
+.PHONY : src/messages/GameState.o
+
+# target to build an object file
+src/messages/GameState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.o
+.PHONY : src/messages/GameState.cpp.o
+
+src/messages/GameState.i: src/messages/GameState.cpp.i
+
+.PHONY : src/messages/GameState.i
+
+# target to preprocess a source file
+src/messages/GameState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.i
+.PHONY : src/messages/GameState.cpp.i
+
+src/messages/GameState.s: src/messages/GameState.cpp.s
+
+.PHONY : src/messages/GameState.s
+
+# target to generate assembly for a file
+src/messages/GameState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.s
+.PHONY : src/messages/GameState.cpp.s
+
+src/messages/GenericReply.o: src/messages/GenericReply.cpp.o
+
+.PHONY : src/messages/GenericReply.o
+
+# target to build an object file
+src/messages/GenericReply.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.o
+.PHONY : src/messages/GenericReply.cpp.o
+
+src/messages/GenericReply.i: src/messages/GenericReply.cpp.i
+
+.PHONY : src/messages/GenericReply.i
+
+# target to preprocess a source file
+src/messages/GenericReply.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.i
+.PHONY : src/messages/GenericReply.cpp.i
+
+src/messages/GenericReply.s: src/messages/GenericReply.cpp.s
+
+.PHONY : src/messages/GenericReply.s
+
+# target to generate assembly for a file
+src/messages/GenericReply.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.s
+.PHONY : src/messages/GenericReply.cpp.s
 
 src/messages/JoinRequest.o: src/messages/JoinRequest.cpp.o
 
@@ -1105,6 +1186,33 @@ src/messages/Player.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/messages/Player.cpp.s
 .PHONY : src/messages/Player.cpp.s
 
+src/messages/RequestDecision.o: src/messages/RequestDecision.cpp.o
+
+.PHONY : src/messages/RequestDecision.o
+
+# target to build an object file
+src/messages/RequestDecision.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.o
+.PHONY : src/messages/RequestDecision.cpp.o
+
+src/messages/RequestDecision.i: src/messages/RequestDecision.cpp.i
+
+.PHONY : src/messages/RequestDecision.i
+
+# target to preprocess a source file
+src/messages/RequestDecision.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.i
+.PHONY : src/messages/RequestDecision.cpp.i
+
+src/messages/RequestDecision.s: src/messages/RequestDecision.cpp.s
+
+.PHONY : src/messages/RequestDecision.s
+
+# target to generate assembly for a file
+src/messages/RequestDecision.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.s
+.PHONY : src/messages/RequestDecision.cpp.s
+
 src/messages/StartRequest.o: src/messages/StartRequest.cpp.o
 
 .PHONY : src/messages/StartRequest.o
@@ -1185,6 +1293,33 @@ src/util/Logging.s: src/util/Logging.cpp.s
 src/util/Logging.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/util/Logging.cpp.s
 .PHONY : src/util/Logging.cpp.s
+
+src/util/RandomGenerator.o: src/util/RandomGenerator.cpp.o
+
+.PHONY : src/util/RandomGenerator.o
+
+# target to build an object file
+src/util/RandomGenerator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.o
+.PHONY : src/util/RandomGenerator.cpp.o
+
+src/util/RandomGenerator.i: src/util/RandomGenerator.cpp.i
+
+.PHONY : src/util/RandomGenerator.i
+
+# target to preprocess a source file
+src/util/RandomGenerator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.i
+.PHONY : src/util/RandomGenerator.cpp.i
+
+src/util/RandomGenerator.s: src/util/RandomGenerator.cpp.s
+
+.PHONY : src/util/RandomGenerator.s
+
+# target to generate assembly for a file
+src/util/RandomGenerator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SecretBundestagServer.dir/build.make CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.s
+.PHONY : src/util/RandomGenerator.cpp.s
 
 # Help Target
 help:
@@ -1275,9 +1410,18 @@ help:
 	@echo "... src/messages/Error.o"
 	@echo "... src/messages/Error.i"
 	@echo "... src/messages/Error.s"
+	@echo "... src/messages/GameEnd.o"
+	@echo "... src/messages/GameEnd.i"
+	@echo "... src/messages/GameEnd.s"
 	@echo "... src/messages/GameStart.o"
 	@echo "... src/messages/GameStart.i"
 	@echo "... src/messages/GameStart.s"
+	@echo "... src/messages/GameState.o"
+	@echo "... src/messages/GameState.i"
+	@echo "... src/messages/GameState.s"
+	@echo "... src/messages/GenericReply.o"
+	@echo "... src/messages/GenericReply.i"
+	@echo "... src/messages/GenericReply.s"
 	@echo "... src/messages/JoinRequest.o"
 	@echo "... src/messages/JoinRequest.i"
 	@echo "... src/messages/JoinRequest.s"
@@ -1287,6 +1431,9 @@ help:
 	@echo "... src/messages/Player.o"
 	@echo "... src/messages/Player.i"
 	@echo "... src/messages/Player.s"
+	@echo "... src/messages/RequestDecision.o"
+	@echo "... src/messages/RequestDecision.i"
+	@echo "... src/messages/RequestDecision.s"
 	@echo "... src/messages/StartRequest.o"
 	@echo "... src/messages/StartRequest.i"
 	@echo "... src/messages/StartRequest.s"
@@ -1296,6 +1443,9 @@ help:
 	@echo "... src/util/Logging.o"
 	@echo "... src/util/Logging.i"
 	@echo "... src/util/Logging.s"
+	@echo "... src/util/RandomGenerator.o"
+	@echo "... src/util/RandomGenerator.i"
+	@echo "... src/util/RandomGenerator.s"
 .PHONY : help
 
 

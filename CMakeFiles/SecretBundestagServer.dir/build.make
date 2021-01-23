@@ -246,9 +246,61 @@ CMakeFiles/SecretBundestagServer.dir/src/messages/GameStart.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SecretBundestagServer.dir/src/messages/GameStart.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameStart.cpp -o CMakeFiles/SecretBundestagServer.dir/src/messages/GameStart.cpp.s
 
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.o: CMakeFiles/SecretBundestagServer.dir/flags.make
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.o: src/messages/GameEnd.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameEnd.cpp
+
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameEnd.cpp > CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.i
+
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameEnd.cpp -o CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.s
+
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.o: CMakeFiles/SecretBundestagServer.dir/flags.make
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.o: src/messages/GameState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameState.cpp
+
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameState.cpp > CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.i
+
+CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameState.cpp -o CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.s
+
+CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.o: CMakeFiles/SecretBundestagServer.dir/flags.make
+CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.o: src/messages/GenericReply.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GenericReply.cpp
+
+CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GenericReply.cpp > CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.i
+
+CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GenericReply.cpp -o CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.s
+
+CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.o: CMakeFiles/SecretBundestagServer.dir/flags.make
+CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.o: src/messages/RequestDecision.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/RequestDecision.cpp
+
+CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/RequestDecision.cpp > CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.i
+
+CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/RequestDecision.cpp -o CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.s
+
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.o: CMakeFiles/SecretBundestagServer.dir/flags.make
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.o: src/gamelogic/gamecontroller/Controller.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamecontroller/Controller.cpp
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.i: cmake_force
@@ -261,7 +313,7 @@ CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Board.cpp.o: CMakeFiles/SecretBundestagServer.dir/flags.make
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Board.cpp.o: src/gamelogic/gamemodel/Board.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Board.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Board.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Board.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/Board.cpp
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Board.cpp.i: cmake_force
@@ -274,7 +326,7 @@ CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Board.cpp.s: cmake_
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/CardRange.cpp.o: CMakeFiles/SecretBundestagServer.dir/flags.make
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/CardRange.cpp.o: src/gamelogic/gamemodel/CardRange.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/CardRange.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/CardRange.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/CardRange.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/CardRange.cpp
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/CardRange.cpp.i: cmake_force
@@ -287,7 +339,7 @@ CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/CardRange.cpp.s: cm
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Environment.cpp.o: CMakeFiles/SecretBundestagServer.dir/flags.make
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Environment.cpp.o: src/gamelogic/gamemodel/Environment.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Environment.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Environment.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Environment.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/Environment.cpp
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Environment.cpp.i: cmake_force
@@ -300,7 +352,7 @@ CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Environment.cpp.s: 
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/EventTrigger.cpp.o: CMakeFiles/SecretBundestagServer.dir/flags.make
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/EventTrigger.cpp.o: src/gamelogic/gamemodel/EventTrigger.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/EventTrigger.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/EventTrigger.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/EventTrigger.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/EventTrigger.cpp
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/EventTrigger.cpp.i: cmake_force
@@ -313,7 +365,7 @@ CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/EventTrigger.cpp.s:
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/GameStateRepresentation.cpp.o: CMakeFiles/SecretBundestagServer.dir/flags.make
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/GameStateRepresentation.cpp.o: src/gamelogic/gamemodel/GameStateRepresentation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/GameStateRepresentation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/GameStateRepresentation.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/GameStateRepresentation.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/GameStateRepresentation.cpp
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/GameStateRepresentation.cpp.i: cmake_force
@@ -326,7 +378,7 @@ CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/GameStateRepresenta
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Player.cpp.o: CMakeFiles/SecretBundestagServer.dir/flags.make
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Player.cpp.o: src/gamelogic/gamemodel/Player.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Player.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Player.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Player.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/Player.cpp
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Player.cpp.i: cmake_force
@@ -339,7 +391,7 @@ CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Player.cpp.s: cmake
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/RuleSet.cpp.o: CMakeFiles/SecretBundestagServer.dir/flags.make
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/RuleSet.cpp.o: src/gamelogic/gamemodel/RuleSet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/RuleSet.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/RuleSet.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/RuleSet.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/RuleSet.cpp
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/RuleSet.cpp.i: cmake_force
@@ -352,7 +404,7 @@ CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/RuleSet.cpp.s: cmak
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp.o: CMakeFiles/SecretBundestagServer.dir/flags.make
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp.o: src/gamelogic/gamemodel/SingleCardEventTrigger.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp
 
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp.i: cmake_force
@@ -362,6 +414,19 @@ CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/SingleCardEventTrig
 CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp.s
+
+CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.o: CMakeFiles/SecretBundestagServer.dir/flags.make
+CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.o: src/util/RandomGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/util/RandomGenerator.cpp
+
+CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/util/RandomGenerator.cpp > CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.i
+
+CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/util/RandomGenerator.cpp -o CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.s
 
 # Object files for target SecretBundestagServer
 SecretBundestagServer_OBJECTS = \
@@ -378,6 +443,10 @@ SecretBundestagServer_OBJECTS = \
 "CMakeFiles/SecretBundestagServer.dir/src/messages/StartRequest.cpp.o" \
 "CMakeFiles/SecretBundestagServer.dir/src/messages/Player.cpp.o" \
 "CMakeFiles/SecretBundestagServer.dir/src/messages/GameStart.cpp.o" \
+"CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.o" \
+"CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.o" \
+"CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.o" \
+"CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.o" \
 "CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.o" \
 "CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Board.cpp.o" \
 "CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/CardRange.cpp.o" \
@@ -386,7 +455,8 @@ SecretBundestagServer_OBJECTS = \
 "CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/GameStateRepresentation.cpp.o" \
 "CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Player.cpp.o" \
 "CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/RuleSet.cpp.o" \
-"CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp.o"
+"CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp.o" \
+"CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.o"
 
 # External object files for target SecretBundestagServer
 SecretBundestagServer_EXTERNAL_OBJECTS =
@@ -404,6 +474,10 @@ SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/messages/Accept.
 SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/messages/StartRequest.cpp.o
 SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/messages/Player.cpp.o
 SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/messages/GameStart.cpp.o
+SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.o
+SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.o
+SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.o
+SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.o
 SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.o
 SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Board.cpp.o
 SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/CardRange.cpp.o
@@ -413,10 +487,11 @@ SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemo
 SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/Player.cpp.o
 SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/RuleSet.cpp.o
 SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp.o
+SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.o
 SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/build.make
 SecretBundestagServer: lib/WebsocketCpp/libWebsocketCpp.a
 SecretBundestagServer: CMakeFiles/SecretBundestagServer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Linking CXX executable SecretBundestagServer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tarik/Mobar-Coder/Secret-Bundestag-Server/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Linking CXX executable SecretBundestagServer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SecretBundestagServer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

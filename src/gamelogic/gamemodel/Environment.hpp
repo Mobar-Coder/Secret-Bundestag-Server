@@ -26,7 +26,7 @@ namespace GameModel {
 
         private:
             Board board{};
-            const std::vector<Player> &players;
+            const std::vector<std::shared_ptr<Player>> players;
 
         public:
 
@@ -34,19 +34,19 @@ namespace GameModel {
              * Main constructor for the Environment class.
              * @param players
              */
-            explicit Environment(const int *players);
+            explicit Environment(std::vector<std::shared_ptr<Player>> players);
 
             /**
              * Get all players.
              * @return All Players as std::shared_ptr<std::vector<Player>>.
              */
-            [[nodiscard]] auto getPlayers() const -> const std::vector<Player> &;
+            [[nodiscard]] auto getPlayers() const -> std::vector<std::shared_ptr<const Player>>;
 
             /**
              * @developer Bjoern
              * Draw N cards from the normal card pile.
              * @param number
-             * @return
+             * @return A Cardrange with the given cards
              */
             auto drawNCards(std::size_t number) -> CardRange;
 
@@ -56,80 +56,86 @@ namespace GameModel {
             void shuffleCardPile();
 
             /**
-             *
-             *
-             * @return
+             * increment the election tracker by one
+             * @return the current value of the election tracker
              */
             auto incrementElectionTracker() -> std::size_t;
 
             /**
-             *
+             * resets the election tracker to zero
              */
-            auto resetElectionTracker() -> void;
+            void resetElectionTracker();
 
             /**
-             *
-             * @param player
-             * @return
-             */
-            auto autoSelectPresident() -> void;
+              * Kill a Player.
+              * @param player to kill
+              */
+            auto killPlayer(const std::shared_ptr<Player> &player) -> bool;
 
             /**
-             *
-             */
-            bool safePastOffices();
-
-            /**
-             *
-             */
-            auto resetPastOffices() -> void;
-
-            /**
-             * Kill a Player.
-             * @param player
-             * @return
-             */
-            bool killPlayer(std::shared_ptr<Player> player);
-
-            /**
-             *
-             * ToDo: Was soll hier nochmal zurück gegeben werden?
+             * //TODO
              * @param player
              * @return
              */
             auto getGameState(std::shared_ptr<Player> player) -> GameStateRepresentation;
 
+            /**
+             * selects automatically the next president in the vector of players, fails if all players are dead
+             */
+            void autoSelectPresident();
 
             /**
-             *
-             * @return
+             * reset the whole past offices
              */
-            bool setCandidateForChancelor(std::shared_ptr<Player> player);
+            void resetPastOffices();
+
 
             /**
-             *
-             * @return
+             * set the given player as candidate for chancellor
              */
-            bool electChancelor();
+            void setCandidateForChancellor(const std::shared_ptr<Player> &player);
 
             /**
-             *
-             * @return
+             * elect the chancellor candidate, but there must be a candidate
+             * @return true if success
              */
-            auto getPresident() -> std::shared_ptr<Player>;
+            auto electChancellor() -> bool;
 
             /**
-             *
-             * @return
+             * returns the actual president
+             * @return shared_ptr to the player which is president
              */
-            auto getChancelor() -> std::shared_ptr<Player>;
+            auto getPresident() -> std::shared_ptr<const Player>;
 
             /**
-             *
-             * @param fraction
-             * @return
+             * safe the current offices to the past offices
              */
-            auto getParty(Fraction fraction) -> std::vector<std::shared_ptr<Player>>;
+            void safeToPastOffices();
+
+            /**
+             * return the actual chancellor
+             * @return is an optional, if no chancellor is not elected
+             */
+            auto getChancellor() const -> std::optional<std::shared_ptr<const Player>>;
+
+            /**
+             * delivers all player of a party
+             * @param fraction we want to have the players
+             * @return a vector of the searched players
+             */
+            auto getParty(Fraction fraction) const -> std::vector<std::shared_ptr<const Player>>;
+
+            /**
+             * The number of cards in the non-discarded card pile
+             * @return number
+             */
+            auto getNumberCardsCardPile() const -> std::size_t;
+
+            /**
+             * The number of cards in the discarded card pile
+             * @return number
+             */
+            auto getNumberCardsDiscardPile() const -> std::size_t;
 
             /**
              * Get the number of played policies of a certain type.
@@ -138,10 +144,16 @@ namespace GameModel {
              */
             auto getNumberOfPlayedPolicies(CardType cardType) const -> std::size_t;
 
+        protected:
+            /**
+             * Return a reference to the actual Board, is only needed for testing
+             * @return reference to board
+             */
+            auto getBoard() const -> const Board &;
+
         private:
             /**
-             *
-             *
+             * restock the card pile from the discarded card pile
              */
             void restockCardPile();
 

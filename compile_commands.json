@@ -66,6 +66,26 @@
 },
 {
   "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/messages/GameEnd.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameEnd.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameEnd.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/messages/GameState.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameState.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GameState.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/messages/GenericReply.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GenericReply.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/GenericReply.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/messages/RequestDecision.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/RequestDecision.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/messages/RequestDecision.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
   "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamecontroller/Controller.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamecontroller/Controller.cpp",
   "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamecontroller/Controller.cpp"
 },
@@ -108,6 +128,11 @@
   "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
   "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp",
   "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/gamelogic/gamemodel/SingleCardEventTrigger.cpp"
+},
+{
+  "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server",
+  "command": "/usr/bin/c++   -I/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp/src -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib -isystem /home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/json/single_include  -Wall -Wextra -Wpedantic -Werror -mtune=native -fsanitize=address -fno-omit-frame-pointer -g   -std=gnu++1z -o CMakeFiles/SecretBundestagServer.dir/src/util/RandomGenerator.cpp.o -c /home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/util/RandomGenerator.cpp",
+  "file": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/src/util/RandomGenerator.cpp"
 },
 {
   "directory": "/home/tarik/Mobar-Coder/Secret-Bundestag-Server/lib/WebsocketCpp",

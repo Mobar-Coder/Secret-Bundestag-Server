@@ -10,13 +10,15 @@
 #include <optional>
 
 namespace messages {
-    struct GameStart: public Message {
-        GameStart();
-        std::string fraction;
-        std::string role;
+    struct GameState: public Message {
+        GameState();
+        int liberalPolicies;
+        int fascistPolicies;
+        std::optional<std::string> chancellor;
+        int electionTracker;
         std::vector<Player> players;
-        std::optional<std::string> hitler;
-        std::vector<std::string> teamMates;
+        int cardPile;
+        int discardPile;
     };
 }
 

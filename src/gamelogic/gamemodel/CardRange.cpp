@@ -20,7 +20,7 @@ namespace GameModel {
 
         initialState = std::vector<CardType>(gameBoard.getCardPile().crbegin(),
                                              gameBoard.getCardPile().crbegin() + number);
-        cards = std::vector<CardType>(board.getCardPile().crbegin(), board.getCardPile().crbegin() + number);
+        cards = initialState;
         board.getCardPile().erase(board.getCardPile().cend() - number, board.getCardPile().cend());
     }
 
@@ -40,7 +40,6 @@ namespace GameModel {
         auto result = std::find(cards.cbegin(), cards.cend(), card);
         if (result != cards.end()) {
             policy.emplace(card);
-            discarded.emplace_back(card);
             cards.erase(result);
             return true;
         }
@@ -53,8 +52,8 @@ namespace GameModel {
             return false;
         }
 
-        for (auto rest : cards) { //NOLINT
-            if (!discard(rest)) {
+        while (!cards.empty()) {
+            if (!discard(cards.back())) {
                 throw std::runtime_error("Something went really wrong");
             }
         }

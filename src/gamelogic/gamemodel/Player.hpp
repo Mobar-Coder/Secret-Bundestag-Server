@@ -16,31 +16,28 @@
 namespace GameModel {
     class Player {
 
-        public:
-
-            Player(std::string name, Fraction fraction, Role role, std::size_t sessId);
-
-            [[nodiscard]] const std::string &getName() const;
-
-            void setName(const std::string &playerName);
-
-            [[nodiscard]] Fraction getFraction() const;
-
-            void setFraction(Fraction playerFraction);
-
-            [[nodiscard]] Role getRole() const;
-
-            void setRole(Role playerRole);
-
-            [[nodiscard]] std::size_t getSessionId() const;
-
-            void setSessionId(std::size_t sessionId);
-
         private:
             std::string name;
             Fraction fraction;
             Role role;
             std::size_t sessionID;
+            bool alive = true;
+
+        public:
+
+            Player(std::string name, Fraction fraction, Role role, std::size_t sessId);
+
+            [[nodiscard]] auto getName() const -> const std::string &;
+
+            [[nodiscard]] auto getFraction() const -> Fraction;
+
+            [[nodiscard]] auto getRole() const -> Role;
+
+            [[nodiscard]] auto getSessionId() const -> std::size_t;
+
+            [[nodiscard]] auto isAlive() const -> bool;
+
+            void setAlive(bool isAlive);
     };
 
 }
